@@ -1,0 +1,12 @@
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\bin\Debug\net6.0\CestaFeira.Domain.deps.json
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\bin\Debug\net6.0\CestaFeira.Domain.dll
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\bin\Debug\net6.0\CestaFeira.Domain.pdb
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.csproj.AssemblyReference.cache
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.AssemblyInfoInputs.cache
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.AssemblyInfo.cs
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.dll
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\refint\CestaFeira.Domain.dll
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\CestaFeira.Domain.pdb
+C:\Users\Fernanda\Documents\Projetos\Rafael\Solution.CestaFeira\CestaFeira.Domain\obj\Debug\net6.0\ref\CestaFeira.Domain.dll
