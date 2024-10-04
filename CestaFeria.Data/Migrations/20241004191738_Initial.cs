@@ -34,17 +34,18 @@ namespace CestaFeira.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vendas",
+                name: "Venda",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdVenda = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdProduto = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vendas", x => x.Id);
+                    table.PrimaryKey("PK_Venda", x => x.IdVenda);
                     table.ForeignKey(
-                        name: "FK_Vendas_Usuario_UsuarioId",
+                        name: "FK_Venda_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
                         principalColumn: "IdUsuario",
@@ -72,16 +73,16 @@ namespace CestaFeira.Data.Migrations
                         principalColumn: "IdUsuario",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Produto_Vendas_VendaEntityId",
+                        name: "FK_Produto_Venda_VendaEntityId",
                         column: x => x.VendaEntityId,
-                        principalTable: "Vendas",
-                        principalColumn: "Id");
+                        principalTable: "Venda",
+                        principalColumn: "IdVenda");
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "IdUsuario", "Ativo", "Bairro", "Cel", "Cidade", "Data", "Email", "Nome", "Numero", "Perfil", "Rua", "Senha", "Uf", "cpf" },
-                values: new object[] { new Guid("4ab52682-7f30-4f2a-abfc-313261d73761"), true, "Jardim São Carlos", "(35)11111111", "Alfenas", new DateTime(2024, 9, 19, 11, 33, 50, 783, DateTimeKind.Local).AddTicks(9402), "rafael@gmail.com", "Administrador", 555, "ADM", "Juscelino Kubitschek", "AAAAAAAAAAAAAAAAAAAAAA==.XX7jD2oxYNzQ1dN5QTb3mg==.8brshsL5uJMEmxK/bjA2p3rva5lNSmNTEwq5KVDM4S0=", "MG", "13080460812" });
+                values: new object[] { new Guid("4ab52682-7f30-4f2a-abfc-313261d73761"), true, "Jardim São Carlos", "(35)11111111", "Alfenas", new DateTime(2024, 10, 4, 16, 17, 37, 605, DateTimeKind.Local).AddTicks(6541), "rafael@gmail.com", "Administrador", 555, "ADM", "Juscelino Kubitschek", "AAAAAAAAAAAAAAAAAAAAAA==.T1a3AOlRpoS7mJDN2+htIQ==.Na7qDuFsYKjustyJz8f79fZmFyI6Ah/FKRYiRkZaR6w=", "MG", "13080460812" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Produto_VendaEntityId",
@@ -100,8 +101,8 @@ namespace CestaFeira.Data.Migrations
                 columns: new[] { "Email", "Senha" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vendas_UsuarioId",
-                table: "Vendas",
+                name: "IX_Venda_UsuarioId",
+                table: "Venda",
                 column: "UsuarioId");
         }
 
@@ -111,7 +112,7 @@ namespace CestaFeira.Data.Migrations
                 name: "Produto");
 
             migrationBuilder.DropTable(
-                name: "Vendas");
+                name: "Venda");
 
             migrationBuilder.DropTable(
                 name: "Usuario");

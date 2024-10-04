@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "CestaFeira.Web/1.0.0": {
         "dependencies": {
+          "CestaFeira.CrossCutting": "1.0.0",
           "CestaFeira.Data": "1.0.0",
           "CestaFeira.Domain": "1.0.0"
         },
@@ -617,6 +618,15 @@
           }
         }
       },
+      "CestaFeira.CrossCutting/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "CestaFeira.Domain": "1.0.0"
+        },
+        "runtime": {
+          "CestaFeira.CrossCutting.dll": {}
+        }
+      },
       "CestaFeira.Data/1.0.0": {
         "dependencies": {
           "CestaFeira.Domain": "1.0.0",
@@ -1065,6 +1075,11 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "CestaFeira.CrossCutting/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "CestaFeira.Data/1.0.0": {
       "type": "project",

@@ -1036,6 +1036,20 @@
           }
         }
       },
+      "CestaFeira.CrossCutting/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "CestaFeira.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CestaFeira.CrossCutting.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CestaFeira.CrossCutting.dll": {}
+        }
+      },
       "CestaFeira.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2752,6 +2766,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "CestaFeira.CrossCutting/1.0.0": {
+      "type": "project",
+      "path": "../CestaFeira.CrossCutting/CestaFeira.CrossCutting.csproj",
+      "msbuildProject": "../CestaFeira.CrossCutting/CestaFeira.CrossCutting.csproj"
+    },
     "CestaFeira.Data/1.0.0": {
       "type": "project",
       "path": "../CestaFeria.Data/CestaFeira.Data.csproj",
@@ -2765,6 +2784,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CestaFeira.CrossCutting >= 1.0.0",
       "CestaFeira.Data >= 1.0.0",
       "CestaFeira.Domain >= 1.0.0"
     ]
@@ -2775,11 +2795,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
       "projectName": "CestaFeira.Web",
-      "projectPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
+      "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
       "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\obj\\",
+      "outputPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2796,11 +2816,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
-              "projectPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
+            "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj": {
+              "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj"
             },
-            "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj": {
-              "projectPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj"
+            "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+              "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
+            },
+            "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj": {
+              "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj"
             }
           }
         }

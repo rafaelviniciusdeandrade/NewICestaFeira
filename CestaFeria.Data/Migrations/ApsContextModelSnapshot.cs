@@ -59,37 +59,45 @@ namespace CestaFeira.Data.Migrations
                         .HasColumnName("IdUsuario");
 
                     b.Property<bool>("Ativo")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("Ativo");
 
                     b.Property<string>("Bairro")
                         .IsRequired()
                         .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("Bairro");
 
                     b.Property<string>("Cel")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Cel");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
                         .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasColumnName("Cidade");
 
                     b.Property<DateTime>("Data")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Data");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("Email");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("nvarchar(60)")
+                        .HasColumnName("Nome");
 
                     b.Property<int>("Numero")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Numero");
 
                     b.Property<string>("Perfil")
                         .IsRequired()
@@ -99,20 +107,24 @@ namespace CestaFeira.Data.Migrations
                     b.Property<string>("Rua")
                         .IsRequired()
                         .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(150)")
+                        .HasColumnName("Rua");
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("Senha");
 
                     b.Property<string>("Uf")
                         .IsRequired()
                         .HasMaxLength(2)
-                        .HasColumnType("nvarchar(2)");
+                        .HasColumnType("nvarchar(2)")
+                        .HasColumnName("Uf");
 
                     b.Property<string>("cpf")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("cpf");
 
                     b.HasKey("Id");
 
@@ -131,13 +143,13 @@ namespace CestaFeira.Data.Migrations
                             Bairro = "Jardim São Carlos",
                             Cel = "(35)11111111",
                             Cidade = "Alfenas",
-                            Data = new DateTime(2024, 9, 19, 14, 5, 19, 655, DateTimeKind.Local).AddTicks(6363),
+                            Data = new DateTime(2024, 10, 4, 16, 17, 37, 605, DateTimeKind.Local).AddTicks(6541),
                             Email = "rafael@gmail.com",
                             Nome = "Administrador",
                             Numero = 555,
                             Perfil = "ADM",
                             Rua = "Juscelino Kubitschek",
-                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.JrQ1GZ8Y6ybghXMFCxJH6g==.iGDYeURie0KQu2mY4gzv1+JsNuM87gMFl3oKhQl17WE=",
+                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.T1a3AOlRpoS7mJDN2+htIQ==.Na7qDuFsYKjustyJz8f79fZmFyI6Ah/FKRYiRkZaR6w=",
                             Uf = "MG",
                             cpf = "13080460812"
                         });

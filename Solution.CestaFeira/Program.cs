@@ -3,6 +3,9 @@ using CestaFeira.Domain.Dtos.AppSettings;
 using MediatR;
 using CestaFeira.Domain;
 using CestaFeira.Data;
+using CestaFeira.Web.Services.Interfaces;
+using CestaFeira.Web.Services.Usuario;
+using CestaFeira.CrossCutting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +40,8 @@ builder.Services.AddAutoMapperConfiguration();
 
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
+builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
+
 //builder.Services.AddMediatR(typeof(ListaCompleteQueryHandler).Assembly);
 
 // Registrando outros serviços necessários, se houver
@@ -50,6 +55,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
 });
 
+var mapperConfig = MapperProfile.Configure();
 
 builder.Services.AddMediatRConfiguration();
 var app = builder.Build();
@@ -73,6 +79,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Usuario}/{action=Login}/{id?}");
 
 app.Run();

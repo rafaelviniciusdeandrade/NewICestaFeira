@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {}
+    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
         "projectName": "CestaFeira.Domain",
-        "projectPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
+        "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
         "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",

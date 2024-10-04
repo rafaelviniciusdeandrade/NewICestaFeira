@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IG50QsGYiaPXlvRD6JZKhGh5YwrCrebYSWFlEQwOK/qHe9kQlcv8HTBQVqN6H4DYnI3fLg/g7TKogIhyJPReDQ==",
+  "dgSpecHash": "QKBLfT6zTIWMXi6C2rfGNLEv9Ok+vwNzeSI6AsuDUaMjOYNvU1xKDedr6t9gsWBgzjZTUAKKtJ32uuXRoqyKkw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
+  "projectFilePath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fernanda\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

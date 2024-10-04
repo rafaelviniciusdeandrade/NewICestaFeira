@@ -2859,11 +2859,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
+      "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
       "projectName": "CestaFeira.Data",
-      "projectPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
+      "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
       "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\obj\\",
+      "outputPath": "C:\\Users\\Fernanda\\Source\\Repos\\NewICestaFeira\\CestaFeria.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2880,8 +2880,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
-              "projectPath": "C:\\Users\\Fernanda\\Documents\\Projetos\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
+            "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+              "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
             }
           }
         }
