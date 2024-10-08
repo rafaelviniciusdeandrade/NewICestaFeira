@@ -13,9 +13,14 @@ namespace CestaFeira.Web.Controllers
             _produto = produto;
         }
 
-        public IActionResult Produtos()
+        public async Task<IActionResult> ProdutosAsync()
         {
-            return View();
+            string usuarioId = HttpContext.Session.GetString("UsuarioId");
+            Guid id= Guid.Parse(usuarioId);
+            var result = await _produto.ConsultarProdutos(id); 
+            return View(result);
+       
+
         }
         public IActionResult CadastrarProdutos()
         {

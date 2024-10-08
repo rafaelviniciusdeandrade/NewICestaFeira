@@ -1,10 +1,11 @@
 ﻿using CestaFeira.Domain.Command.Produto;
 using CestaFeira.Domain.Command.Usuario;
 using CestaFeira.Domain.Dtos.Usuario;
+using CestaFeira.Domain.Query.Produto;
 using CestaFeira.Web.Models.Produto;
+using CestaFeira.Web.Models.Usuario;
 using CestaFeira.Web.Services.Interfaces;
 using MediatR;
-using Nest;
 
 namespace CestaFeira.Web.Services.Produto
 {
@@ -26,7 +27,7 @@ namespace CestaFeira.Web.Services.Produto
                 quantidade = produto.quantidade,
                 valorUnitario = produto.valorUnitario,
                 imagem = produto.imagem,
-                UsuarioId=produto.UsuarioId
+                UsuarioId = produto.UsuarioId
             };
 
             var result = await _mediator.Send(produtoCommand);
@@ -40,6 +41,30 @@ namespace CestaFeira.Web.Services.Produto
             {
                 return false;
             }
+        }
+
+        public async Task<List<ProdutoModel>> ConsultarProdutos(Guid UsuarioId)
+        {
+            var produtoCommad = new ProdutoQuery
+            {
+                UsuarioId = UsuarioId
+            };
+
+            var result = await _mediator.Send(produtoCommad);
+
+            if (result.Count > 0)
+            {
+                return result.Select(produtoDto => new ProdutoModel
+                {
+                    Nome = produtoDto.Nome,
+                    Descricao = produtoDto.Descricao,
+                    quantidade = produtoDto.quantidade,
+                    valorUnitario=produtoDto.valorUnitario,
+                    imagem = produtoDto.imagem
+                }).ToList();
+            }
+
+            return null;
         }
     }
 }
