@@ -35,7 +35,8 @@ namespace CestaFeira.Web.Services.Usuario
                 return new UsuarioModel
                 {
                     Email = usuarioDto.Email,
-                    Perfil=usuarioDto.Perfil
+                    Perfil = usuarioDto.Perfil,
+                    Id = usuarioDto.Id,
                 };
             }
 

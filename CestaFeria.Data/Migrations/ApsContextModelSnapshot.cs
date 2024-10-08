@@ -25,6 +25,7 @@ namespace CestaFeira.Data.Migrations
             modelBuilder.Entity("CestaFeira.Domain.Entityes.ProdutoEntity", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Descricao")
@@ -35,8 +36,15 @@ namespace CestaFeira.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("VendaEntityId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("imagem")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("quantidade")
                         .HasColumnType("int");
@@ -45,6 +53,8 @@ namespace CestaFeira.Data.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.HasIndex("VendaEntityId");
 
@@ -143,13 +153,13 @@ namespace CestaFeira.Data.Migrations
                             Bairro = "Jardim São Carlos",
                             Cel = "(35)11111111",
                             Cidade = "Alfenas",
-                            Data = new DateTime(2024, 10, 4, 16, 17, 37, 605, DateTimeKind.Local).AddTicks(6541),
+                            Data = new DateTime(2024, 10, 7, 15, 46, 9, 954, DateTimeKind.Local).AddTicks(1325),
                             Email = "rafael@gmail.com",
                             Nome = "Administrador",
                             Numero = 555,
                             Perfil = "ADM",
                             Rua = "Juscelino Kubitschek",
-                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.T1a3AOlRpoS7mJDN2+htIQ==.Na7qDuFsYKjustyJz8f79fZmFyI6Ah/FKRYiRkZaR6w=",
+                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.N0Kq16apxPJANEhJnk99+Q==.AR6TGFnbGUzhlEBjImiaZlyNkMeFj9PgAHKTHhctueA=",
                             Uf = "MG",
                             cpf = "13080460812"
                         });
@@ -181,7 +191,7 @@ namespace CestaFeira.Data.Migrations
                 {
                     b.HasOne("CestaFeira.Domain.Entityes.UsuarioEntity", "Usuario")
                         .WithMany("Produtos")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

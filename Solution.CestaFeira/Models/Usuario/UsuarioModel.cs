@@ -4,7 +4,7 @@ namespace CestaFeira.Web.Models.Usuario
 {
     public class UsuarioModel
     {
-        public int Id  { get; set; }
+        public Guid? Id  { get; set; }
         public string cpf { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }

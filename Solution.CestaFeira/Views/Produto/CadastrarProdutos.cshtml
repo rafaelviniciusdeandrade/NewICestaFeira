@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Cadastro de Produtos</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">CestaFeira</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">Sobre</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produtos</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#!">Todos os Produtos</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="#!">Cadastrar Produtos</a></li>
+                            <li><a class="dropdown-item" href="#!">Gerenciar Produtos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <button class="btn btn-outline-dark" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrinho
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Cadastro de Produtos</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Cadastre novos produtos para seu estoque</p>
+            </div>
+        </div>
+    </header>
+    <!-- Section: Formulário de Cadastro de Produto -->
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <form asp-action="CadastrarProdutos" asp-controller="Produto" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="Nome" class="form-label">Nome do Produto</label>
+                    <input type="text" class="form-control" id="Nome" name="Nome" placeholder="Nome do Produto">
+                </div>
+                <div class="mb-3">
+                    <label for="Descricao" class="form-label">Descrição do Produto</label>
+                    <textarea class="form-control" id="Descricao" name="Descricao" rows="3" placeholder="Descrição do Produto"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="quantidade" class="form-label">Quantidade</label>
+                    <input type="number" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade">
+                </div>
+                <div class="mb-3">
+                    <label for="valor" class="form-label">Valor Unitário</label>
+                    <input type="number" class="form-control" id="valorUnitario" name="valorUnitario" placeholder="Valor Unitário" step="0.01">
+                </div>
+                <div class="mb-3">
+                    <label for="imagemProduto" class="form-label">Imagem do Produto</label>
+                    <input class="form-control" type="file" id="imagemProduto" name="imagemProduto">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar Produto</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/js/scripts.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 ﻿
 using AutoMapper;
+using CestaFeira.CrossCutting.Mappings.Produto;
 using CestaFeira.CrossCutting.Mappings.Usuario;
 
 namespace CestaFeira.CrossCutting
@@ -11,6 +12,7 @@ namespace CestaFeira.CrossCutting
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new UsuarioProfile());
+                cfg.AddProfile(new ProdutoProfile());
             });
 
             return config;

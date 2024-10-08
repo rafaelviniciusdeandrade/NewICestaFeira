@@ -1,0 +1,19 @@
+﻿using CestaFeira.Domain.Command.Base;
+using CestaFeira.Domain.Entityes;
+using MediatR;
+
+namespace CestaFeira.Web.Models.Produto
+{
+    public class ProdutoModel : IRequest<CommandBaseResult>
+    {
+        public int Id { get; set; }                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+        public string Nome { get; set; }
+        public string Descricao { get; set; }
+        public int quantidade { get; set; }
+        public double valorUnitario { get; set; }
+        public byte[] imagem { get; set; }
+        public Guid UsuarioId { get; set; }
+        public UsuarioEntity Usuario { get; set; }
+
+    }
+}

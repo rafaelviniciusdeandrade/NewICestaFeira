@@ -4,7 +4,7 @@ namespace CestaFeira.Domain.Dtos.Usuario
 {
     public class UsuarioDto
     {
-        public Guid? IdUsuario { get; set; }
+        public Guid? Id { get; set; }
         public string cpf { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }

@@ -1,11 +1,7 @@
 ﻿using CestaFeira.Domain.Entityes;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CestaFeira.Data.Mapping
 {
@@ -24,7 +20,7 @@ namespace CestaFeira.Data.Mapping
 
             builder.HasOne(p => p.Usuario)
               .WithMany(p => p.Produtos)
-              .HasForeignKey(p => p.Id)
+              .HasForeignKey(p => p.UsuarioId)
               .OnDelete(DeleteBehavior.Restrict);
         }
     }

@@ -28,6 +28,7 @@ namespace CestaFeira.Web.Controllers
             {
                 var ret=await _usuario.ValidarUsuario(model);
                 if (ret != null) {
+                    HttpContext.Session.SetString("UsuarioId", ret.Id.ToString());
                     if (ret.Perfil == "ADM")
                     {
                         return RedirectToAction("Produtos", "Produto");

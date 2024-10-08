@@ -43,9 +43,9 @@ namespace CestaFeria.Data.Context
                 v => v.ToUpper() //Output
             );
 
-            //modelBuilder.Entity<VendaEntity>()
-            //    .HasMany(l => l.)
-            //    .WithOne(t => t.Listas)
+            //modelBuilder.Entity<ProdutoEntity>()
+            //    .HasMany(l => l.Usuario)
+            //    .WithOne(t => t.)
             //    .HasForeignKey(t => t.ListaId)
             //    .OnDelete(DeleteBehavior.Cascade);
 

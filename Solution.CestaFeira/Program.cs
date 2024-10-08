@@ -6,6 +6,7 @@ using CestaFeira.Data;
 using CestaFeira.Web.Services.Interfaces;
 using CestaFeira.Web.Services.Usuario;
 using CestaFeira.CrossCutting;
+using CestaFeira.Web.Services.Produto;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,15 @@ builder.Services.AddAutoMapperConfiguration();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
+builder.Services.AddScoped<IProdutoService, ProdutoService>();
+
+builder.Services.AddDistributedMemoryCache(); // Necessário para armazenar os dados da sessão na memória
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Tempo que a sessão ficará ativa
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true; // Obrigatório para conformidade com GDPR
+});
 
 //builder.Services.AddMediatR(typeof(ListaCompleteQueryHandler).Assembly);
 
@@ -74,7 +84,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseCors();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
