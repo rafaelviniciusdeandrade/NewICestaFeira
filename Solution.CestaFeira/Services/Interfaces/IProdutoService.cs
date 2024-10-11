@@ -6,5 +6,6 @@ namespace CestaFeira.Web.Services.Interfaces
     {
         Task<bool> CadastrarProduto(ProdutoModel login);
         Task<List<ProdutoModel>> ConsultarProdutos(Guid UsuarioId);
+        Task<ProdutoModel> ConsultarProdutosId(Guid ProdutoId);
     }
 }

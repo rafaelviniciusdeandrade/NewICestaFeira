@@ -7,6 +7,7 @@ using CestaFeira.Web.Services.Interfaces;
 using CestaFeira.Web.Services.Usuario;
 using CestaFeira.CrossCutting;
 using CestaFeira.Web.Services.Produto;
+using CestaFeira.Web.Services.Carrinho;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +44,7 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
+builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
 
 builder.Services.AddDistributedMemoryCache(); // Necessário para armazenar os dados da sessão na memória
 builder.Services.AddSession(options =>

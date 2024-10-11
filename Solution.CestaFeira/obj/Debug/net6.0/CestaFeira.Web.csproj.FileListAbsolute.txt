@@ -182,3 +182,4 @@ C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6.0\CestaFeira.Web.pdb
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6.0\CestaFeira.Web.genruntimeconfig.cache
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6.0\ref\CestaFeira.Web.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Newtonsoft.Json.dll

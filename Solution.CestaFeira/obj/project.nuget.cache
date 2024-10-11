@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QKBLfT6zTIWMXi6C2rfGNLEv9Ok+vwNzeSI6AsuDUaMjOYNvU1xKDedr6t9gsWBgzjZTUAKKtJ32uuXRoqyKkw==",
+  "dgSpecHash": "Sbd8+qHLi0KUmcbCnD5tUQKe0OmKkDkEw50qXX2mklsKEQaOHkrqa2Fhw1h/wQDgKx8xpUqaghVL+rUH6E8RaA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\Fernanda\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\nest\\7.17.5\\nest.7.17.5.nupkg.sha512",
+    "C:\\Users\\Fernanda\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
