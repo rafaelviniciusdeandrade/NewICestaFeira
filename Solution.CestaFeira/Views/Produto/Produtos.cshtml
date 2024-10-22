@@ -30,8 +30,12 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown">Produtos</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#!">Todos os Produtos</a></li>
-                            <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
-                            <li><a class="dropdown-item" href="#!">Gerenciar Produtos</a></li>
+
+                            @if (User.IsInRole("ADM") || User.IsInRole("PROD"))
+                            {
+                                <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
+                                <li><a class="dropdown-item" href="#!">Gerenciar Produtos</a></li>
+                            }
                         </ul>
                     </li>
                 </ul>

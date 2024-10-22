@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using CestaFeira.Web.Models.Usuario;
 using CestaFeira.Web.Services.Interfaces;
+using Nest;
 
 namespace CestaFeira.Web.Controllers
 {
@@ -29,6 +30,17 @@ namespace CestaFeira.Web.Controllers
                 var ret=await _usuario.ValidarUsuario(model);
                 if (ret != null) {
                     HttpContext.Session.SetString("UsuarioId", ret.Id.ToString());
+                    ClaimsIdentity? identity = null;
+                    identity = new ClaimsIdentity(new[]
+                   {
+                        new Claim(ClaimTypes.Email, ret.Email.ToString()),
+                        new Claim(ClaimTypes.Role, ret.Perfil)
+                    }, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    var principal = new ClaimsPrincipal(identity);
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
                     if (ret.Perfil == "ADM")
                     {
                         return RedirectToAction("Produtos", "Produto");
