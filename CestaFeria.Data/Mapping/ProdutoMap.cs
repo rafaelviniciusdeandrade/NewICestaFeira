@@ -18,10 +18,16 @@ namespace CestaFeira.Data.Mapping
             builder.Property(p => p.quantidade).IsRequired();
             builder.Property(p => p.valorUnitario).IsRequired();
 
+            // Relacionamento com Usuario (um produto pertence a um único usuário)
             builder.HasOne(p => p.Usuario)
-              .WithMany(p => p.Produtos)
-              .HasForeignKey(p => p.UsuarioId)
-              .OnDelete(DeleteBehavior.Restrict);
+                   .WithMany(u => u.Produtos)
+                   .HasForeignKey(p => p.UsuarioId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(p => p.ProdutoPedidos)  // Use ProdutoPedidos em vez de Pedidos
+       .WithOne(pp => pp.Produto)
+       .HasForeignKey(pp => pp.ProdutoId);
+
         }
     }
 }

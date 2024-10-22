@@ -1,9 +1,8 @@
 ﻿using CestaFeira.Web.Helpers.Session;
 using CestaFeira.Web.Models.Carrinho;
+using CestaFeira.Web.Models.Pedido;
 using CestaFeira.Web.Models.Produto;
 using CestaFeira.Web.Services.Interfaces;
-using CestaFeira.Web.Services.Produto;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nest;
 using System.Text.Json;
@@ -20,44 +19,11 @@ namespace CestaFeira.Web.Controllers
             _carrinhoService = carrinhoService;
             _produto = produto;
         }
-
-        //[HttpPost]
-        //public IActionResult AdicionarAoCarrinho(int produtoId)
-        //{
-        //    _carrinhoService.AdicionarProduto(produtoId);
-        //    int novaQuantidade = ObterQuantidadeAtualDoCarrinho(); // Sua lógica para obter a quantidade total
-
-        //    return Json(new { quantidade = novaQuantidade }); // Retorna a nova quantidade
-        //    //return RedirectToAction("Produtos", "Produto"); // redirecionar de volta para a página principal
-        //}
         public IActionResult ObterQuantidadeCarrinho()
         {
             var quantidade = _carrinhoService.ObterQuantidadeTotal();
             return Json(new { quantidade });
         }
-
-        //[HttpPost]
-        //public async Task<IActionResult> AdicionarProdutoAoCarrinho(Guid produtoId)
-        //{
-        //    var carrinhoJson = HttpContext.Session.GetString("Carrinho");
-        //    var carrinho = string.IsNullOrEmpty(carrinhoJson)
-        //        ? new List<ProdutoModel>()
-        //        : JsonSerializer.Deserialize<List<ProdutoModel>>(carrinhoJson);
-
-        //    // Consultar produto pelo ID
-        //    var produto = await _produto.ConsultarProdutosId(produtoId);
-
-        //    if (produto != null)
-        //    {
-        //        carrinho.Add(produto);
-        //        // Armazena a lista de produtos novamente na sessão como JSON
-        //        HttpContext.Session.SetString("Carrinho", JsonSerializer.Serialize(carrinho));
-        //    }
-
-        //    // Retorna a quantidade de itens no carrinho
-        //    return Json(new { success = true, quantidadeItens = carrinho.Count });
-        //}
-
 
         [HttpGet]
         public IActionResult ObterQuantidadeItensCarrinho()
@@ -71,7 +37,7 @@ namespace CestaFeira.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdicionarProdutoAoCarrinho(Guid produtoId)
+        public async Task<IActionResult> AdicionarProdutoAoCarrinho(Guid produtoId, int quantidade)
         {
             // Recupera o carrinho da sessão ou cria um novo se não existir
             var carrinho = HttpContext.Session.GetObjectFromJson<List<ItemCarrinhoModel>>("Carrinho") ?? new List<ItemCarrinhoModel>();
@@ -97,7 +63,7 @@ namespace CestaFeira.Web.Controllers
                 {
                     ProdutoId = produto.Id,
                     Nome = produto.Nome,
-                    Quantidade = 1,
+                    Quantidade = quantidade,
                     ValorUnitario = produto.valorUnitario
                 });
             }
@@ -115,41 +81,49 @@ namespace CestaFeira.Web.Controllers
 
             if (!carrinho.Any())
             {
-                return Ok(new { success = false, message = "O carrinho está vazio." });
+                return Json(new { success = true, itens = new List<object>(), total = 0 });
+            }
+            var valorTotal = carrinho.Sum(item => item.Quantidade * item.ValorUnitario);
+
+            return Json(new
+            {
+                success = true,
+                itens = carrinho.Select(item => new
+                {
+                    item.Nome,
+                    item.Quantidade,
+                    item.ValorUnitario,
+                    item.ProdutoId
+                }).ToList(),
+                total = valorTotal
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FinalizarCompra([FromBody] PedidoModel pedidoViewModel)
+        {
+            if (pedidoViewModel == null || !pedidoViewModel.Produtos.Any())
+            {
+                return BadRequest("Carrinho vazio");
+            }
+            string usuarioId = HttpContext.Session.GetString("UsuarioId");
+            pedidoViewModel.UsuarioId = Guid.Parse(usuarioId);
+            pedidoViewModel.Data = DateTime.Now;
+            var result = await _carrinhoService.CadastrarCarrinho(pedidoViewModel);
+            if (result)
+            {
+                TempData["Sucesso"] = "Pedido cadastrado com sucesso!";
+                return RedirectToAction("Produtos", "Produto");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Não foi salvar o pedido";
+                return RedirectToAction("Produtos", "Produto");
             }
 
-            // Log para verificar o conteúdo do carrinho
-            System.Diagnostics.Debug.WriteLine("Itens no carrinho: " + Newtonsoft.Json.JsonConvert.SerializeObject(carrinho));
-
-            return Ok(new { success = true, itens = carrinho });
+            
         }
 
-
-        private int ObterQuantidadeAtualDoCarrinho()
-        {
-            var carrinhoJson = HttpContext.Session.GetString("Carrinho");
-            var carrinho = string.IsNullOrEmpty(carrinhoJson)
-                ? new List<ProdutoModel>()
-                : JsonSerializer.Deserialize<List<ProdutoModel>>(carrinhoJson);
-
-            return carrinho.Count; // Retorna a quantidade de produtos no carrinho
-        }
-        public static Guid ConvertIntToGuid(int number)
-        {
-            // Converte o int para um array de bytes de 4 bytes
-            byte[] intBytes = BitConverter.GetBytes(number);
-
-            // Cria um novo Guid a partir dos bytes
-            // Usando Guid.NewGuid() para preencher os restantes dos bytes
-            byte[] guidBytes = new byte[16];
-            Array.Copy(intBytes, guidBytes, intBytes.Length);
-            Guid newGuid = new Guid(guidBytes);
-
-            return newGuid;
-        }
-
-
-
-
+      
     }
 }

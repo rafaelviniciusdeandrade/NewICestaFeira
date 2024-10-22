@@ -35,6 +35,8 @@ namespace CestaFeira.Domain.Entityes
         [Column("Perfil")]
         public string Perfil { get; set; }
         public IEnumerable<ProdutoEntity> Produtos { get; set; }
+        public IEnumerable<PedidoEntity> Pedidos { get; set; }
+
 
     }
 }

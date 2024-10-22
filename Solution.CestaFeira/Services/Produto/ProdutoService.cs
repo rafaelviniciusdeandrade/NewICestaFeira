@@ -85,7 +85,8 @@ namespace CestaFeira.Web.Services.Produto
                     Descricao = result.Descricao,
                     quantidade = result.quantidade,
                     valorUnitario = result.valorUnitario,
-                    imagem = result.imagem
+                    imagem = result.imagem,
+                    Id=result.Id
                 };
 
                 // Retorna uma lista contendo o único produto

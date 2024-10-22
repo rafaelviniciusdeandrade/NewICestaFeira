@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CestaFeira.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class primeiro : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,22 +34,22 @@ namespace CestaFeira.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Venda",
+                name: "Pedido",
                 columns: table => new
                 {
-                    IdVenda = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdProduto = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdPedido = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Data = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Venda", x => x.IdVenda);
+                    table.PrimaryKey("PK_Pedido", x => x.IdPedido);
                     table.ForeignKey(
-                        name: "FK_Venda_Usuario_UsuarioId",
+                        name: "FK_Pedido_Usuario_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "Usuario",
                         principalColumn: "IdUsuario",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,37 +57,68 @@ namespace CestaFeira.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UsuarioId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     quantidade = table.Column<int>(type: "int", nullable: false),
                     valorUnitario = table.Column<double>(type: "float", nullable: false),
-                    VendaEntityId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    imagem = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Produto", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Produto_Usuario_Id",
-                        column: x => x.Id,
+                        name: "FK_Produto_Usuario_UsuarioId",
+                        column: x => x.UsuarioId,
                         principalTable: "Usuario",
                         principalColumn: "IdUsuario",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PedidoProduto",
+                columns: table => new
+                {
+                    ProdutoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PedidoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Quantidade = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PedidoProduto", x => new { x.ProdutoId, x.PedidoId });
                     table.ForeignKey(
-                        name: "FK_Produto_Venda_VendaEntityId",
-                        column: x => x.VendaEntityId,
-                        principalTable: "Venda",
-                        principalColumn: "IdVenda");
+                        name: "FK_PedidoProduto_Pedido_PedidoId",
+                        column: x => x.PedidoId,
+                        principalTable: "Pedido",
+                        principalColumn: "IdPedido",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PedidoProduto_Produto_ProdutoId",
+                        column: x => x.ProdutoId,
+                        principalTable: "Produto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuario",
                 columns: new[] { "IdUsuario", "Ativo", "Bairro", "Cel", "Cidade", "Data", "Email", "Nome", "Numero", "Perfil", "Rua", "Senha", "Uf", "cpf" },
-                values: new object[] { new Guid("4ab52682-7f30-4f2a-abfc-313261d73761"), true, "Jardim São Carlos", "(35)11111111", "Alfenas", new DateTime(2024, 10, 4, 16, 17, 37, 605, DateTimeKind.Local).AddTicks(6541), "rafael@gmail.com", "Administrador", 555, "ADM", "Juscelino Kubitschek", "AAAAAAAAAAAAAAAAAAAAAA==.T1a3AOlRpoS7mJDN2+htIQ==.Na7qDuFsYKjustyJz8f79fZmFyI6Ah/FKRYiRkZaR6w=", "MG", "13080460812" });
+                values: new object[] { new Guid("4ab52682-7f30-4f2a-abfc-313261d73761"), true, "Jardim São Carlos", "(35)11111111", "Alfenas", new DateTime(2024, 10, 21, 15, 45, 12, 733, DateTimeKind.Local).AddTicks(5043), "rafael@gmail.com", "Administrador", 555, "ADM", "Juscelino Kubitschek", "AAAAAAAAAAAAAAAAAAAAAA==.rH5VXabL6YW0kkaRVNBGEw==.evUpyJ+DH7YU7gByvqB/ywImWj2wMDLhkoVnxPWTbP0=", "MG", "13080460812" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produto_VendaEntityId",
+                name: "IX_Pedido_UsuarioId",
+                table: "Pedido",
+                column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PedidoProduto_PedidoId",
+                table: "PedidoProduto",
+                column: "PedidoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Produto_UsuarioId",
                 table: "Produto",
-                column: "VendaEntityId");
+                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuario_Email",
@@ -99,20 +130,18 @@ namespace CestaFeira.Data.Migrations
                 name: "IX_Usuario_Email_Senha",
                 table: "Usuario",
                 columns: new[] { "Email", "Senha" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Venda_UsuarioId",
-                table: "Venda",
-                column: "UsuarioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Produto");
+                name: "PedidoProduto");
 
             migrationBuilder.DropTable(
-                name: "Venda");
+                name: "Pedido");
+
+            migrationBuilder.DropTable(
+                name: "Produto");
 
             migrationBuilder.DropTable(
                 name: "Usuario");

@@ -13,7 +13,7 @@ namespace CestaFeria.Data.Context
         public DbSet<UsuarioEntity> Usuarios { get; set; }
         public DbSet<ProdutoEntity> Produtos { get; set; }
 
-        public DbSet<VendaEntity> Vendas { get; set; }
+        public DbSet<PedidoEntity> Vendas { get; set; }
 
         private CryptographyHelper _cryptografyHelper = new CryptographyHelper();
 
@@ -44,10 +44,10 @@ namespace CestaFeria.Data.Context
             );
 
             //modelBuilder.Entity<ProdutoEntity>()
-            //    .HasMany(l => l.Usuario)
-            //    .WithOne(t => t.)
-            //    .HasForeignKey(t => t.ListaId)
-            //    .OnDelete(DeleteBehavior.Cascade);
+            //   .HasMany(l => l.Pedidos)
+            //   .WithOne(t => t.Produtos)
+            //   .HasForeignKey(t => t.Id)
+            //   .OnDelete(DeleteBehavior.Cascade);
 
             //Inserindo usuário padrão.
             modelBuilder.Entity<UsuarioEntity>().HasData(

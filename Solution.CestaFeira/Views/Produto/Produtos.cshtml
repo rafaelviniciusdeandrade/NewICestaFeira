@@ -55,39 +55,48 @@
         </div>
     </header>
 
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                @foreach (var produto in Model)
-                {
-                    var imagemBase64 = produto.imagem != null ? Convert.ToBase64String(produto.imagem) : null;
-                    var imagemSrc = !string.IsNullOrEmpty(imagemBase64) ? $"data:image/png;base64,{imagemBase64}" : "caminho/padrao/para/imagem.png"; // Caminho padrão
+    @if (Model != null && Model.Any())
+    {
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    @foreach (var produto in Model)
+                    {
+                        var imagemBase64 = produto.imagem != null ? Convert.ToBase64String(produto.imagem) : null;
+                        var imagemSrc = !string.IsNullOrEmpty(imagemBase64) ? $"data:image/png;base64,{imagemBase64}" : "caminho/padrao/para/imagem.png"; // Caminho padrão
 
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="@imagemSrc" alt="Imagem do Produto: @produto.Nome" />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder">@produto.Nome</h5>
-                                    <!-- Product price-->
-                                    R$ @produto.valorUnitario.ToString("F2")
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                <!-- Product image-->
+                                <img class="card-img-top" src="@imagemSrc" alt="Imagem do Produto: @produto.Nome" />
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder">@produto.Nome</h5>
+                                        <!-- Product price-->
+                                        R$ @produto.valorUnitario.ToString("F2")
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-outline-dark mt-auto" data-id="@produto.Id" onclick="adicionarAoCarrinho(this)">Adicionar ao carrinho</button>
+                                <!-- Product actions-->
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+                                        <input type="number" id="quantidade_@produto.Id" min="1" value="1" class="form-control mb-2" style="width: 80px; margin: 0 auto;" />
+                                        <button type="button" class="btn btn-outline-dark mt-auto" data-id="@produto.Id" onclick="adicionarAoCarrinho(this)">Adicionar ao carrinho</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                }
+                    }
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    }
+    else
+    {
+        <p class="text-center">Nenhum produto disponível.</p>
+    }
+
 
     <!-- Modal do Carrinho -->
     <div class="modal fade" id="carrinhoModal" tabindex="-1" aria-labelledby="carrinhoModalLabel" aria-hidden="true">
@@ -102,9 +111,12 @@
                         <!-- Os itens do carrinho serão carregados aqui -->
                     </ul>
                 </div>
+                <div class="mt-3">
+                    <h5 id="totalCarrinho">Total: R$ 0,00</h5>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <a href="/Carrinho/FinalizarCompra" class="btn btn-primary">Finalizar Compra</a>
+                    <button type="button" class="btn btn-primary" onclick="finalizarCompra()">Finalizar Compra</button>
                 </div>
             </div>
         </div>
@@ -118,16 +130,20 @@
     <script>
         function adicionarAoCarrinho(button) {
             var produtoId = $(button).data('id'); // Captura o ID do produto do botão clicado
+            var quantidade = $('#quantidade_' + produtoId).val(); // Captura a quantidade selecionada
 
-            if (!produtoId) {
-                alert("Erro: ID do produto não encontrado.");
+            if (!produtoId || !quantidade || quantidade <= 0) {
+                alert("Erro: ID do produto ou quantidade inválidos.");
                 return;
             }
 
             $.ajax({
                 url: '/Carrinho/AdicionarProdutoAoCarrinho',
                 type: 'POST',
-                data: { produtoId: produtoId }, // Envia o ID do produto
+                data: {
+                    produtoId: produtoId,
+                    quantidade: quantidade // Envia o ID do produto e a quantidade selecionada
+                },
                 success: function (response) {
                     if (response.success) {
                         alert(response.message);
@@ -143,6 +159,7 @@
                 }
             });
         }
+
 
 
         function atualizarCarrinho() {
@@ -174,10 +191,14 @@
 
                         // Preenche o modal com os itens do carrinho
                         response.itens.forEach(function (item) {
-                            lista.append('<li class="list-group-item">' + item.Nome + ' - Quantidade: ' + item.Quantidade + ' - R$ ' + item.ValorUnitario.toFixed(2) + '</li>');
+                            lista.append('<li class="list-group-item" data-produto-id="' + item.ProdutoId + '">' + item.Nome + ' - Quantidade: ' + item.Quantidade + ' - R$ ' + item.ValorUnitario.toFixed(2) + '</li>');
                         });
+
+                        // Exibir o valor total do carrinho
+                        $('#totalCarrinho').text('Total: R$ ' + response.total.toFixed(2));
                     } else {
                         $('#listaItensCarrinho').html('<li class="list-group-item">Carrinho vazio.</li>');
+                        $('#totalCarrinho').text('');
                     }
                 },
                 error: function () {
@@ -185,6 +206,48 @@
                 }
             });
         });
+
+
+        function finalizarCompra() {
+            // Coletar os itens do carrinho
+            var itensCarrinho = [];
+            var totalCarrinho = document.getElementById("totalCarrinho").innerText.replace("Total: R$", "").trim();
+
+            document.querySelectorAll("#listaItensCarrinho li").forEach(function (item) {
+                var produtoId = item.getAttribute("data-produto-id");
+                var nomeProduto = item.innerText.split(' - ')[0]; // Captura o nome do produto
+
+
+                itensCarrinho.push({
+                    Id: produtoId,
+                    Nome: nomeProduto
+                });
+            });
+
+            // Enviar os itens para o backend via AJAX
+            fetch('/Carrinho/FinalizarCompra', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Produtos: itensCarrinho,  // Envia a lista de produtos
+                    ValorTotal: totalCarrinho
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Compra finalizada com sucesso!');
+                    window.location.href = '/Produto/Produtos'; // Redireciona após sucesso
+                } else {
+                    alert('Erro ao finalizar a compra');
+                }
+            }).catch(error => {
+                console.error('Erro na requisição:', error);
+                alert('Erro ao finalizar a compra');
+            });
+        }
+
+
 
 
     </script>

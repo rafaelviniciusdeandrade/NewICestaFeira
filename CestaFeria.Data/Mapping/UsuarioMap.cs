@@ -47,6 +47,17 @@ namespace CestaFeira.Data.Mapping
 
             builder.Property(p => p.Perfil).HasColumnName("Perfil");
 
+            // Relacionamento com Produto (um usuário cadastra vários produtos)
+            builder.HasMany(u => u.Produtos)
+                   .WithOne(p => p.Usuario)
+                   .HasForeignKey(p => p.UsuarioId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            // Relacionamento com Pedido (um usuário faz vários pedidos)
+            builder.HasMany(u => u.Pedidos)
+                   .WithOne(p => p.Usuario)
+                   .HasForeignKey(p => p.UsuarioId)
+                   .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

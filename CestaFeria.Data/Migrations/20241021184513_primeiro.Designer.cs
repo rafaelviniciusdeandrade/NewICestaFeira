@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CestaFeira.Data.Migrations
 {
     [DbContext(typeof(ApsContext))]
-    [Migration("20241004191738_Initial")]
-    partial class Initial
+    [Migration("20241021184513_primeiro")]
+    partial class primeiro
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,9 +24,49 @@ namespace CestaFeira.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CestaFeira.Domain.Entityes.PedidoEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("IdPedido");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("UsuarioId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Pedido", (string)null);
+                });
+
+            modelBuilder.Entity("CestaFeira.Domain.Entityes.PedidoProdutoEntity", b =>
+                {
+                    b.Property<Guid>("ProdutoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PedidoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantidade")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProdutoId", "PedidoId");
+
+                    b.HasIndex("PedidoId");
+
+                    b.ToTable("PedidoProduto", (string)null);
+                });
+
             modelBuilder.Entity("CestaFeira.Domain.Entityes.ProdutoEntity", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Descricao")
@@ -37,8 +77,12 @@ namespace CestaFeira.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("VendaEntityId")
+                    b.Property<Guid>("UsuarioId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("imagem")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("quantidade")
                         .HasColumnType("int");
@@ -48,7 +92,7 @@ namespace CestaFeira.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("VendaEntityId");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Produto", (string)null);
                 });
@@ -145,73 +189,73 @@ namespace CestaFeira.Data.Migrations
                             Bairro = "Jardim São Carlos",
                             Cel = "(35)11111111",
                             Cidade = "Alfenas",
-                            Data = new DateTime(2024, 10, 4, 16, 17, 37, 605, DateTimeKind.Local).AddTicks(6541),
+                            Data = new DateTime(2024, 10, 21, 15, 45, 12, 733, DateTimeKind.Local).AddTicks(5043),
                             Email = "rafael@gmail.com",
                             Nome = "Administrador",
                             Numero = 555,
                             Perfil = "ADM",
                             Rua = "Juscelino Kubitschek",
-                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.T1a3AOlRpoS7mJDN2+htIQ==.Na7qDuFsYKjustyJz8f79fZmFyI6Ah/FKRYiRkZaR6w=",
+                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.rH5VXabL6YW0kkaRVNBGEw==.evUpyJ+DH7YU7gByvqB/ywImWj2wMDLhkoVnxPWTbP0=",
                             Uf = "MG",
                             cpf = "13080460812"
                         });
                 });
 
-            modelBuilder.Entity("CestaFeira.Domain.Entityes.VendaEntity", b =>
+            modelBuilder.Entity("CestaFeira.Domain.Entityes.PedidoEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IdVenda");
+                    b.HasOne("CestaFeira.Domain.Entityes.UsuarioEntity", "Usuario")
+                        .WithMany("Pedidos")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
-                    b.Property<Guid>("ProdutoId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IdProduto");
+                    b.Navigation("Usuario");
+                });
 
-                    b.Property<Guid>("UsuarioId")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("UsuarioId");
+            modelBuilder.Entity("CestaFeira.Domain.Entityes.PedidoProdutoEntity", b =>
+                {
+                    b.HasOne("CestaFeira.Domain.Entityes.PedidoEntity", "Pedido")
+                        .WithMany("ProdutoPedidos")
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("Id");
+                    b.HasOne("CestaFeira.Domain.Entityes.ProdutoEntity", "Produto")
+                        .WithMany("ProdutoPedidos")
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasIndex("UsuarioId");
+                    b.Navigation("Pedido");
 
-                    b.ToTable("Venda", (string)null);
+                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("CestaFeira.Domain.Entityes.ProdutoEntity", b =>
                 {
                     b.HasOne("CestaFeira.Domain.Entityes.UsuarioEntity", "Usuario")
                         .WithMany("Produtos")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("CestaFeira.Domain.Entityes.VendaEntity", null)
-                        .WithMany("Produtos")
-                        .HasForeignKey("VendaEntityId");
 
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("CestaFeira.Domain.Entityes.VendaEntity", b =>
+            modelBuilder.Entity("CestaFeira.Domain.Entityes.PedidoEntity", b =>
                 {
-                    b.HasOne("CestaFeira.Domain.Entityes.UsuarioEntity", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("ProdutoPedidos");
+                });
 
-                    b.Navigation("Usuario");
+            modelBuilder.Entity("CestaFeira.Domain.Entityes.ProdutoEntity", b =>
+                {
+                    b.Navigation("ProdutoPedidos");
                 });
 
             modelBuilder.Entity("CestaFeira.Domain.Entityes.UsuarioEntity", b =>
                 {
-                    b.Navigation("Produtos");
-                });
+                    b.Navigation("Pedidos");
 
-            modelBuilder.Entity("CestaFeira.Domain.Entityes.VendaEntity", b =>
-                {
                     b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618

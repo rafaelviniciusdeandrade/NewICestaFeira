@@ -11,6 +11,9 @@ namespace CestaFeira.Domain.Entityes
         public double valorUnitario { get; set; }
         public byte[] imagem { get; set; }
         public UsuarioEntity Usuario { get; set; }
+        public ICollection<PedidoProdutoEntity> ProdutoPedidos { get; set; }
+
+
 
     }
 }

@@ -12,10 +12,10 @@ namespace CestaFeria.Data.DataModule
         : base(dbContext) { }
 
 
-        public IRepository<VendaEntity> _vendaRepository = null;
-        public IRepository<VendaEntity> VendaRepository
+        public IRepository<PedidoEntity> _pedidoRepository = null;
+        public IRepository<PedidoEntity> PedidoRepository
         {
-            get => _vendaRepository ??= new BaseRepository<VendaEntity>(CurrentContext);
+            get => _pedidoRepository ??= new BaseRepository<PedidoEntity>(CurrentContext);
         }
 
         public IRepository<ProdutoEntity> _produtoTarefasRepository = null;
