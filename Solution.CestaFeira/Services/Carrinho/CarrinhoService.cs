@@ -44,7 +44,7 @@ namespace CestaFeira.Web.Services.Carrinho
                     Id=produto.Id,
                     Nome = produto.Nome,
         valorUnitario=produto.valorUnitario,
-        quantidade=produto.quantidade
+        quantidade=produto.Quantidade
         // Mapeie outras propriedades conforme necessário
                 }).ToList()
             };

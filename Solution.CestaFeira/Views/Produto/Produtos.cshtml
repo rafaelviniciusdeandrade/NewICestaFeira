@@ -63,22 +63,17 @@
                     @foreach (var produto in Model)
                     {
                         var imagemBase64 = produto.imagem != null ? Convert.ToBase64String(produto.imagem) : null;
-                        var imagemSrc = !string.IsNullOrEmpty(imagemBase64) ? $"data:image/png;base64,{imagemBase64}" : "caminho/padrao/para/imagem.png"; // Caminho padrão
+                        var imagemSrc = !string.IsNullOrEmpty(imagemBase64) ? $"data:image/png;base64,{imagemBase64}" : "caminho/padrao/para/imagem.png";
 
                         <div class="col mb-5">
                             <div class="card h-100">
-                                <!-- Product image-->
                                 <img class="card-img-top" src="@imagemSrc" alt="Imagem do Produto: @produto.Nome" />
-                                <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
-                                        <!-- Product name-->
                                         <h5 class="fw-bolder">@produto.Nome</h5>
-                                        <!-- Product price-->
                                         R$ @produto.valorUnitario.ToString("F2")
                                     </div>
                                 </div>
-                                <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                     <div class="text-center">
                                         <input type="number" id="quantidade_@produto.Id" min="1" value="1" class="form-control mb-2" style="width: 80px; margin: 0 auto;" />
@@ -97,8 +92,6 @@
         <p class="text-center">Nenhum produto disponível.</p>
     }
 
-
-    <!-- Modal do Carrinho -->
     <div class="modal fade" id="carrinhoModal" tabindex="-1" aria-labelledby="carrinhoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -129,8 +122,8 @@
 
     <script>
         function adicionarAoCarrinho(button) {
-            var produtoId = $(button).data('id'); // Captura o ID do produto do botão clicado
-            var quantidade = $('#quantidade_' + produtoId).val(); // Captura a quantidade selecionada
+            var produtoId = $(button).data('id');
+            var quantidade = $('#quantidade_' + produtoId).val();
 
             if (!produtoId || !quantidade || quantidade <= 0) {
                 alert("Erro: ID do produto ou quantidade inválidos.");
@@ -142,13 +135,11 @@
                 type: 'POST',
                 data: {
                     produtoId: produtoId,
-                    quantidade: quantidade // Envia o ID do produto e a quantidade selecionada
+                    quantidade: quantidade
                 },
                 success: function (response) {
                     if (response.success) {
                         alert(response.message);
-
-                        // Atualiza o contador do carrinho diretamente com a resposta
                         $('#quantidadeCarrinho').text(response.quantidadeItens);
                     } else {
                         alert(response.message);
@@ -159,8 +150,6 @@
                 }
             });
         }
-
-
 
         function atualizarCarrinho() {
             $.ajax({
@@ -177,9 +166,6 @@
             });
         }
 
-
-
-        // Carregar itens do carrinho no modal
         $('#carrinhoModal').on('show.bs.modal', function () {
             $.ajax({
                 url: '/Carrinho/ObterItensCarrinho',
@@ -187,14 +173,14 @@
                 success: function (response) {
                     if (response.success) {
                         var lista = $('#listaItensCarrinho');
-                        lista.empty(); // Limpa a lista
+                        lista.empty();
 
-                        // Preenche o modal com os itens do carrinho
                         response.itens.forEach(function (item) {
-                            lista.append('<li class="list-group-item" data-produto-id="' + item.ProdutoId + '">' + item.Nome + ' - Quantidade: ' + item.Quantidade + ' - R$ ' + item.ValorUnitario.toFixed(2) + '</li>');
+                            lista.append('<li class="list-group-item" data-produto-id="' + item.ProdutoId + '">'
+                                + item.Nome + ' - Quantidade: <span class="quantidade">' + item.Quantidade
+                                + '</span> - R$ ' + item.ValorUnitario.toFixed(2) + '</li>');
                         });
 
-                        // Exibir o valor total do carrinho
                         $('#totalCarrinho').text('Total: R$ ' + response.total.toFixed(2));
                     } else {
                         $('#listaItensCarrinho').html('<li class="list-group-item">Carrinho vazio.</li>');
@@ -207,37 +193,34 @@
             });
         });
 
-
         function finalizarCompra() {
-            // Coletar os itens do carrinho
             var itensCarrinho = [];
             var totalCarrinho = document.getElementById("totalCarrinho").innerText.replace("Total: R$", "").trim();
 
             document.querySelectorAll("#listaItensCarrinho li").forEach(function (item) {
                 var produtoId = item.getAttribute("data-produto-id");
-                var nomeProduto = item.innerText.split(' - ')[0]; // Captura o nome do produto
-
-
+                var nomeProduto = item.innerText.split(' - ')[0];
+                var quantidade = item.querySelector('.quantidade').innerText;
                 itensCarrinho.push({
                     Id: produtoId,
-                    Nome: nomeProduto
+                    Nome: nomeProduto,
+                    Quantidade: quantidade
                 });
             });
 
-            // Enviar os itens para o backend via AJAX
             fetch('/Carrinho/FinalizarCompra', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    Produtos: itensCarrinho,  // Envia a lista de produtos
+                    Produtos: itensCarrinho,
                     ValorTotal: totalCarrinho
                 })
             }).then(response => {
                 if (response.ok) {
                     alert('Compra finalizada com sucesso!');
-                    window.location.href = '/Produto/Produtos'; // Redireciona após sucesso
+                    window.location.href = '/Produto/Produtos';
                 } else {
                     alert('Erro ao finalizar a compra');
                 }
@@ -246,12 +229,7 @@
                 alert('Erro ao finalizar a compra');
             });
         }
-
-
-
-
     </script>
-
 </body>
 
 </html>

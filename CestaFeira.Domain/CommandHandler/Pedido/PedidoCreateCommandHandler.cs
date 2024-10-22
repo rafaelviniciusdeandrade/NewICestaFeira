@@ -25,17 +25,14 @@ namespace CestaFeira.Domain.CommandHandler.Pedido
         {
             try
             {
-                //var objEntity = mapper.Map<PedidoEntity>(request);
-
-                //var dbEnitty = await Repository.InsertAsync(objEntity);
-
                 var pedido = new PedidoEntity
                 {
                     UsuarioId = request.UsuarioId,
                     Data = request.Data,
                     ProdutoPedidos = request.Produtos.Select(prod => new PedidoProdutoEntity
                     {
-                        ProdutoId = prod.Id // Supondo que ProdutoModel tenha uma propriedade Id
+                        ProdutoId = prod.Id,
+                        Quantidade=prod.quantidade
                     }).ToList()
                 };
                 var dbEnitty = await Repository.InsertAsync(pedido);

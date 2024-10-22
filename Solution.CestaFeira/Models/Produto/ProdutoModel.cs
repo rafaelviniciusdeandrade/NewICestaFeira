@@ -9,7 +9,7 @@ namespace CestaFeira.Web.Models.Produto
         public Guid? Id { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
-        public int quantidade { get; set; }
+        public int  Quantidade { get; set; }
         public double valorUnitario { get; set; }
         public byte[] imagem { get; set; }
         public Guid UsuarioId { get; set; }

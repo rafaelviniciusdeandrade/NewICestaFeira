@@ -24,7 +24,7 @@ namespace CestaFeira.Web.Services.Produto
             {
                 Nome = produto.Nome,
                 Descricao = produto.Descricao,
-                quantidade = produto.quantidade,
+                quantidade = produto.Quantidade,
                 valorUnitario = produto.valorUnitario,
                 imagem = produto.imagem,
                 UsuarioId = produto.UsuarioId
@@ -59,7 +59,7 @@ namespace CestaFeira.Web.Services.Produto
                     Id=produtoDto.Id,
                     Nome = produtoDto.Nome,
                     Descricao = produtoDto.Descricao,
-                    quantidade = produtoDto.quantidade,
+                    Quantidade = produtoDto.quantidade,
                     valorUnitario = produtoDto.valorUnitario,
                     imagem = produtoDto.imagem
                 }).ToList();
@@ -83,7 +83,7 @@ namespace CestaFeira.Web.Services.Produto
                 {
                     Nome = result.Nome,
                     Descricao = result.Descricao,
-                    quantidade = result.quantidade,
+                    Quantidade = result.quantidade,
                     valorUnitario = result.valorUnitario,
                     imagem = result.imagem,
                     Id=result.Id
