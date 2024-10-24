@@ -2,10 +2,12 @@
 
 namespace CestaFeira.Web.Services.Interfaces
 {
-    public interface ICarrinhoService
+    public interface IPedidoService
     {
         void AdicionarProduto(int produtoId);
         int ObterQuantidadeTotal();
         Task<bool> CadastrarCarrinho(PedidoModel carrinho);
+        Task<List<PedidoProdutoRetModel>> ConsultarPedidos(Guid UsuarioId);
+
     }
 }

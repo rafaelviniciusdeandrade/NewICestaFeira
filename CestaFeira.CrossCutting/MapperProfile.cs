@@ -15,6 +15,7 @@ namespace CestaFeira.CrossCutting
                 cfg.AddProfile(new UsuarioProfile());
                 cfg.AddProfile(new ProdutoProfile());
                 cfg.AddProfile(new PedidoProfile());
+                cfg.AddProfile(new PedidoProdutoProfile());
             });
 
             return config;

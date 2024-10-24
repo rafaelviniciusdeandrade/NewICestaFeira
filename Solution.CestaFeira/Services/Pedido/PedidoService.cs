@@ -1,18 +1,18 @@
 ﻿using CestaFeira.Domain.Command.Pedido;
 using CestaFeira.Domain.Command.Produto;
 using CestaFeira.Domain.Dtos.Usuario;
-using CestaFeira.Domain.Entityes;
+using CestaFeira.Domain.Query.Pedido;
 using CestaFeira.Web.Models.Pedido;
 using CestaFeira.Web.Services.Interfaces;
 using MediatR;
 
-namespace CestaFeira.Web.Services.Carrinho
+namespace CestaFeira.Web.Services.Pedido
 {
-    public class CarrinhoService : ICarrinhoService
+    public class PedidoService : IPedidoService
     {
         private readonly IMediator _mediator;
 
-        public CarrinhoService(IMediator mediator)
+        public PedidoService(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -62,5 +62,38 @@ namespace CestaFeira.Web.Services.Carrinho
             }
             return false;
         }
+
+        public async Task<List<PedidoProdutoRetModel>> ConsultarPedidos(Guid UsuarioId)
+        {
+            var pedidoCommad = new PedidoQuery
+            {
+                UsuarioId = UsuarioId
+            };
+
+            var result = await _mediator.Send(pedidoCommad);
+
+            if (result.Count > 0)
+            {
+                return result.Select(pedidoDto => new PedidoProdutoRetModel
+                {
+                    UsuarioId = pedidoDto.UsuarioId,
+                    Data = pedidoDto.Data,
+                    Produtos = pedidoDto.ProdutoPedidos.Select(produtoPedidoDto => new PedidoProdutoModel
+                    {
+                        // Mapeia os dados de cada produto associado ao pedido
+                        ProdutoId = produtoPedidoDto.ProdutoId,
+                        Quantidade = produtoPedidoDto.Quantidade,
+                        ValorUnitario = produtoPedidoDto.valorUnitario
+                        // Adicione outras propriedades do PedidoProdutoModel aqui
+                    }).ToList()
+
+                }).ToList();
+            }
+
+
+            return null;
+        }
+
+       
     }
 }

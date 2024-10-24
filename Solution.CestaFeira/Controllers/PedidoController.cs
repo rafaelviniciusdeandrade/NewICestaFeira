@@ -9,15 +9,17 @@ using System.Text.Json;
 
 namespace CestaFeira.Web.Controllers
 {
-    public class CarrinhoController : Controller
+    public class PedidoController : Controller
     {
         public IProdutoService _produto;
-        private readonly ICarrinhoService _carrinhoService;
+        public IPedidoService _pedido;
+        private readonly IPedidoService _carrinhoService;
 
-        public CarrinhoController(ICarrinhoService carrinhoService, IProdutoService produto)
+        public PedidoController(IPedidoService carrinhoService, IProdutoService produto, IPedidoService pedido)
         {
             _carrinhoService = carrinhoService;
             _produto = produto;
+            _pedido = pedido;
         }
         public IActionResult ObterQuantidadeCarrinho()
         {
@@ -123,7 +125,14 @@ namespace CestaFeira.Web.Controllers
 
             
         }
+        public async Task<IActionResult> Pedidos()
+        {
+            string usuarioId = HttpContext.Session.GetString("UsuarioId");
+            Guid id = Guid.Parse(usuarioId);
+            var result = await _pedido.ConsultarPedidos(id);
+            return View(result);
 
-      
+        }
+
     }
 }
