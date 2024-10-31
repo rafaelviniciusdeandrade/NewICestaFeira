@@ -3,10 +3,6 @@ using CestaFeira.Domain.Dtos.Usuario;
 using CestaFeira.Web.Models.Usuario;
 using CestaFeira.Web.Services.Interfaces;
 using MediatR;
-
-
-
-
 namespace CestaFeira.Web.Services.Usuario
 {
 
@@ -41,6 +37,36 @@ namespace CestaFeira.Web.Services.Usuario
             }
 
             return null;
+        }
+
+        public async Task<bool> CadastrarUsuario(UsuarioModel usuario)
+        {
+            var usuarioCommand = new UsuarioCreateCommand
+            {
+                cpf = usuario.cpf,
+                Email = usuario.Email,
+                Senha = usuario.Senha,
+                Nome = usuario.Nome,
+                Cel = usuario.cpf,
+                Rua = usuario.Rua,
+                Numero = usuario.Numero,
+                Bairro = usuario.Bairro,
+                Cidade = usuario.Cidade,
+                Uf=usuario.Uf,
+                Data = usuario.Data=DateTime.Now,
+                Ativo = usuario.Ativo = true,
+                Perfil= usuario.Perfil
+            };
+
+            var result = await _mediator.Send(usuarioCommand);
+
+            if (result.Success)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
 }

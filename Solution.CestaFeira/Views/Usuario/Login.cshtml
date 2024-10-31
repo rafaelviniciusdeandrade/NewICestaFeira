@@ -32,6 +32,12 @@
                                                 @TempData["ErrorMessage"]
                                             </div>
                                         }
+                                        @if (TempData["SucessMessage"] != null)
+                                        {
+                                            <div class="alert alert-success">
+                                                @TempData["SucessMessage"]
+                                            </div>
+                                        }
                                         <div class="form-floating mb-3">
                                             <label for="Email">Email:</label>
                                             <input type="email" name="Email" id="Email" class="form-control" required>
@@ -46,7 +52,7 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="file:///C:/Users/Rafael/Desktop/CestaFeiraApp/startbootstrap-sb-admin-gh-pages/register.html">Cadastre-se</a></div>
+                                    <div class="small"><a href="~/Usuario/CadastrarUsuario">Cadastre-se</a></div>
                                 </div>
                             </div>
                         </div>

@@ -71,6 +71,44 @@ namespace CestaFeira.Web.Controllers
             }
         }
 
+        public IActionResult CadastrarUsuario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CadastrarUsuario(UsuarioModel usuario)
+        {
+            try {
+                    var ret = await _usuario.CadastrarUsuario(usuario);
+
+                    if (ret)
+                    {
+                    TempData["SucessMessage"] = "Usuário Cadastrado com sucesso";
+                    
+                        return RedirectToAction("Login", "Usuario"); // Redireciona para a tela de login após o cadastro
+
+                    }
+                    else
+                    {
+                        return BadRequest(new { success = false, message = "Usuario não cadastrado" });
+
+                    }
+            }
+            catch (Exception ex)
+            {
+                string mensagemCompleta = ex.Message;
+                string mensagemExtraida = mensagemCompleta.Split(':')[2].Split("Severity")[0].Trim();
+
+                TempData["ErrorMessage"] = mensagemExtraida;
+
+                return RedirectToAction("CadastrarUsuario", "Usuario");
+            }
+
+            return View(usuario);
+        }
     }
+
 }
+
 

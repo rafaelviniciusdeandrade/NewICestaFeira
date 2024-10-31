@@ -15,6 +15,10 @@ namespace CestaFeira.CrossCutting.Mappings.Usuario
 
             CreateMap<UsuarioEntity, LoginUsuarioCommand>().ReverseMap();
 
+            CreateMap<UsuarioDto, UsuarioCreateCommand>().ReverseMap();
+
+            CreateMap<UsuarioEntity, UsuarioCreateCommand>().ReverseMap();
+
         }
     }
 }
