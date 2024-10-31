@@ -107,6 +107,19 @@ namespace CestaFeira.Web.Controllers
 
             return View(usuario);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Sair()
+        {
+            // Remove todos os dados da sessão
+            HttpContext.Session.Clear();
+
+            // Remove os cookies e faz logout do usuário
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // Redireciona para a página de login (ou outra página de sua escolha)
+            return RedirectToAction("Login", "Usuario");
+        }
     }
 
 }

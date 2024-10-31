@@ -30,7 +30,7 @@ namespace CestaFeira.Domain.CommandHandler.Usuario
 
             string salt = _cryptografyHelper.GenerateSalt();
 
-            request.Senha = _cryptografyHelper.Encrypt(request.Senha, salt);
+            objEntity.Senha = _cryptografyHelper.Encrypt(request.Senha, salt);
 
             var dbEnitty = await Repository.InsertAsync(objEntity);
 
