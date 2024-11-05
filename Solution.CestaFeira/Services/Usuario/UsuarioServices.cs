@@ -47,6 +47,7 @@ namespace CestaFeira.Web.Services.Usuario
                 Email = usuario.Email,
                 Senha = usuario.Senha,
                 Nome = usuario.Nome,
+                NomeFantasia=usuario.NomeFantasia,
                 Cel = usuario.cpf,
                 Rua = usuario.Rua,
                 Numero = usuario.Numero,

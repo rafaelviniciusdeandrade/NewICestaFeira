@@ -147,10 +147,11 @@
                             </div>
                         </div>
                         <!-- Perfil -->
+
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <select class="form-select" asp-for="Perfil" required>
+                                    <select class="form-select" asp-for="Perfil" id="perfilSelect" required onchange="toggleNomeFantasia()">
                                         <option value="COMUM">Consumidor</option>
                                         <option value="PROD">Produtor</option>
                                     </select>
@@ -158,6 +159,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Campo Nome Fantasia (inicialmente oculto) -->
+                        <div class="row mb-3" id="nomeFantasiaDiv" style="display: none;">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" asp-for="NomeFantasia" placeholder="Nome Fantasia" required />
+                                    <label asp-for="NomeFantasia">Nome Fantasia</label>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <!-- Botão de Registro -->
                         <div class="mt-4 mb-0">
                             <div class="d-grid">
@@ -184,6 +197,23 @@
             }
             return true;
         }
+
+        function toggleNomeFantasia() {
+            const perfilSelect = document.getElementById("perfilSelect");
+            const nomeFantasiaDiv = document.getElementById("nomeFantasiaDiv");
+
+            // Verifica se o perfil selecionado é "PROD" (Produtor)
+            if (perfilSelect.value === "PROD") {
+                nomeFantasiaDiv.style.display = "block";
+            } else {
+                nomeFantasiaDiv.style.display = "none";
+            }
+        }
+
+        // Executa a função na carga inicial da página para ajustar o campo, caso o perfil já esteja selecionado
+        document.addEventListener("DOMContentLoaded", toggleNomeFantasia);
     </script>
+
+
 </body>
 </html>

@@ -31,6 +31,8 @@ namespace CestaFeira.Data.Mapping
 
             builder.Property(p => p.Nome).IsRequired().HasMaxLength(60);
 
+            builder.Property(p => p.Nome).HasMaxLength(60);
+
             builder.Property(p => p.Cel).IsRequired();
 
             builder.Property(p => p.Rua).IsRequired().HasMaxLength(150);

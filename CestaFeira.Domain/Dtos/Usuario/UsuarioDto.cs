@@ -9,6 +9,7 @@ namespace CestaFeira.Domain.Dtos.Usuario
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Nome { get; set; }
+        public string NomeFantasia { get; set; }
         public string Cel { get; set; }
         public string Rua { get; set; }
         public string Numero { get; set; }

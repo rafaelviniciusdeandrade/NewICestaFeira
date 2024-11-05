@@ -49,6 +49,10 @@ namespace CestaFeira.Web.Controllers
                     {
                         return RedirectToAction("Produtos", "Produto");
                     }
+                    if (ret.Perfil == "PROD")
+                    {
+                        return RedirectToAction("ProdutosProdutor", "Produto");
+                    }
                     else
                     {
                         TempData["ErrorMessage"] = "";

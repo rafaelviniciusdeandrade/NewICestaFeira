@@ -16,6 +16,9 @@ namespace CestaFeira.Domain.Entityes
         public string Senha { get; set; }
         [Column("Nome")]
         public string Nome { get; set; }
+        [Column("NomeFantasia")]
+
+        public string NomeFantasia { get; set; }
         [Column("Cel")]
         public string Cel { get; set; }
         [Column("Rua")]
