@@ -67,6 +67,37 @@ namespace CestaFeira.Web.Services.Produto
 
             return null;
         }
+
+
+        public async Task<List<ProdutoModel>> ConsultarTodosProdutos()
+        {
+            var produtoCommad = new ProdutoCompleteQuery
+            {
+                quantidade = 1
+            };
+
+            var result = await _mediator.Send(produtoCommad);
+
+            if (result.Count > 0)
+            {
+                return result.Select(produtoDto => new ProdutoModel
+                {
+                    Id = produtoDto.Id,
+                    Nome = produtoDto.Nome,
+                    Descricao = produtoDto.Descricao,
+                    Quantidade = produtoDto.quantidade,
+                    valorUnitario = produtoDto.valorUnitario,
+                    imagem = produtoDto.imagem,
+                    Usuario = new UsuarioModel
+                    {
+                        Id = produtoDto.Usuario.Id,
+                        NomeFantasia = produtoDto.Usuario.NomeFantasia,
+                    }
+                }).ToList();
+            }
+
+            return null;
+        }
         public async Task<ProdutoModel> ConsultarProdutosId(Guid ProdutoId)
         {
             var produtoCommad = new ProdutoIdQuery

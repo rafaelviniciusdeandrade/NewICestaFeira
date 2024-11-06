@@ -62,6 +62,16 @@
         </div>
     </header>
 
+    <div class="container my-4">
+        <label for="produtorFilter" class="form-label">Filtrar por Produtor:</label>
+        <select class="form-select" id="produtorFilter" onchange="filtrarPorProdutor()">
+            <option value="">Todos os Produtores</option>
+            @foreach (var produtor in Model.Select(p => p.Usuario.Nome).Distinct())
+            {
+                <option value="@produtor">@produtor</option>
+            }
+        </select>
+    </div>
     @if (Model != null && Model.Any())
     {
         <section class="py-5">
@@ -72,7 +82,7 @@
                         var imagemBase64 = produto.imagem != null ? Convert.ToBase64String(produto.imagem) : null;
                         var imagemSrc = !string.IsNullOrEmpty(imagemBase64) ? $"data:image/png;base64,{imagemBase64}" : "caminho/padrao/para/imagem.png";
 
-                        <div class="col mb-5">
+                        <div class="col mb-5 produto-item" data-produtor="@produto.Usuario.Nome">
                             <div class="card h-100">
                                 <img class="card-img-top" src="@imagemSrc" alt="Imagem do Produto: @produto.Nome" />
                                 <div class="card-body p-4">
@@ -90,6 +100,7 @@
                             </div>
                         </div>
                     }
+
                 </div>
             </div>
         </section>
@@ -236,6 +247,22 @@
                 alert('Erro ao finalizar a compra');
             });
         }
+
+        // Função para filtrar os produtos pelo produtor
+        function filtrarPorProdutor() {
+            var selecionado = document.getElementById("produtorFilter").value.toLowerCase();
+            var produtos = document.querySelectorAll(".produto-item");
+
+            produtos.forEach(function (produto) {
+                var nomeProdutor = produto.getAttribute("data-produtor").toLowerCase();
+                if (selecionado === "" || nomeProdutor.includes(selecionado)) {
+                    produto.style.display = "block";
+                } else {
+                    produto.style.display = "none";
+                }
+            });
+        }
+
     </script>
 </body>
 

@@ -1,5 +1,6 @@
 ﻿using CestaFeira.Domain.Command.Base;
 using CestaFeira.Domain.Entityes;
+using CestaFeira.Web.Models.Usuario;
 using MediatR;
 
 namespace CestaFeira.Web.Models.Produto
@@ -13,7 +14,7 @@ namespace CestaFeira.Web.Models.Produto
         public double valorUnitario { get; set; }
         public byte[] imagem { get; set; }
         public Guid UsuarioId { get; set; }
-        public UsuarioEntity Usuario { get; set; }
+        public UsuarioModel Usuario { get; set; }
 
     }
 }

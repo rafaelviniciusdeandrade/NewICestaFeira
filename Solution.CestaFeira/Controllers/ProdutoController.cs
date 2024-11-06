@@ -17,7 +17,7 @@ namespace CestaFeira.Web.Controllers
         {
             string usuarioId = HttpContext.Session.GetString("UsuarioId");
             Guid id= Guid.Parse(usuarioId);
-            var result = await _produto.ConsultarProdutos(id); 
+            var result = await _produto.ConsultarTodosProdutos(); 
             return View(result);
        
 
