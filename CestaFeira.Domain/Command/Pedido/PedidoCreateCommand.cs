@@ -11,6 +11,7 @@ namespace CestaFeira.Domain.Command.Pedido
         public List<ProdutoCreateCommand> Produtos { get; set; }
         public Guid UsuarioId { get; set; }
         public DateTime Data { get; set; }
+        public string Status { get; set; }
 
     }
 }

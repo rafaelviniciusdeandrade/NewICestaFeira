@@ -68,6 +68,8 @@
             foreach (var pedido in Model)
             {
                 <h5 style="font-size: 1rem; font-weight: normal;">Pedido: @pedido.Usuario.Nome</h5> <!-- Exibindo o ID do pedido ou outra informação relevante -->
+                <b>Status: @pedido.Status </b>
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -85,7 +87,6 @@
                         {
                             var produtoTotal = produto.Quantidade * produto.Produto.valorUnitario;
                             valorTotal += produtoTotal; // Acumulando o valor total
-
                             <tr>
                                 <td>@produto.Produto.Nome</td>
                                 <td>@produto.Quantidade</td>
@@ -96,8 +97,6 @@
                         <tr>
                             <td colspan="3" class="text-end fw-bold">Valor Total do Pedido:</td>
                             <td class="fw-bold">@string.Format("{0:C}", valorTotal)</td>
-                            <td colspan="3" class="text-end fw-bold">Status:</td>
-
                         </tr>
                     </tbody>
                 </table>

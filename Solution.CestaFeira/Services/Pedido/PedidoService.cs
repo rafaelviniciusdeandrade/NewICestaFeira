@@ -41,6 +41,7 @@ namespace CestaFeira.Web.Services.Pedido
             {
                 UsuarioId = carrinho.UsuarioId,
                 Data = DateTime.Now,
+                
                 Produtos = produtos.Select(produto => new ProdutoCreateCommand
                 {
                     Id=produto.Id,
@@ -80,6 +81,7 @@ namespace CestaFeira.Web.Services.Pedido
                 {
                     UsuarioId = pedidoDto.UsuarioId,
                     Data = pedidoDto.Data,
+                    Status=pedidoDto.Status,
                     Usuario=new UsuarioModel
                     { 
                         Nome=pedidoDto.Usuario.Nome

@@ -29,6 +29,7 @@ namespace CestaFeira.Domain.CommandHandler.Pedido
                 {
                     UsuarioId = request.UsuarioId,
                     Data = request.Data,
+                    Status=request.Status="Aberto",
                     ProdutoPedidos = request.Produtos.Select(prod => new PedidoProdutoEntity
                     {
                         ProdutoId = prod.Id,

@@ -11,5 +11,6 @@ namespace CestaFeira.Domain.Dtos.Pedido
         public DateTime Data { get; set; }
         public List<PedidoProdutoDto> ProdutoPedidos { get; set; }
         public UsuarioDto Usuario { get; set; }
+        public string Status { get; set; }
     }
 }

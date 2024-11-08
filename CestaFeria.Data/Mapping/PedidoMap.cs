@@ -12,7 +12,7 @@ namespace CestaFeira.Data.Mapping
             // Definir a chave primária
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Id).HasColumnName("IdPedido");
-
+            builder.Property(p => p.Status).HasColumnName("Status");
             // Definir propriedades obrigatórias
             builder.Property(p => p.UsuarioId).HasColumnName("UsuarioId").IsRequired();
             builder.Property(p => p.Data).IsRequired();

@@ -7,6 +7,7 @@ namespace CestaFeira.Domain.Entityes
         public DateTime Data { get; set; }
         public Guid UsuarioId { get; set; }
         public UsuarioEntity Usuario { get; set; }
+        public string Status { get; set; }
         public ICollection<PedidoProdutoEntity> ProdutoPedidos { get; set; }
     }
 }
