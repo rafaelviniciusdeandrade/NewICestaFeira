@@ -3,6 +3,8 @@ using CestaFeira.Domain.Command.Produto;
 using CestaFeira.Domain.Dtos.Usuario;
 using CestaFeira.Domain.Query.Pedido;
 using CestaFeira.Web.Models.Pedido;
+using CestaFeira.Web.Models.Produto;
+using CestaFeira.Web.Models.Usuario;
 using CestaFeira.Web.Services.Interfaces;
 using MediatR;
 
@@ -78,13 +80,22 @@ namespace CestaFeira.Web.Services.Pedido
                 {
                     UsuarioId = pedidoDto.UsuarioId,
                     Data = pedidoDto.Data,
-                    Produtos = pedidoDto.ProdutoPedidos.Select(produtoPedidoDto => new PedidoProdutoModel
+                    Usuario=new UsuarioModel
+                    { 
+                        Nome=pedidoDto.Usuario.Nome
+                    },
+                    PedidoProdutos = pedidoDto.ProdutoPedidos.Select(produtoPedidoDto => new PedidoProdutoModel
                     {
                         // Mapeia os dados de cada produto associado ao pedido
                         ProdutoId = produtoPedidoDto.ProdutoId,
                         Quantidade = produtoPedidoDto.Quantidade,
-                        ValorUnitario = produtoPedidoDto.valorUnitario
-                        // Adicione outras propriedades do PedidoProdutoModel aqui
+                        ValorUnitario = produtoPedidoDto.valorUnitario,
+                        Produto = new ProdutoModel
+                        {
+                            Nome = produtoPedidoDto.Produto.Nome,
+                            valorUnitario=produtoPedidoDto.Produto.valorUnitario
+                            // Adicione outras propriedades de ProdutoModel necessárias aqui
+                        }
                     }).ToList()
 
                 }).ToList();

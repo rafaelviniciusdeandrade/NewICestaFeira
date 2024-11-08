@@ -1,4 +1,6 @@
-﻿namespace CestaFeira.Web.Models.Pedido
+﻿using CestaFeira.Web.Models.Produto;
+
+namespace CestaFeira.Web.Models.Pedido
 {
     public class PedidoProdutoModel
     {
@@ -7,6 +9,7 @@
         public int Quantidade { get; set; }     // Quantidade do produto no pedido
         public decimal ValorUnitario { get; set; }      // Preço unitário do produto
         public decimal Total => Quantidade * ValorUnitario; // Propriedade calculada para o total (opcional)
+        public ProdutoModel Produto { get; set; }
     }
 
 }

@@ -3,8 +3,6 @@
 
 @{
     Layout = null;
-    decimal valorTotal = 0;
-
 }
 
 <html lang="en">
@@ -21,9 +19,39 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Navbar Code -->
-    </nav>
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">CestaFeira</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown">Menu</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="~/Produto/Produtos">Todos os Produtos</a></li>
 
+                            @if (User.IsInRole("ADM") || User.IsInRole("PROD"))
+                            {
+                                <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
+                                <li><a class="dropdown-item" href="#!">Gerenciar Produtos</a></li>
+                            }
+                            <li><a class="dropdown-item" href="~/Pedido/Pedidos">Ver Pedidos</a></li>
+                            <li><a class="dropdown-item" href="~/Usuario/Sair">Sair</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" id="carrinhoForm" onsubmit="return false;">
+                    <button class="btn btn-outline-dark" type="button" id="carrinhoBtn" data-bs-toggle="modal" data-bs-target="#carrinhoModal">
+                        <i class="bi-cart-fill me-1"></i>
+                        Carrinho
+                        <span class="badge bg-dark text-white ms-1 rounded-pill" id="quantidadeCarrinho">0</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
@@ -34,12 +62,12 @@
     </header>
 
     <div class="container my-5">
-        <h2>Pedidos do Cliente</h2>
+        <h1>Pedidos:</h1>
         @if (Model != null && Model.Any())
         {
             foreach (var pedido in Model)
             {
-                <h3>Pedido: @pedido.UsuarioId</h3> <!-- Exibindo o ID do pedido ou outra informação relevante -->
+                <h5 style="font-size: 1rem; font-weight: normal;">Pedido: @pedido.Usuario.Nome</h5> <!-- Exibindo o ID do pedido ou outra informação relevante -->
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -50,22 +78,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @* var valorTotal = pedido.Produtos.Sum(p => p.Quantidade * p.ValorUnitario); *@
-                        @foreach (var produto in pedido.Produtos)
+                        @{
+                            double valorTotal = 0; // Inicializa o valor total para o pedido atual
+                        }
+                        @foreach (var produto in pedido.PedidoProdutos)
                         {
-                            var produtoTotal = produto.Quantidade * produto.ValorUnitario;
+                            var produtoTotal = produto.Quantidade * produto.Produto.valorUnitario;
                             valorTotal += produtoTotal; // Acumulando o valor total
 
                             <tr>
-                                <td>@produto.NomeProduto</td>
+                                <td>@produto.Produto.Nome</td>
                                 <td>@produto.Quantidade</td>
-                                <td>@string.Format("{0:C}", produto.ValorUnitario)</td>
-                                <td>@string.Format("{0:C}", produto.Quantidade * produto.ValorUnitario)</td>
+                                <td>@string.Format("{0:C}", produto.Produto.valorUnitario)</td>
+                                <td>@string.Format("{0:C}", produto.Quantidade * produto.Produto.valorUnitario)</td>
                             </tr>
                         }
                         <tr>
                             <td colspan="3" class="text-end fw-bold">Valor Total do Pedido:</td>
                             <td class="fw-bold">@string.Format("{0:C}", valorTotal)</td>
+                            <td colspan="3" class="text-end fw-bold">Status:</td>
+
                         </tr>
                     </tbody>
                 </table>

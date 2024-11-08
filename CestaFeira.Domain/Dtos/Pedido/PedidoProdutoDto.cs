@@ -15,5 +15,8 @@ namespace CestaFeira.Domain.Dtos.Pedido
         public Guid PedidoId { get; set; }
         public int Quantidade { get; set; }
         public decimal valorUnitario { get; set; }
+
+        public ProdutoDto Produto { get; set; }
+
     }
 }
