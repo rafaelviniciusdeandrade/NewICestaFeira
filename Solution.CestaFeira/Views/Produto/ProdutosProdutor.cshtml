@@ -68,15 +68,11 @@
                             <div class="card h-100">
                                 <img class="card-img-top" src="@imagemSrc" alt="Imagem do Produto: @produto.Nome" />
                                 <div class="card-body p-4">
-                                    <div class="text-center">
+                                    <div class="text-center ">
                                         <h5 class="fw-bolder">@produto.Nome</h5>
+                                        Descrição: @produto.Descricao
                                         R$ @produto.valorUnitario.ToString("F2")
-                                    </div>
-                                </div>
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <input type="number" id="quantidade_@produto.Id" min="1" value="1" class="form-control mb-2" style="width: 80px; margin: 0 auto;" />
-                                        <button type="button" class="btn btn-outline-dark mt-auto" data-id="@produto.Id" onclick="adicionarAoCarrinho(this)">Adicionar ao carrinho</button>
+                                        Quantidade: @produto.Quantidade
                                     </div>
                                 </div>
                             </div>
