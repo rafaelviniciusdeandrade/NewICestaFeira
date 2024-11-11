@@ -52,6 +52,12 @@ namespace CestaFeira.Web.Controllers
                 return BadRequest(new { success = false, message = "Produto não encontrado" });
             }
 
+            if (produto.Quantidade<quantidade)
+            {
+                return BadRequest(new { success = false, message = "Erro: Quantidade maior que o estoque" });
+
+            }
+
             // Verifica se o produto já está no carrinho
             var itemExistente = carrinho.FirstOrDefault(i => i.ProdutoId == produtoId);
             if (itemExistente != null)

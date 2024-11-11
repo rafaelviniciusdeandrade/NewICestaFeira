@@ -25,6 +25,11 @@ namespace CestaFeira.CrossCutting.Mappings.Produto
 
             CreateMap<ProdutoEntity, ProdutoQuery>().ReverseMap();
 
+
+            CreateMap<ProdutoDto, ProdutoUpdateCommad>().ReverseMap();
+
+            CreateMap<ProdutoEntity, ProdutoUpdateCommad>().ReverseMap();
+
         }
     }
 }

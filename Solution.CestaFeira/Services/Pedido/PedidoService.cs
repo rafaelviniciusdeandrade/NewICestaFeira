@@ -46,9 +46,8 @@ namespace CestaFeira.Web.Services.Pedido
                 {
                     Id=produto.Id,
                     Nome = produto.Nome,
-        valorUnitario=produto.valorUnitario,
-        quantidade=produto.Quantidade
-        // Mapeie outras propriedades conforme necessário
+                    valorUnitario=produto.valorUnitario,
+                    quantidade=produto.Quantidade
                 }).ToList()
             };
 
@@ -56,6 +55,18 @@ namespace CestaFeira.Web.Services.Pedido
 
             if (result.Success)
             {
+                //Decrementa o BD
+                foreach (var prod in carrinho.Produtos)
+                {
+                    var produtoCommand = new ProdutoUpdateCommad
+                    {
+                        Id = prod.Id,
+                        quantidade = prod.Quantidade
+
+                    };
+                    await _mediator.Send(produtoCommand);
+                }
+               
                 var usuarioDto = (result.Result as LoginDtoResult)?.Usuario;
                 return true;
             }
@@ -63,7 +74,6 @@ namespace CestaFeira.Web.Services.Pedido
             {
                 return false;
             }
-            return false;
         }
 
         public async Task<List<PedidoProdutoRetModel>> ConsultarPedidos(Guid UsuarioId)

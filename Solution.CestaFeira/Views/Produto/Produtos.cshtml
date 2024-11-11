@@ -163,8 +163,18 @@
                         alert(response.message);
                     }
                 },
-                error: function () {
-                    alert("Erro ao adicionar o produto ao carrinho.");
+                error: function (xhr, status, error) {
+                    // Verifica se a resposta de erro contém JSON e se há mensagem
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response && response.message) {
+                            alert(response.message);  // Exibe a mensagem do servidor
+                        } else {
+                            alert("Erro desconhecido ao adicionar o produto ao carrinho.");
+                        }
+                    } catch (e) {
+                        alert("Erro na requisição ao servidor.");
+                    }
                 }
             });
         }
@@ -176,6 +186,9 @@
                 success: function (response) {
                     if (response.success) {
                         $('#quantidadeCarrinho').text(response.quantidadeItens);
+                    }
+                    else {
+                        alert(response.message);
                     }
                 },
                 error: function () {
