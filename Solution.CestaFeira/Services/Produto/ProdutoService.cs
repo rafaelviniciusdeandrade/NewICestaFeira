@@ -42,7 +42,35 @@ namespace CestaFeira.Web.Services.Produto
                 return false;
             }
         }
+        public async Task<bool> EditarProduto(ProdutoModel produto)
+        {
+            if (produto.Id != null)
+            {
+                var prod = await ConsultarProdutosId((Guid)produto.Id);
+                var produtoCommand = new ProdutoCompleteUpdateCommand
+                {
+                    Id=prod.Id,
+                    Nome = !string.IsNullOrEmpty(produto.Nome) ? produto.Nome : prod.Nome,
+                    Descricao = !string.IsNullOrEmpty(produto.Descricao) ? produto.Descricao : prod.Descricao,
+                    quantidade = produto.Quantidade > 0 ? produto.Quantidade : prod.Quantidade,
+                    valorUnitario = produto.valorUnitario > 0 ? produto.valorUnitario : prod.valorUnitario,
+                    imagem = produto.imagem ?? prod.imagem,
+                    UsuarioId = produto.UsuarioId.HasValue && produto.UsuarioId != Guid.Empty ? produto.UsuarioId.Value : prod.UsuarioId.GetValueOrDefault(),
+                    Usuario = new UsuarioCreateCommand // Mapeia as propriedades de UsuarioModel para UsuarioCreateCommand
+                    {
+                        Id=prod.UsuarioId
+                    }
 
+                };
+                var result = await _mediator.Send(produtoCommand);
+
+                return result;
+            }
+            else { return false; }
+
+
+
+        }
         public async Task<List<ProdutoModel>> ConsultarProdutos(Guid UsuarioId)
         {
             var produtoCommad = new ProdutoQuery
@@ -56,7 +84,7 @@ namespace CestaFeira.Web.Services.Produto
             {
                 return result.Select(produtoDto => new ProdutoModel
                 {
-                    Id=produtoDto.Id,
+                    Id = produtoDto.Id,
                     Nome = produtoDto.Nome,
                     Descricao = produtoDto.Descricao,
                     Quantidade = produtoDto.quantidade,
@@ -117,7 +145,8 @@ namespace CestaFeira.Web.Services.Produto
                     Quantidade = result.quantidade,
                     valorUnitario = result.valorUnitario,
                     imagem = result.imagem,
-                    Id=result.Id
+                    Id = result.Id,
+                    UsuarioId=result.UsuarioId
                 };
 
                 // Retorna uma lista contendo o único produto

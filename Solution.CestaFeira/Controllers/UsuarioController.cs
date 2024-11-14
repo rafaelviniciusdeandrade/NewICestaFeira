@@ -84,8 +84,10 @@ namespace CestaFeira.Web.Controllers
         public async Task<IActionResult> CadastrarUsuario(UsuarioModel usuario)
         {
             try {
+                if (usuario.NomeFantasia == null)
+                    usuario.NomeFantasia = "";
                     var ret = await _usuario.CadastrarUsuario(usuario);
-
+                    
                     if (ret)
                     {
                     TempData["SucessMessage"] = "Usuário Cadastrado com sucesso";

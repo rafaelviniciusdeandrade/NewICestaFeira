@@ -87,7 +87,9 @@ namespace CestaFeira.Web.Services.Pedido
 
             if (result.Count > 0)
             {
-                return result.Select(pedidoDto => new PedidoProdutoRetModel
+                return result
+                    .OrderByDescending(pedidoDto => pedidoDto.Data)
+                    .Select(pedidoDto => new PedidoProdutoRetModel
                 {
                     UsuarioId = pedidoDto.UsuarioId,
                     Data = pedidoDto.Data,

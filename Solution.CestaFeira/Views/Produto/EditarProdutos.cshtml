@@ -1,0 +1,90 @@
+﻿@model CestaFeira.Web.Models.Produto.ProdutoModel
+
+@{
+    Layout = null;
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Editar Produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">CestaFeira</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown">Produtos</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="~/Produto/Produtos">Todos os Produtos</a></li>
+                            <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
+                            <li><a class="dropdown-item" href="~/Produto/GerenciarProdutos">Gerenciar Produtos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Editar Produto</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Altere os detalhes do produto</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <form asp-action="EditarProdutos" asp-controller="Produto" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="Id" value="@Model.Id" />
+
+                <div class="mb-3">
+                    <label for="Nome" class="form-label">Nome do Produto</label>
+                    <input type="text" class="form-control" id="Nome" name="Nome" value="@Model.Nome" placeholder="Nome do Produto">
+                </div>
+
+                <div class="mb-3">
+                    <label for="Descricao" class="form-label">Descrição do Produto</label>
+                    <textarea class="form-control" id="Descricao" name="Descricao" rows="3" placeholder="Descrição do Produto">@Model.Descricao</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="quantidade" class="form-label">Quantidade</label>
+                    <input type="number" class="form-control" id="quantidade" name="quantidade" value="@Model.Quantidade" placeholder="Quantidade">
+                </div>
+
+                <div class="mb-3">
+                    <label for="valorUnitario" class="form-label">Valor Unitário</label>
+                    <input type="number" class="form-control" id="valorUnitario" name="valorUnitario" value="@Model.valorUnitario" placeholder="Valor Unitário" step="0.01">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imagemProduto" class="form-label">Imagem do Produto</label>
+                    <input class="form-control" type="file" id="imagemProduto" name="imagemProduto">
+                    @if (Model.imagem != null)
+                    {
+                        <img src="data:image/png;base64,@Convert.ToBase64String(Model.imagem)" alt="Imagem Atual" style="max-width: 200px; margin-top: 10px;">
+                    }
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-5 bg-dark"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/scripts.js"></script>
+</body>
+</html>

@@ -6,6 +6,8 @@ namespace CestaFeira.Domain.Command.Usuario
 {
     public class UsuarioCreateCommand : IRequest<CommandBaseResult>
     {
+        public  Guid? Id { get; set; }
+
         public string cpf { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }

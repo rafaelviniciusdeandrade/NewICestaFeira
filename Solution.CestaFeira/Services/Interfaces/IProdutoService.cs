@@ -8,5 +8,6 @@ namespace CestaFeira.Web.Services.Interfaces
         Task<List<ProdutoModel>> ConsultarProdutos(Guid UsuarioId);
         Task<ProdutoModel> ConsultarProdutosId(Guid ProdutoId);
         Task<List<ProdutoModel>> ConsultarTodosProdutos();
+        Task<bool> EditarProduto(ProdutoModel produto);
     }
 }

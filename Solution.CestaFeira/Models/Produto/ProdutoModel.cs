@@ -13,7 +13,7 @@ namespace CestaFeira.Web.Models.Produto
         public int  Quantidade { get; set; }
         public double valorUnitario { get; set; }
         public byte[] imagem { get; set; }
-        public Guid UsuarioId { get; set; }
+        public Guid? UsuarioId { get; set; }
         public UsuarioModel Usuario { get; set; }
 
     }
