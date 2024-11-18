@@ -66,9 +66,12 @@
         <label for="produtorFilter" class="form-label">Filtrar por Produtor:</label>
         <select class="form-select" id="produtorFilter" onchange="filtrarPorProdutor()">
             <option value="">Todos os Produtores</option>
-            @foreach (var produtor in Model.Select(p => p.Usuario.NomeFantasia).Distinct())
+            @if (Model != null)
             {
-                <option value="@produtor">@produtor</option>
+                @foreach (var produtor in Model.Select(p => p.Usuario?.NomeFantasia).Distinct())
+                {
+                    <option value="@produtor">@produtor</option>
+                }
             }
 
         </select>

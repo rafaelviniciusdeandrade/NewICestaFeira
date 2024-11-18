@@ -58,7 +58,7 @@ namespace CestaFeria.Data.Context
                     Email = "rafael@gmail.com",
                     Senha = senha,
                     Nome = "Administrador",
-                    NomeFantasia="",
+                    NomeFantasia="Teste",
                     Cel = "(35)11111111",
                     Rua = "Juscelino Kubitschek",
                     Numero = 555,
