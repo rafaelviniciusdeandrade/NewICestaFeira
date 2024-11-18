@@ -123,7 +123,10 @@ C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\MySqlConnector.dll
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Nest.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\System.CodeDom.dll
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\System.Data.SqlClient.dll
@@ -182,4 +185,3 @@ C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6.0\CestaFeira.Web.pdb
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6.0\CestaFeira.Web.genruntimeconfig.cache
 C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\obj\Debug\net6.0\ref\CestaFeira.Web.dll
-C:\Users\Fernanda\source\repos\NewICestaFeira\Solution.CestaFeira\bin\Debug\net6.0\Newtonsoft.Json.dll

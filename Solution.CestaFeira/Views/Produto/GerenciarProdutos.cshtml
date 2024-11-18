@@ -89,15 +89,19 @@
 
     <script>
         function excluirProduto(produtoId) {
+            console.log("Produto ID:", produtoId); // Adicionado para verificar o ID
             if (confirm("Tem certeza de que deseja excluir este produto?")) {
                 $.ajax({
-                    url: '/Produto/Excluir',
+                    url: '@Url.Action("Excluir", "Produto")',
                     type: 'POST',
-                    data: { id: produtoId },
+                    data: {
+                        id: produtoId,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
                     success: function (response) {
                         if (response.success) {
                             alert("Produto excluído com sucesso.");
-                            location.reload();  // Recarrega a página para atualizar a lista
+                            location.reload();
                         } else {
                             alert("Erro ao excluir o produto: " + response.message);
                         }
@@ -106,8 +110,10 @@
                         alert("Erro ao tentar excluir o produto.");
                     }
                 });
+
             }
         }
+
     </script>
 </body>
 </html>

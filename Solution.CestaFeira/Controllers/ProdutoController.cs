@@ -1,6 +1,7 @@
 ﻿using CestaFeira.Web.Helpers;
 using CestaFeira.Web.Models.Produto;
 using CestaFeira.Web.Services.Interfaces;
+using CestaFeira.Web.Services.Produto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CestaFeira.Web.Controllers
@@ -83,6 +84,20 @@ namespace CestaFeira.Web.Controllers
                 }
 
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Excluir(Guid id)
+        {
+            var sucesso = await _produto.ExcluirProduto(id);
+
+            if (sucesso)
+            {
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Erro ao excluir o produto. Tente novamente." });
+            }
         }
         public IActionResult CadastrarProdutos()
         {

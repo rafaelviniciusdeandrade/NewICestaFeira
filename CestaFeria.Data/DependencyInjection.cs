@@ -12,9 +12,10 @@ namespace CestaFeira.Data
         public static IServiceCollection AddIdentityInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApsContext>(options =>
-                options.UseSqlServer(
-                    configuration.GetConnectionString("SQLServer"),
-                    b => b.MigrationsAssembly(typeof(ApsContext).Assembly.FullName)));
+                options.UseMySql(
+                configuration.GetConnectionString("MySQLConnection"),
+                ServerVersion.AutoDetect(configuration.GetConnectionString("MySQLConnection")),
+                b => b.MigrationsAssembly(typeof(ApsContext).Assembly.FullName)));
 
             services.AddScoped<IDataModule, DataModule<ApsContext>>();
             services.AddScoped<IDataModuleDBAps, DataModuleDBAps>();

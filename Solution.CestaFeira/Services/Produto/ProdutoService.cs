@@ -68,9 +68,25 @@ namespace CestaFeira.Web.Services.Produto
             }
             else { return false; }
 
-
-
         }
+        public async Task<bool> ExcluirProduto(Guid id)
+        {
+            try
+            {
+                var produtoDeleteCommand = new ProdutoDeleteCommand
+                {
+                    Id = id
+                };
+                var result = await _mediator.Send(produtoDeleteCommand);
+
+                return result;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public async Task<List<ProdutoModel>> ConsultarProdutos(Guid UsuarioId)
         {
             var produtoCommad = new ProdutoQuery

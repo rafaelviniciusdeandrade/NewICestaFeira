@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1tPP4opy3AwWABJZw+RcMMOsAorbRpc6mmSfpOuB/s+/klb/UqG5KYvgeQu1df5kNeH4iyw84GuvSn0I05lm7g==",
+  "dgSpecHash": "026SkFnC8px1qUQXVF0gdrwMJHcVy33MSHgQjEIohXo3M1Fe/YSyPJI9rvGqSeKOHKKsuuVPG2SlOIYJYOJH8w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
   "expectedPackageFiles": [
@@ -43,7 +43,9 @@
     "C:\\Users\\Fernanda\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Fernanda\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\nest\\7.17.5\\nest.7.17.5.nupkg.sha512",
+    "C:\\Users\\Fernanda\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.3\\pomelo.entityframeworkcore.mysql.6.0.3.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Fernanda\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
