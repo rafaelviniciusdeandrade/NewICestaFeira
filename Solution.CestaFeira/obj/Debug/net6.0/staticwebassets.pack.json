@@ -21,8 +21,20 @@
       "PackagePath": "staticwebassets\\assets\\demo\\datatables-demo.js"
     },
     {
+      "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\favicon.ico",
+      "PackagePath": "staticwebassets\\assets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\img\\bg.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\bg.jpg"
+    },
+    {
       "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\img\\error-404-monochrome.svg",
       "PackagePath": "staticwebassets\\assets\\img\\error-404-monochrome.svg"
+    },
+    {
+      "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\img\\intro.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\intro.jpg"
     },
     {
       "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\css\\site.css",
@@ -31,6 +43,10 @@
     {
       "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\css\\styles.css",
       "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\css\\stylesN.css",
+      "PackagePath": "staticwebassets\\css\\stylesN.css"
     },
     {
       "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\favicon.ico",
@@ -43,6 +59,10 @@
     {
       "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\js\\scripts.js",
       "PackagePath": "staticwebassets\\js\\scripts.js"
+    },
+    {
+      "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\js\\scriptsN.js",
+      "PackagePath": "staticwebassets\\js\\scriptsN.js"
     },
     {
       "Id": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\js\\site.js",

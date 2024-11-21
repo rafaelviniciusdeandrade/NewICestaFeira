@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NnPjTznDeCwaqdAdNulAcEOBtnQTPWh2CHSUI/4uwqg=",
+  "Hash": "rToviOsVsz0n+LS2LSaI04Ibor0hZq8Fn/UM+MMKKzo=",
   "Source": "CestaFeira.Web",
   "BasePath": "_content/CestaFeira.Web",
   "Mode": "Default",
@@ -119,6 +119,40 @@
       "OriginalItemSpec": "wwwroot\\assets\\demo\\datatables-demo.js"
     },
     {
+      "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\favicon.ico",
+      "SourceId": "CestaFeira.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\",
+      "BasePath": "_content/CestaFeira.Web",
+      "RelativePath": "assets/favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\img\\bg.jpg",
+      "SourceId": "CestaFeira.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\",
+      "BasePath": "_content/CestaFeira.Web",
+      "RelativePath": "assets/img/bg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\bg.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\img\\error-404-monochrome.svg",
       "SourceId": "CestaFeira.Web",
       "SourceType": "Discovered",
@@ -134,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\error-404-monochrome.svg"
+    },
+    {
+      "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\assets\\img\\intro.jpg",
+      "SourceId": "CestaFeira.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\",
+      "BasePath": "_content/CestaFeira.Web",
+      "RelativePath": "assets/img/intro.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\intro.jpg"
     },
     {
       "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\css\\site.css",
@@ -168,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\css\\stylesN.css",
+      "SourceId": "CestaFeira.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\",
+      "BasePath": "_content/CestaFeira.Web",
+      "RelativePath": "css/stylesN.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\stylesN.css"
     },
     {
       "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\favicon.ico",
@@ -219,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\scripts.js"
+    },
+    {
+      "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\js\\scriptsN.js",
+      "SourceId": "CestaFeira.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\",
+      "BasePath": "_content/CestaFeira.Web",
+      "RelativePath": "js/scriptsN.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\scriptsN.js"
     },
     {
       "Identity": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\wwwroot\\js\\site.js",
