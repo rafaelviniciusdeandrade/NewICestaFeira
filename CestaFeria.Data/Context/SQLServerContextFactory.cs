@@ -43,7 +43,7 @@ namespace CestaFeria.Data.Context
                 .Build();
             //var connectionString = config.GetConnectionString("MySQLConnection");
 
-            var connectionString = "Server=localhost; Port=3306; Database=cestafeira; User=root; Password=123456;";
+            var connectionString = "Server=MYSQL9001.site4now.net;Database=db_aaf9fa_cestafe;Uid=aaf9fa_cestafe;Pwd=Mcafee123";
 
             var optionsBuilder = new DbContextOptionsBuilder<ApsContext>();
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));

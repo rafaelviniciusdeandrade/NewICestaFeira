@@ -32,3 +32,21 @@ C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeria.Data\obj\Debug\net6.0\r
 C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.pdb
 C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.genruntimeconfig.cache
 C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeria.Data\obj\Debug\net6.0\ref\CestaFeira.Data.dll
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\bin\Debug\net6.0\CestaFeira.Data.deps.json
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\bin\Debug\net6.0\CestaFeira.Data.runtimeconfig.json
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\bin\Debug\net6.0\CestaFeira.Data.dll
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\bin\Debug\net6.0\CestaFeira.Data.pdb
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\bin\Debug\net6.0\CestaFeira.Domain.dll
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\bin\Debug\net6.0\CestaFeira.Domain.pdb
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.csproj.AssemblyReference.cache
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.AssemblyInfoInputs.cache
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.AssemblyInfo.cs
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.csproj.CoreCompileInputs.cache
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.sourcelink.json
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFei.156A47AA.Up2Date
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.dll
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\refint\CestaFeira.Data.dll
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.pdb
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\CestaFeira.Data.genruntimeconfig.cache
+C:\Users\Fernanda\Desktop\Rafael\Nova pasta\CestaFeria.Data\obj\Debug\net6.0\ref\CestaFeira.Data.dll

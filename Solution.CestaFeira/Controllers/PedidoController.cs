@@ -42,10 +42,10 @@ namespace CestaFeira.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> AdicionarProdutoAoCarrinho(Guid produtoId, int quantidade)
         {
-            // Recupera o carrinho da sessão ou cria um novo se não existir
+            // 1. Recupera o carrinho da sessão ou cria um novo se não existir
             var carrinho = HttpContext.Session.GetObjectFromJson<List<ItemCarrinhoModel>>("Carrinho") ?? new List<ItemCarrinhoModel>();
 
-            // Busca o produto (simulação, você pode recuperar da sua lista de produtos)
+            // 2. Busca o produto (DEVE incluir o FornecedorId)
             var produto = await _produto.ConsultarProdutosId(produtoId);
 
             if (produto == null)
@@ -53,17 +53,48 @@ namespace CestaFeira.Web.Controllers
                 return BadRequest(new { success = false, message = "Produto não encontrado" });
             }
 
-            if (produto.Quantidade<quantidade)
+            // *******************************************************************
+            // 3. VALIDAÇÃO DE FORNECEDOR (Ifood-like)
+            // *******************************************************************
+            if (carrinho.Any())
             {
-                return BadRequest(new { success = false, message = "Erro: Quantidade maior que o estoque" });
+                // Obtém o FornecedorId do primeiro item no carrinho
+                var fornecedorAtual = carrinho.First().IdUsuario;
 
+                // Compara com o FornecedorId do produto que está sendo adicionado
+                if (fornecedorAtual != produto.UsuarioId)
+                {
+                    // PRODUTO DE OUTRO FORNECEDOR. Retorna a flag para o frontend.
+                    return Ok(new
+                    {
+                        success = false, // Indica que a operação não foi concluída
+                        requiresConfirmation = true, // Flag para o frontend
+                        message = "Seu carrinho possui itens de outro produtor/fornecedor. Deseja esvaziar o carrinho e adicionar este item?",
+                        novoProdutoId = produtoId, // Passa o ID e a quantidade para serem usados após a confirmação
+                        novaQuantidade = quantidade
+                    });
+                }
             }
+
+            // 4. Se chegou aqui, o carrinho está vazio OU o produto é do mesmo fornecedor.
 
             // Verifica se o produto já está no carrinho
             var itemExistente = carrinho.FirstOrDefault(i => i.ProdutoId == produtoId);
+
+            // *******************************************************************
+            // 5. Verificação de estoque ANTES de adicionar/somar
+            // *******************************************************************
+            int quantidadeAposAdicao = itemExistente != null ? itemExistente.Quantidade + quantidade : quantidade;
+
+            if (produto.Quantidade < quantidadeAposAdicao)
+            {
+                return BadRequest(new { success = false, message = "Erro: A quantidade total solicitada é maior que o estoque disponível." });
+            }
+
             if (itemExistente != null)
             {
-                itemExistente.Quantidade++;  // Aumenta a quantidade se já existe no carrinho
+                // Item já existe: Aumenta a quantidade
+                itemExistente.Quantidade = quantidadeAposAdicao; // Usa a quantidade calculada acima
             }
             else
             {
@@ -72,15 +103,60 @@ namespace CestaFeira.Web.Controllers
                 {
                     ProdutoId = produto.Id,
                     Nome = produto.Nome,
+                    // Certifique-se de que produto.FornecedorId esteja sendo populado corretamente
+                    IdUsuario = produto.UsuarioId,
                     Quantidade = quantidade,
                     ValorUnitario = produto.valorUnitario
                 });
             }
 
-            // Salva o carrinho atualizado na sessão
+            // 6. Salva o carrinho atualizado na sessão
             HttpContext.Session.SetObjectAsJson("Carrinho", carrinho);
 
             return Ok(new { success = true, message = "Produto adicionado ao carrinho com sucesso!", quantidadeItens = carrinho.Count });
+        }
+
+        // *******************************************************************
+        // 7. NOVO MÉTODO: Esvaziar e Adicionar (usado após a confirmação do cliente)
+        // *******************************************************************
+
+        [HttpPost]
+        public async Task<IActionResult> EsvaziarECadicionar(Guid produtoId, int quantidade)
+        {
+            // Esvazia o carrinho
+            HttpContext.Session.Remove("Carrinho");
+
+            // Busca o produto novamente para garantir os dados (e estoque)
+            var produto = await _produto.ConsultarProdutosId(produtoId);
+
+            if (produto == null)
+            {
+                return BadRequest(new { success = false, message = "Produto não encontrado" });
+            }
+
+            if (produto.Quantidade < quantidade)
+            {
+                // Se o estoque for insuficiente mesmo após a confirmação (improvável, mas segurança)
+                return BadRequest(new { success = false, message = "Erro: Quantidade maior que o estoque" });
+            }
+
+            // Cria um novo carrinho e adiciona o item
+            var novoCarrinho = new List<ItemCarrinhoModel>
+    {
+        new ItemCarrinhoModel
+        {
+            ProdutoId = produto.Id,
+            Nome = produto.Nome,
+            IdUsuario = produto.UsuarioId,
+            Quantidade = quantidade,
+            ValorUnitario = produto.valorUnitario
+        }
+    };
+
+            // Salva o novo carrinho na sessão
+            HttpContext.Session.SetObjectAsJson("Carrinho", novoCarrinho);
+
+            return Ok(new { success = true, message = "Carrinho esvaziado e novo produto adicionado com sucesso!", quantidadeItens = novoCarrinho.Count });
         }
 
         [HttpGet]

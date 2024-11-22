@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CestaFeira.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00f8ea22410077a162a77ad4d5677795b8031149")]
 [assembly: System.Reflection.AssemblyProductAttribute("CestaFeira.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CestaFeira.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

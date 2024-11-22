@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj": {}
+    "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\CestaFeira.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj": {
+    "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj",
+        "projectUniqueName": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj",
         "projectName": "CestaFeira.CrossCutting",
-        "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj",
+        "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj",
         "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\obj\\",
+        "outputPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
-                "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
+              "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+                "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
               }
             }
           }
@@ -38,7 +43,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net6.0": {
@@ -65,21 +76,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+    "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
         "projectName": "CestaFeira.Domain",
-        "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
+        "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
         "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,6 +102,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -99,7 +115,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net6.0": {
@@ -154,21 +176,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj": {
+    "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\CestaFeira.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\CestaFeira.Data.csproj",
         "projectName": "CestaFeira.Data",
-        "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj",
+        "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\CestaFeira.Data.csproj",
         "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\obj\\",
+        "outputPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -176,14 +202,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
-                "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
+              "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+                "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
               }
             }
           }
@@ -192,7 +219,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net6.0": {
@@ -251,21 +284,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj": {
+    "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\CestaFeira.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
+        "projectUniqueName": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\CestaFeira.Web.csproj",
         "projectName": "CestaFeira.Web",
-        "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\CestaFeira.Web.csproj",
+        "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\CestaFeira.Web.csproj",
         "packagesPath": "C:\\Users\\Fernanda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\Solution.CestaFeira\\obj\\",
+        "outputPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Fernanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -273,20 +310,21 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj": {
-                "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj"
+              "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj": {
+                "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj"
               },
-              "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
-                "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
+              "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj": {
+                "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CestaFeira.Domain.csproj"
               },
-              "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj": {
-                "projectPath": "C:\\Users\\Fernanda\\source\\repos\\NewICestaFeira\\CestaFeria.Data\\CestaFeira.Data.csproj"
+              "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\CestaFeira.Data.csproj": {
+                "projectPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\CestaFeira.Data.csproj"
               }
             }
           }
@@ -295,7 +333,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net6.0": {
@@ -329,7 +373,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }

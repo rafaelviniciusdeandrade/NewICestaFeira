@@ -728,7 +728,10 @@
           "CestaFeira.Domain": "1.0.0"
         },
         "runtime": {
-          "CestaFeira.CrossCutting.dll": {}
+          "CestaFeira.CrossCutting.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CestaFeira.Data/1.0.0": {
@@ -742,7 +745,10 @@
           "Pomelo.EntityFrameworkCore.MySql": "6.0.3"
         },
         "runtime": {
-          "CestaFeira.Data.dll": {}
+          "CestaFeira.Data.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "CestaFeira.Domain/1.0.0": {
@@ -757,7 +763,10 @@
           "Microsoft.EntityFrameworkCore": "6.0.33"
         },
         "runtime": {
-          "CestaFeira.Domain.dll": {}
+          "CestaFeira.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

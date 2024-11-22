@@ -144,6 +144,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Armazena temporariamente os dados do produto se a confirmação for necessária
+        let dadosParaConfirmacao = {};
+
         function adicionarAoCarrinho(button) {
             var produtoId = $(button).data('id');
             var quantidade = $('#quantidade_' + produtoId).val();
@@ -161,24 +164,67 @@
                 },
                 success: function (response) {
                     if (response.success) {
+                        // SUCESSO normal (produto adicionado ou quantidade aumentada)
                         alert(response.message);
                         $('#quantidadeCarrinho').text(response.quantidadeItens);
+                        // Opcional: recarregar ou atualizar o modal do carrinho
+                    } else if (response.requiresConfirmation) {
+                        // 🚨 REQUER CONFIRMAÇÃO DO USUÁRIO (Produto de outro fornecedor)
+
+                        // Armazena os dados do novo produto
+                        dadosParaConfirmacao = {
+                            produtoId: response.novoProdutoId, // Passado pelo Controller
+                            quantidade: response.novaQuantidade // Passado pelo Controller
+                        };
+
+                        // Exibe a mensagem de confirmação
+                        if (confirm(response.message)) {
+                            // Se o usuário clicar em OK, chama a função para esvaziar e adicionar
+                            esvaziarECadicionar(dadosParaConfirmacao.produtoId, dadosParaConfirmacao.quantidade);
+                        }
+
                     } else {
+                        // Erro de estoque ou outro erro de validação
                         alert(response.message);
                     }
                 },
                 error: function (xhr, status, error) {
-                    // Verifica se a resposta de erro contém JSON e se há mensagem
+                    // ... (seu tratamento de erro original)
                     try {
                         var response = JSON.parse(xhr.responseText);
                         if (response && response.message) {
-                            alert(response.message);  // Exibe a mensagem do servidor
+                            alert(response.message);
                         } else {
                             alert("Erro desconhecido ao adicionar o produto ao carrinho.");
                         }
                     } catch (e) {
                         alert("Erro na requisição ao servidor.");
                     }
+                }
+            });
+        }
+
+        // --- Nova Função para Lidar com a Confirmação do Usuário ---
+        function esvaziarECadicionar(produtoId, quantidade) {
+            $.ajax({
+                url: '/Pedido/EsvaziarECadicionar', // Este é o novo endpoint no Controller
+                type: 'POST',
+                data: {
+                    produtoId: produtoId,
+                    quantidade: quantidade
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        $('#quantidadeCarrinho').text(response.quantidadeItens);
+                        // Opcional: Recarregar a página para limpar o filtro se necessário
+                        // window.location.reload();
+                    } else {
+                        alert("Erro ao esvaziar o carrinho e adicionar o novo produto: " + response.message);
+                    }
+                },
+                error: function () {
+                    alert("Erro na requisição para esvaziar e adicionar.");
                 }
             });
         }

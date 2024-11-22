@@ -1,0 +1,15 @@
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\bin\Release\net6.0\CestaFeira.CrossCutting.deps.json
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\bin\Release\net6.0\CestaFeira.CrossCutting.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\bin\Release\net6.0\CestaFeira.CrossCutting.pdb
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\bin\Release\net6.0\CestaFeira.Domain.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\bin\Release\net6.0\CestaFeira.Domain.pdb
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.csproj.AssemblyReference.cache
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.AssemblyInfoInputs.cache
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.AssemblyInfo.cs
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.csproj.CoreCompileInputs.cache
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.csproj.CopyComplete
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\refint\CestaFeira.CrossCutting.dll
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\CestaFeira.CrossCutting.pdb
+C:\Users\Fernanda\source\repos\NewICestaFeira\CestaFeira.CrossCutting\obj\Release\net6.0\ref\CestaFeira.CrossCutting.dll
