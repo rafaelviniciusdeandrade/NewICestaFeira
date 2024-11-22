@@ -21,6 +21,10 @@ namespace CestaFeira.CrossCutting.Mappings.Pedido
             CreateMap<PedidoEntity, PedidoCreateCommand>().ReverseMap();
 
             CreateMap<PedidoEntity, PedidoQuery>().ReverseMap();
+
+            CreateMap<PedidoDto, PedidoUpdateCommand>().ReverseMap();
+
+            CreateMap<PedidoEntity, PedidoUpdateCommand>().ReverseMap();
         }
     }
 }

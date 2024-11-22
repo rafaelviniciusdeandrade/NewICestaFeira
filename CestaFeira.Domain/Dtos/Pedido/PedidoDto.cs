@@ -6,7 +6,7 @@ namespace CestaFeira.Domain.Dtos.Pedido
 {
     public class PedidoDto
     {
-        public Guid PedidoId { get; set; }
+        public Guid Id { get; set; }
         public Guid UsuarioId { get; set; }
         public DateTime Data { get; set; }
         public List<PedidoProdutoDto> ProdutoPedidos { get; set; }

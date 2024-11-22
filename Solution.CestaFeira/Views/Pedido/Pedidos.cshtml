@@ -65,43 +65,41 @@
         <h1>Pedidos:</h1>
         @if (Model != null && Model.Any())
         {
-            foreach (var pedido in Model)
+            @foreach (var pedido in Model)
             {
-                <h5 style="font-size: 1rem; font-weight: normal;">Pedido: @pedido.Usuario.Nome</h5> <!-- Exibindo o ID do pedido ou outra informação relevante -->
-                <h5 style="font-size: 1rem; font-weight: normal;">Data: @pedido.Data</h5> <!-- Exibindo o ID do pedido ou outra informação relevante -->
-                <b>Status: @pedido.Status </b>
-                
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nome do Produto</th>
-                            <th>Quantidade</th>
-                            <th>Valor Unitário</th>
-                            <th>Valor Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{
-                            double valorTotal = 0; // Inicializa o valor total para o pedido atual
-                        }
+                <div class="pedido-container border rounded p-4 mb-4">
+                    <h5 class="fw-bold">Pedido de: @pedido.Usuario.Nome</h5>
+                    <p>Data: @pedido.Data</p>
+                    <p>Status: <b>@pedido.Status</b></p>
+
+                    <div class="produtos-container">
+                        <h6>Produtos:</h6>
                         @foreach (var produto in pedido.PedidoProdutos)
                         {
-                            var produtoTotal = produto.Quantidade * produto.Produto.valorUnitario;
-                            valorTotal += produtoTotal; // Acumulando o valor total
-                            <tr>
-                                <td>@produto.Produto.Nome</td>
-                                <td>@produto.Quantidade</td>
-                                <td>@string.Format("{0:C}", produto.Produto.valorUnitario)</td>
-                                <td>@string.Format("{0:C}", produto.Quantidade * produto.Produto.valorUnitario)</td>
-                            </tr>
+                            <div class="produto-item border p-3 my-2 rounded">
+                                <p><b>Produto:</b> @produto.Produto.Nome</p>
+                                <p><b>Quantidade:</b> @produto.Quantidade</p>
+                                <p><b>Valor Unitário:</b> @string.Format("{0:C}", produto.Produto.valorUnitario)</p>
+                                <p><b>Subtotal:</b> @string.Format("{0:C}", produto.Quantidade * produto.Produto.valorUnitario)</p>
+                            </div>
                         }
-                        <tr>
-                            <td colspan="3" class="text-end fw-bold">Valor Total do Pedido:</td>
-                            <td class="fw-bold">@string.Format("{0:C}", valorTotal)</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    </div>
+
+                    <div class="pedido-footer mt-4">
+                        <p class="text-end fw-bold">Valor Total do Pedido: @string.Format("{0:C}", pedido.PedidoProdutos.Sum(p => p.Quantidade * p.Produto.valorUnitario))</p>
+                        @if (pedido.Status == "Aberto")
+                        {
+                            <!-- Botão de Cancelar Pedido -->
+                            <form action="~/Pedido/CancelarPedido" method="post" style="display: inline;">
+                                <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
+                            </form>
+                        }
+
+                    </div>
+                </div>
             }
+
         }
         else
         {

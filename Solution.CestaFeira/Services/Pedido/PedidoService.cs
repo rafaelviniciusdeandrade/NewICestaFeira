@@ -91,6 +91,7 @@ namespace CestaFeira.Web.Services.Pedido
                     .OrderByDescending(pedidoDto => pedidoDto.Data)
                     .Select(pedidoDto => new PedidoProdutoRetModel
                 {
+                    IdPedido=pedidoDto.Id,
                     UsuarioId = pedidoDto.UsuarioId,
                     Data = pedidoDto.Data,
                     Status=pedidoDto.Status,
@@ -119,6 +120,24 @@ namespace CestaFeira.Web.Services.Pedido
             return null;
         }
 
-       
+        public async Task<bool>  AtualizarStatusPedido(Guid pedidoId, string status)
+        {
+            var pedidoCommad = new PedidoUpdateCommand
+            {
+                IdPedido = pedidoId,
+                Status=status
+            };
+
+            var result = await _mediator.Send(pedidoCommad);
+            if (result == true)
+                return true;
+            else
+                return false;
+        }
+
+        public Task<List<PedidoProdutoRetModel>> ConsultarPedidoId(Guid UsuarioId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

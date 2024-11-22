@@ -3,6 +3,7 @@ using CestaFeira.Web.Models.Carrinho;
 using CestaFeira.Web.Models.Pedido;
 using CestaFeira.Web.Models.Produto;
 using CestaFeira.Web.Services.Interfaces;
+using CestaFeira.Web.Services.Pedido;
 using Microsoft.AspNetCore.Mvc;
 using Nest;
 using System.Text.Json;
@@ -138,6 +139,34 @@ namespace CestaFeira.Web.Controllers
             var result = await _pedido.ConsultarPedidos(id);
             return View(result);
 
+        }
+
+        public async Task<IActionResult> PedidosProdutor()
+        {
+            string usuarioId = HttpContext.Session.GetString("UsuarioId");
+            Guid id = Guid.Parse(usuarioId);
+            var result = await _pedido.ConsultarPedidos(id);
+            return View(result);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CancelarPedido(Guid pedidoId)
+        {
+            var status = "Cancelado";
+            // Busca o pedido pelo ID
+            var pedido = await _pedido.AtualizarStatusPedido(pedidoId,status);
+            if (pedido)
+            {
+                return RedirectToAction("Pedidos");
+            }
+            else
+            {
+                TempData["Erro"] = "Erro ao cancelar.";
+                return RedirectToAction("Pedidos");
+            }
+
+          
         }
 
     }
