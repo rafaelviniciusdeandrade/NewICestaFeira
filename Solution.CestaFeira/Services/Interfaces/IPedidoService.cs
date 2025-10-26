@@ -8,6 +8,9 @@ namespace CestaFeira.Web.Services.Interfaces
         int ObterQuantidadeTotal();
         Task<bool> CadastrarCarrinho(PedidoModel carrinho);
         Task<List<PedidoProdutoRetModel>> ConsultarPedidos(Guid UsuarioId);
+
+        Task<List<PedidoProdutoRetModel>> ConsultarPedidosProdutor(Guid UsuarioId);
+        
         Task<List<PedidoProdutoRetModel>> ConsultarPedidoId(Guid UsuarioId);
         Task<bool> AtualizarStatusPedido(Guid pedidoId, string status);
 

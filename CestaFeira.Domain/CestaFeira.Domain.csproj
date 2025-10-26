@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="QueryHandler\Base\**" />
+    <EmbeddedResource Remove="QueryHandler\Base\**" />
+    <None Remove="QueryHandler\Base\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.10.0" />
@@ -15,10 +21,6 @@
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="QueryHandler\Base\" />
   </ItemGroup>
 
 </Project>

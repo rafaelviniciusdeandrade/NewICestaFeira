@@ -217,11 +217,11 @@ namespace CestaFeira.Web.Controllers
 
         }
 
-        public async Task<IActionResult> PedidosProdutor()
+        public async Task<IActionResult> GerenciarPedidos()
         {
             string usuarioId = HttpContext.Session.GetString("UsuarioId");
             Guid id = Guid.Parse(usuarioId);
-            var result = await _pedido.ConsultarPedidos(id);
+            var result = await _pedido.ConsultarPedidosProdutor(id);
             return View(result);
 
         }

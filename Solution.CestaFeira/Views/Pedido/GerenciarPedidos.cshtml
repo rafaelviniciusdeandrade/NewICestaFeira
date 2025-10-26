@@ -33,11 +33,9 @@
 
                             @if (User.IsInRole("ADM") || User.IsInRole("PROD"))
                             {
-                                    <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
-                                    <li><a class="dropdown-item" href="~/Produto/GerenciarProdutos">Gerenciar Produtos</a></li>
-                                    <li><a class="dropdown-item" href="~/Pedido/GerenciarPedidos">Gerenciar Pedidos</a></li>
-
-
+                                <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
+                                <li><a class="dropdown-item" href="~/Produto/GerenciarProdutos">Gerenciar Produtos</a></li>
+                                <li><a class="dropdown-item" href="~/Pedido/GerenciarPedidos">Gerenciar Pedidos</a></li>
                             }
                             <li><a class="dropdown-item" href="~/Pedido/Pedidos">Ver Pedidos</a></li>
                             <li><a class="dropdown-item" href="~/Usuario/Sair">Sair</a></li>
@@ -88,17 +86,52 @@
                         }
                     </div>
 
-                    <div class="pedido-footer mt-4">
-                        <p class="text-end fw-bold">Valor Total do Pedido: @string.Format("{0:C}", pedido.PedidoProdutos.Sum(p => p.Quantidade * p.Produto.valorUnitario))</p>
+                    <div class="pedido-footer mt-4 d-flex justify-content-between align-items-center">
+                        <p class="fw-bold m-0">Valor Total do Pedido: @string.Format("{0:C}", pedido.PedidoProdutos.Sum(p => p.Quantidade * p.Produto.valorUnitario))</p>
+
                         @if (pedido.Status == "Aberto")
                         {
-                            <!-- Botão de Cancelar Pedido -->
-                            <form action="~/Pedido/CancelarPedido" method="post" style="display: inline;">
-                                <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
-                                <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
-                            </form>
-                        }
+                            <div class="btn-group">
+                                <form action="~/Pedido/AceitarPedido" method="post" style="display: inline; margin-right: 8px;">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="bi bi-check-lg"></i> Aceitar
+                                    </button>
+                                </form>
 
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#recusaModal_@pedido.IdPedido">
+                                    <i class="bi bi-x-lg"></i> Recusar
+                                </button>
+                            </div>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Status: @pedido.Status</span>
+                        }
+                    </div>
+                </div>
+
+                <div class="modal fade" id="recusaModal_@pedido.IdPedido" tabindex="-1" aria-labelledby="recusaModalLabel_@pedido.IdPedido" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="~/Pedido/RecusarPedido" method="post">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="recusaModalLabel_@pedido.IdPedido">Recusar Pedido #@pedido.IdPedido.ToString().Substring(0, 8)...</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <div class="mb-3">
+                                        <label for="notaRecusa_@pedido.IdPedido" class="form-label">Motivo da Recusa:</label>
+                                        <textarea class="form-control" id="notaRecusa_@pedido.IdPedido" name="notaRecusa" rows="3" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-danger">Confirmar Recusa</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             }
