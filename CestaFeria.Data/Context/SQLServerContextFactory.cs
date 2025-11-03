@@ -41,9 +41,9 @@ namespace CestaFeria.Data.Context
                 .AddJsonFile($"appsettings.{env}.json", optional: true)
                 .AddEnvironmentVariables()
                 .Build();
-            //var connectionString = config.GetConnectionString("MySQLConnection");
+            var connectionString = config.GetConnectionString("MySQLConnection");
 
-            var connectionString = "Server=MYSQL9001.site4now.net;Database=db_aaf9fa_cestafe;Uid=aaf9fa_cestafe;Pwd=Mcafee123";
+            //var connectionString = "Server=MYSQL9001.site4now.net;Database=db_aaf9fa_cestafe;Uid=aaf9fa_cestafe;Pwd=Mcafee123";
 
             var optionsBuilder = new DbContextOptionsBuilder<ApsContext>();
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));

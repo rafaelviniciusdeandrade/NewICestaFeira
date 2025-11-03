@@ -240,12 +240,7 @@ namespace CestaFeira.Web.Controllers
                     return Json(pixResult);
                 }
 
-                var jsonOptions = new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase // Força o camelCase
-                };
-
-                return Json(pixResult, jsonOptions);
+                return Json(pixResult);
             }
             catch (Exception ex)
             {

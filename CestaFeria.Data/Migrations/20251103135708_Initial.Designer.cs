@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CestaFeira.Data.Migrations
 {
     [DbContext(typeof(ApsContext))]
-    [Migration("20241118191627_primeiro")]
-    partial class primeiro
+    [Migration("20251103135708_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,10 @@ namespace CestaFeira.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("Status");
+
+                    b.Property<string>("TipoPagamento")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<Guid>("UsuarioId")
                         .HasColumnType("char(36)")
@@ -196,14 +200,14 @@ namespace CestaFeira.Data.Migrations
                             Bairro = "Jardim São Carlos",
                             Cel = "(35)11111111",
                             Cidade = "Alfenas",
-                            Data = new DateTime(2024, 11, 18, 16, 16, 27, 18, DateTimeKind.Local).AddTicks(9488),
+                            Data = new DateTime(2025, 11, 3, 10, 57, 7, 445, DateTimeKind.Local).AddTicks(9409),
                             Email = "rafael@gmail.com",
                             Nome = "Administrador",
-                            NomeFantasia = "",
+                            NomeFantasia = "Teste",
                             Numero = 555,
                             Perfil = "ADM",
                             Rua = "Juscelino Kubitschek",
-                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.KQQXlYxdzG9eK2531SXUEg==.ehM/BL/Y3GjhPAXNspbr1x3qFiaDZnAR7pWq5sF8t1s=",
+                            Senha = "AAAAAAAAAAAAAAAAAAAAAA==.6zFPxqnRy/8DYRasHfJztQ==.AYL6K2QdJTw/XjDFcEiyCAjMR1zWB00pnf1mqLMpT/w=",
                             Uf = "MG",
                             cpf = "13080460812"
                         });

@@ -229,53 +229,76 @@
             }
         }
 
-                     function gerarPixEFinalizar(valorTotal) {
+
+                function gerarPixEFinalizar(valorTotal) {
+            // Desabilita o botão enquanto a requisição está em andamento para evitar cliques duplicados
+            $('#btnFinalizar').prop('disabled', true).text('Gerando Pix...');
+
             $.ajax({
                 url: '/Pedido/GerarPix',
                 type: 'POST',
-                // CRÍTICO: Indica o que está sendo enviado
                 contentType: 'application/json',
-                // 🛑 NOVO: Indica o formato de DADOS ESPERADO na resposta
                 dataType: 'json',
                 data: JSON.stringify({
                     valorTotal: valorTotal
                 }),
                 success: function (response) {
 
-                    // Log do objeto real para inspecionar
+                    // Reabilita o botão para o próximo passo ou erro
+                    $('#btnFinalizar').prop('disabled', false);
+
                     console.log("Resposta do Servidor:", response);
 
-                    // Se o JSON vier em PascalCase (como você viu na rede):
+                    // Tenta ler as propriedades em PascalCase ou camelCase
                     const isSuccess = response.Success || response.success;
-                    const qrCodeData = response.QrCodeBase64 || response.qrCodeBase64; // Tenta os dois cases
+                    const qrCodeData = response.QrCodeBase64 || response.qrCodeBase64;
+                    const pixCode = response.PixCode || response.pixCode;
 
                     if (isSuccess && qrCodeData) {
 
-                        // Exibição da imagem (usando a propriedade lida)
+                        // 1. EXIBIÇÃO: Mostra o QR Code e o código Pix
                         $('#qrcodeDisplay').html('<img src="data:image/png;base64,' + qrCodeData + '" alt="QR Code Pix" style="width: 200px; height: 200px;" />');
-
-                        // Usa a propriedade PixCode correta (tentando PascalCase ou camelCase)
-                        const pixCode = response.PixCode || response.pixCode;
                         $('#pixCodeDisplay').html('**Código Copia e Cola:**<br>' + pixCode);
 
-                        alert("QR Code Pix gerado com sucesso! Confirme o pagamento para finalizar a compra.");
+                        // 2. SALVAMENTO DO PEDIDO: Chama a função que retorna uma Promise
+                        finalizarCompra('Pix', pixCode)
+                            .then(() => {
 
-                        finalizarCompra('Pix', pixCode);
+                                // 3. SUCESSO DO SALVAMENTO: Atualiza a interface (Mantém modal aberto!)
+
+                                // a. Notifica o usuário
+                                alert("Pedido salvo com sucesso! Escaneie o QR Code ou use o Código Copia e Cola para pagar.");
+
+                                // b. Altera a função do botão principal para REDIRECIONAR
+                                $('#btnFinalizar').text('Ver Pedido e Sair');
+                                $('#btnFinalizar').off('click').on('click', function() {
+                                    window.location.href = '/Pedido/Pedidos';
+                                });
+
+                                // c. Remove o texto de instrução inicial
+                                $('#pixArea p.text-muted').remove();
+
+                            })
+                            .catch(error => {
+                                // 4. ERRO NO SALVAMENTO: Se o C# aceitou o Pix, mas falhou ao SALVAR o pedido
+                                console.error("Erro ao salvar pedido após gerar Pix:", error);
+                                alert("Erro CRÍTICO: QR Code gerado, mas falha ao salvar pedido. Erro: " + error.message);
+                                $('#btnFinalizar').text('Erro ao Salvar Pedido');
+                            });
 
                     } else {
-                        // Se cair aqui, a falha é na lógica do C#, mas a comunicação está OK.
-                        let errorMessage = "Acesso ao JSON falhou. Verifique se o QrCodeBase64 está preenchido.";
-
-                        // Tenta Message e message
+                        // Se a geração do Pix falhou (antes de salvar o pedido)
+                        let errorMessage = "Erro na geração do Pix. Verifique o console.";
                         const message = response.Message || response.message;
-
                         if (message) {
                             errorMessage = message;
                         }
                         alert("Erro ao gerar QR Code Pix: " + errorMessage);
+                        $('#btnFinalizar').text('Finalizar Compra'); // Restaura o texto original
                     }
                 },
                 error: function (xhr, status, error) {
+                    $('#btnFinalizar').prop('disabled', false).text('Finalizar Compra');
                     console.error("Erro CRÍTICO na requisição AJAX. Status:", status, "Erro:", error, "Resposta:", xhr.responseText);
                     alert("Erro CRÍTICO na requisição. Consulte a aba Console e Network (F12).");
                 }
@@ -314,7 +337,6 @@
             }).then(response => {
                 if (response.ok) {
                     alert('Compra finalizada com sucesso! Seu pedido será processado.');
-                    window.location.href = '/Pedido/Pedidos';
                 } else {
                     response.json().then(data => {
                         alert('Erro ao finalizar a compra: ' + data.message);
