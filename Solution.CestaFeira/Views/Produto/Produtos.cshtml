@@ -124,16 +124,38 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <ul id="listaItensCarrinho" class="list-group">
-                        <!-- Os itens do carrinho serão carregados aqui -->
+                    <ul id="listaItensCarrinho" class="list-group mb-3">
                     </ul>
-                </div>
-                <div class="mt-3">
-                    <h5 id="totalCarrinho">Total: R$ 0,00</h5>
+                    <div class="mt-3">
+                        <h5 id="totalCarrinho">Total: R$ 0,00</h5>
+                    </div>
+
+                    <hr />
+                    <h6>Selecione a Forma de Pagamento:</h6>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoPix" value="Pix" checked onchange="togglePixArea(this.value)">
+                        <label class="form-check-label" for="pagamentoPix">
+                            **Pix** (Pagamento Imediato - Gera QR Code)
+                        </label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="metodoPagamento" id="pagamentoEntrega" value="NaEntrega" onchange="togglePixArea(this.value)">
+                        <label class="form-check-label" for="pagamentoEntrega">
+                            **Na Entrega**
+                        </label>
+                    </div>
+
+                    <div id="pixArea" style="display: block; border: 1px dashed #ccc; padding: 10px; text-align: center;">
+                        <p class="text-muted">Clique em **Finalizar Compra** para gerar o QR Code Pix.</p>
+                        <div id="qrcodeDisplay">
+                        </div>
+                        <p id="pixCodeDisplay" class="mt-2" style="font-size: 0.9em; word-break: break-all;"></p>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="finalizarCompra()">Finalizar Compra</button>
+                    <button type="button" class="btn btn-success" id="btnFinalizar" onclick="iniciarFinalizacao()">Finalizar Compra</button>
                 </div>
             </div>
         </div>
@@ -145,8 +167,166 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Armazena temporariamente os dados do produto se a confirmação for necessária
         let dadosParaConfirmacao = {};
+        let metodoPagamentoSelecionado = 'Pix';
+
+        function togglePixArea(metodo) {
+            metodoPagamentoSelecionado = metodo;
+            if (metodo === 'Pix') {
+                $('#pixArea').show();
+                $('#qrcodeDisplay').html('');
+                $('#pixCodeDisplay').text('');
+                $('#btnFinalizar').text('Gerar Pix e Finalizar');
+            } else {
+                $('#pixArea').hide();
+                $('#btnFinalizar').text('Finalizar Compra');
+            }
+        }
+
+        $('#carrinhoModal').on('show.bs.modal', function () {
+            metodoPagamentoSelecionado = $('input[name="metodoPagamento"]:checked').val();
+            togglePixArea(metodoPagamentoSelecionado);
+
+            $.ajax({
+                url: '/Pedido/ObterItensCarrinho',
+                type: 'GET',
+                success: function (response) {
+                    if (response.success) {
+                        var lista = $('#listaItensCarrinho');
+                        lista.empty();
+
+                        response.itens.forEach(function (item) {
+                            lista.append('<li class="list-group-item" data-produto-id="' + item.ProdutoId + '">'
+                                + item.Nome + ' - Quantidade: <span class="quantidade">' + item.Quantidade
+                                + '</span> - R$ ' + item.ValorUnitario.toFixed(2) + '</li>');
+                        });
+
+                        $('#totalCarrinho').text('Total: R$ ' + response.total.toFixed(2));
+                    } else {
+                        $('#listaItensCarrinho').html('<li class="list-group-item">Carrinho vazio.</li>');
+                        $('#totalCarrinho').text('Total: R$ 0,00');
+                    }
+                },
+                error: function () {
+                    console.log("Erro ao obter os itens do carrinho.");
+                }
+            });
+        });
+
+        function iniciarFinalizacao() {
+            var totalCarrinhoText = document.getElementById("totalCarrinho").innerText;
+            var totalCarrinho = parseFloat(totalCarrinhoText.replace("Total: R$", "").replace(",", ".").trim());
+
+            if (totalCarrinho <= 0) {
+                alert("O carrinho está vazio.");
+                return;
+            }
+
+            if (metodoPagamentoSelecionado === 'Pix') {
+                gerarPixEFinalizar(totalCarrinho);
+            } else if (metodoPagamentoSelecionado === 'NaEntrega') {
+                finalizarCompra('NaEntrega', null);
+            }
+        }
+
+                     function gerarPixEFinalizar(valorTotal) {
+            $.ajax({
+                url: '/Pedido/GerarPix',
+                type: 'POST',
+                // CRÍTICO: Indica o que está sendo enviado
+                contentType: 'application/json',
+                // 🛑 NOVO: Indica o formato de DADOS ESPERADO na resposta
+                dataType: 'json',
+                data: JSON.stringify({
+                    valorTotal: valorTotal
+                }),
+                success: function (response) {
+
+                    // Log do objeto real para inspecionar
+                    console.log("Resposta do Servidor:", response);
+
+                    // Se o JSON vier em PascalCase (como você viu na rede):
+                    const isSuccess = response.Success || response.success;
+                    const qrCodeData = response.QrCodeBase64 || response.qrCodeBase64; // Tenta os dois cases
+
+                    if (isSuccess && qrCodeData) {
+
+                        // Exibição da imagem (usando a propriedade lida)
+                        $('#qrcodeDisplay').html('<img src="data:image/png;base64,' + qrCodeData + '" alt="QR Code Pix" style="width: 200px; height: 200px;" />');
+
+                        // Usa a propriedade PixCode correta (tentando PascalCase ou camelCase)
+                        const pixCode = response.PixCode || response.pixCode;
+                        $('#pixCodeDisplay').html('**Código Copia e Cola:**<br>' + pixCode);
+
+                        alert("QR Code Pix gerado com sucesso! Confirme o pagamento para finalizar a compra.");
+
+                        finalizarCompra('Pix', pixCode);
+
+                    } else {
+                        // Se cair aqui, a falha é na lógica do C#, mas a comunicação está OK.
+                        let errorMessage = "Acesso ao JSON falhou. Verifique se o QrCodeBase64 está preenchido.";
+
+                        // Tenta Message e message
+                        const message = response.Message || response.message;
+
+                        if (message) {
+                            errorMessage = message;
+                        }
+                        alert("Erro ao gerar QR Code Pix: " + errorMessage);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Erro CRÍTICO na requisição AJAX. Status:", status, "Erro:", error, "Resposta:", xhr.responseText);
+                    alert("Erro CRÍTICO na requisição. Consulte a aba Console e Network (F12).");
+                }
+            });
+        }
+
+
+
+        function finalizarCompra(metodoPagamento, pixCode) {
+            var itensCarrinho = [];
+
+            document.querySelectorAll("#listaItensCarrinho li").forEach(function (item) {
+                var produtoId = item.getAttribute("data-produto-id");
+                var nomeProduto = item.innerText.split(' - ')[0];
+                var quantidade = item.querySelector('.quantidade').innerText;
+                itensCarrinho.push({
+                    Id: produtoId,
+                    Nome: nomeProduto,
+                    Quantidade: quantidade
+                });
+            });
+
+            var totalCarrinho = document.getElementById("totalCarrinho").innerText.replace("Total: R$", "").trim();
+
+            fetch('/Pedido/FinalizarCompra', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Produtos: itensCarrinho,
+                    ValorTotal: totalCarrinho,
+                    MetodoPagamento: metodoPagamento,
+                    PixCode: pixCode
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Compra finalizada com sucesso! Seu pedido será processado.');
+                    window.location.href = '/Pedido/Pedidos';
+                } else {
+                    response.json().then(data => {
+                        alert('Erro ao finalizar a compra: ' + data.message);
+                    }).catch(() => {
+                        alert('Erro ao finalizar a compra.');
+                    });
+                }
+            }).catch(error => {
+                console.error('Erro na requisição:', error);
+                alert('Erro ao finalizar a compra');
+            });
+        }
 
         function adicionarAoCarrinho(button) {
             var produtoId = $(button).data('id');
@@ -165,32 +345,23 @@
                 },
                 success: function (response) {
                     if (response.success) {
-                        // SUCESSO normal (produto adicionado ou quantidade aumentada)
                         alert(response.message);
                         $('#quantidadeCarrinho').text(response.quantidadeItens);
-                        // Opcional: recarregar ou atualizar o modal do carrinho
                     } else if (response.requiresConfirmation) {
-                        // 🚨 REQUER CONFIRMAÇÃO DO USUÁRIO (Produto de outro fornecedor)
-
-                        // Armazena os dados do novo produto
                         dadosParaConfirmacao = {
-                            produtoId: response.novoProdutoId, // Passado pelo Controller
-                            quantidade: response.novaQuantidade // Passado pelo Controller
+                            produtoId: response.novoProdutoId,
+                            quantidade: response.novaQuantidade
                         };
 
-                        // Exibe a mensagem de confirmação
                         if (confirm(response.message)) {
-                            // Se o usuário clicar em OK, chama a função para esvaziar e adicionar
                             esvaziarECadicionar(dadosParaConfirmacao.produtoId, dadosParaConfirmacao.quantidade);
                         }
 
                     } else {
-                        // Erro de estoque ou outro erro de validação
                         alert(response.message);
                     }
                 },
                 error: function (xhr, status, error) {
-                    // ... (seu tratamento de erro original)
                     try {
                         var response = JSON.parse(xhr.responseText);
                         if (response && response.message) {
@@ -205,10 +376,9 @@
             });
         }
 
-        // --- Nova Função para Lidar com a Confirmação do Usuário ---
         function esvaziarECadicionar(produtoId, quantidade) {
             $.ajax({
-                url: '/Pedido/EsvaziarECadicionar', // Este é o novo endpoint no Controller
+                url: '/Pedido/EsvaziarECadicionar',
                 type: 'POST',
                 data: {
                     produtoId: produtoId,
@@ -218,8 +388,6 @@
                     if (response.success) {
                         alert(response.message);
                         $('#quantidadeCarrinho').text(response.quantidadeItens);
-                        // Opcional: Recarregar a página para limpar o filtro se necessário
-                        // window.location.reload();
                     } else {
                         alert("Erro ao esvaziar o carrinho e adicionar o novo produto: " + response.message);
                     }
@@ -248,73 +416,8 @@
             });
         }
 
-        $('#carrinhoModal').on('show.bs.modal', function () {
-            $.ajax({
-                url: '/Pedido/ObterItensCarrinho',
-                type: 'GET',
-                success: function (response) {
-                    if (response.success) {
-                        var lista = $('#listaItensCarrinho');
-                        lista.empty();
-
-                        response.itens.forEach(function (item) {
-                            lista.append('<li class="list-group-item" data-produto-id="' + item.ProdutoId + '">'
-                                + item.Nome + ' - Quantidade: <span class="quantidade">' + item.Quantidade
-                                + '</span> - R$ ' + item.ValorUnitario.toFixed(2) + '</li>');
-                        });
-
-                        $('#totalCarrinho').text('Total: R$ ' + response.total.toFixed(2));
-                    } else {
-                        $('#listaItensCarrinho').html('<li class="list-group-item">Carrinho vazio.</li>');
-                        $('#totalCarrinho').text('');
-                    }
-                },
-                error: function () {
-                    console.log("Erro ao obter os itens do carrinho.");
-                }
-            });
-        });
-
-        function finalizarCompra() {
-            var itensCarrinho = [];
-            var totalCarrinho = document.getElementById("totalCarrinho").innerText.replace("Total: R$", "").trim();
-
-            document.querySelectorAll("#listaItensCarrinho li").forEach(function (item) {
-                var produtoId = item.getAttribute("data-produto-id");
-                var nomeProduto = item.innerText.split(' - ')[0];
-                var quantidade = item.querySelector('.quantidade').innerText;
-                itensCarrinho.push({
-                    Id: produtoId,
-                    Nome: nomeProduto,
-                    Quantidade: quantidade
-                });
-            });
-
-            fetch('/Pedido/FinalizarCompra', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    Produtos: itensCarrinho,
-                    ValorTotal: totalCarrinho
-                })
-            }).then(response => {
-                if (response.ok) {
-                    alert('Compra finalizada com sucesso!');
-                    window.location.href = '/Produto/Produtos';
-                } else {
-                    alert('Erro ao finalizar a compra');
-                }
-            }).catch(error => {
-                console.error('Erro na requisição:', error);
-                alert('Erro ao finalizar a compra');
-            });
-        }
-
-        // Função para filtrar os produtos pelo produtor
         function filtrarPorProdutor() {
-            var selecionado = document.getElementById("produtorFilter").value.trim().toLowerCase(); // .trim() remove espaços extras
+            var selecionado = document.getElementById("produtorFilter").value.trim().toLowerCase();
             var produtos = document.querySelectorAll(".produto-item");
 
             produtos.forEach(function (produto) {

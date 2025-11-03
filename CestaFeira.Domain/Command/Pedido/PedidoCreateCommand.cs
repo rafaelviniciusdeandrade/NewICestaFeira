@@ -12,6 +12,8 @@ namespace CestaFeira.Domain.Command.Pedido
         public Guid UsuarioId { get; set; }
         public DateTime Data { get; set; }
         public string Status { get; set; }
+        public string TipoPagamento { get; set; }
+
 
     }
 }

@@ -1,14 +1,15 @@
-using System.Reflection;
-using CestaFeira.Domain.Dtos.AppSettings;
-using CestaFeira.Data;
-using CestaFeira.Web.Services.Interfaces;
-using CestaFeira.Web.Services.Usuario;
-using CestaFeira.Web.Services.Produto;
 using CestaFeira.CrossCutting;
+using CestaFeira.Data;
+using CestaFeira.Domain;
+using CestaFeira.Domain.Dtos.AppSettings;
+using CestaFeira.Web.Services.Interfaces;
+using CestaFeira.Web.Services.Pedido;
+using CestaFeira.Web.Services.Pix;
+using CestaFeira.Web.Services.Produto;
+using CestaFeira.Web.Services.Usuario;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using CestaFeira.Domain;
-using CestaFeira.Web.Services.Pedido;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -65,6 +66,7 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IPixService, PixService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

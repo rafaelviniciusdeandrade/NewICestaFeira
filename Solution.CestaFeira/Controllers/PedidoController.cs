@@ -1,9 +1,13 @@
 ﻿using CestaFeira.Web.Helpers.Session;
 using CestaFeira.Web.Models.Carrinho;
 using CestaFeira.Web.Models.Pedido;
+using CestaFeira.Web.Models.Pix;
 using CestaFeira.Web.Models.Produto;
 using CestaFeira.Web.Services.Interfaces;
 using CestaFeira.Web.Services.Pedido;
+using CestaFeira.Web.Services.Pix;
+using CestaFeira.Web.Services.Usuario;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Nest;
 using System.Text.Json;
@@ -15,12 +19,15 @@ namespace CestaFeira.Web.Controllers
         public IProdutoService _produto;
         public IPedidoService _pedido;
         private readonly IPedidoService _carrinhoService;
+        private IPixService _pixService;
 
-        public PedidoController(IPedidoService carrinhoService, IProdutoService produto, IPedidoService pedido)
+        public PedidoController(IPedidoService carrinhoService, IProdutoService produto, IPedidoService pedido, IPixService pixService)
         {
             _carrinhoService = carrinhoService;
             _produto = produto;
             _pedido = pedido;
+            _pixService = pixService;
+
         }
         public IActionResult ObterQuantidadeCarrinho()
         {
@@ -207,6 +214,46 @@ namespace CestaFeira.Web.Controllers
             }
 
             
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> GerarPix([FromBody] PixRequest request)
+        {
+
+
+            try
+            {
+                string produtorCpf = "12130804608";
+                if (string.IsNullOrEmpty(produtorCpf))
+                {
+                    // Se cair aqui, a mensagem deve ser clara.
+                    return Json(new PixResponse { Success = false, Message = "Chave Pix do Produtor não configurada ou vazia." });
+                }
+
+                // 2. CHAMADA AO SERVIÇO (Ponto de interrupção aqui)
+                var pixResult = await _pixService.GerarQrCodePix(Convert.ToDecimal(12), produtorCpf);
+
+                // 3. O SERVIÇO RETORNOU SUCESSO? (Ponto de interrupção aqui)
+                if (!pixResult.Success)
+                {
+                    // Se cair aqui, o erro foi dentro do PixService.
+                    return Json(pixResult);
+                }
+
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase // Força o camelCase
+                };
+
+                return Json(pixResult, jsonOptions);
+            }
+            catch (Exception ex)
+            {
+                // 4. ERRO CRÍTICO NÃO TRATADO (Ponto de interrupção aqui)
+                // Se cair aqui, o QRCoder falhou ou há um erro de serialização.
+                // Verifique o ex.Message!
+                return Json(new PixResponse { Success = false, Message = $"Erro interno do servidor: {ex.Message}" });
+            }
         }
         public async Task<IActionResult> Pedidos()
         {

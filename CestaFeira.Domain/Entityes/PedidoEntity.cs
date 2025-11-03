@@ -8,6 +8,7 @@ namespace CestaFeira.Domain.Entityes
         public Guid UsuarioId { get; set; }
         public UsuarioEntity Usuario { get; set; }
         public string Status { get; set; }
+        public string TipoPagamento { get; set; }
         public ICollection<PedidoProdutoEntity> ProdutoPedidos { get; set; }
     }
 }
