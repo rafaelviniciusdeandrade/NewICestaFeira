@@ -6,6 +6,7 @@ namespace CestaFeira.Web.Services.Interfaces
     {
         Task<UsuarioModel> ValidarUsuario(UsuarioLoginModel login);
         Task<bool> CadastrarUsuario(UsuarioModel usuario);
+        Task<UsuarioModel> ConsultarUsuario(Guid id);
 
     }
 }

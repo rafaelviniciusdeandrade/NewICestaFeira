@@ -1,5 +1,6 @@
 ﻿using CestaFeira.Domain.Command.Usuario;
 using CestaFeira.Domain.Dtos.Usuario;
+using CestaFeira.Domain.Query.Usuario;
 using CestaFeira.Web.Models.Usuario;
 using CestaFeira.Web.Services.Interfaces;
 using MediatR;
@@ -69,5 +70,47 @@ namespace CestaFeira.Web.Services.Usuario
                 return false;
             }
         }
+
+        public async Task<UsuarioModel> ConsultarUsuario(Guid id)
+        {
+            // 1. Criação do Query/Command para consulta
+            // Assumindo a existência de um 'GetUsuarioQuery' no seu Domain
+            var getUsuarioQuery = new UsuarioQuery // Este nome é uma sugestão
+            {
+                UsuarioId = id
+            };
+
+            // 2. Envia a Query através do MediatR
+            // Assumindo que o resultado retornado pelo handler tem um campo 'Result'
+            // que contém o DTO do usuário, e que o DTO é 'UsuarioDtoResult' (ou similar).
+            var result = await _mediator.Send(getUsuarioQuery);
+
+            // 3. Verifica o sucesso da operação
+            if (result.Id != null)
+            {
+
+                // 4. Mapeia o DTO para o Model de Apresentação (UsuarioModel)
+                return new UsuarioModel
+                {
+                    Id = result.Id,
+                    Nome = result.Nome,
+                    Email = result.Email,
+                    Perfil = result.Perfil,
+                    cpf = result.cpf, // ou Cpf, dependendo da sua DTO
+                                      // Mapear todos os outros campos relevantes
+                    NomeFantasia = result.NomeFantasia,
+                    Rua = result.Rua,
+                    Bairro = result.Bairro,
+                    Cidade = result.Cidade,
+                    Uf = result.Uf,
+                    Data = result.Data,
+                    Ativo = result.Ativo
+                };
+            }
+            else { return null; }
+        }
+
+
+        }
+
     }
-}

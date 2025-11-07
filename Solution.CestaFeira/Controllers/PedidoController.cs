@@ -3,9 +3,11 @@ using CestaFeira.Web.Models.Carrinho;
 using CestaFeira.Web.Models.Pedido;
 using CestaFeira.Web.Models.Pix;
 using CestaFeira.Web.Models.Produto;
+using CestaFeira.Web.Services.Email;
 using CestaFeira.Web.Services.Interfaces;
 using CestaFeira.Web.Services.Pedido;
 using CestaFeira.Web.Services.Pix;
+using CestaFeira.Web.Services.Produto;
 using CestaFeira.Web.Services.Usuario;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,15 +20,19 @@ namespace CestaFeira.Web.Controllers
     {
         public IProdutoService _produto;
         public IPedidoService _pedido;
+        public IUsuarioService _usuario;
         private readonly IPedidoService _carrinhoService;
         private IPixService _pixService;
+        private readonly IEmailService _emailService;
 
-        public PedidoController(IPedidoService carrinhoService, IProdutoService produto, IPedidoService pedido, IPixService pixService)
+        public PedidoController(IPedidoService carrinhoService, IProdutoService produto, IPedidoService pedido, IPixService pixService, IEmailService emailService, IUsuarioService usuario)
         {
             _carrinhoService = carrinhoService;
             _produto = produto;
             _pedido = pedido;
             _pixService = pixService;
+            _emailService = emailService;
+            _usuario = usuario;
 
         }
         public IActionResult ObterQuantidadeCarrinho()
@@ -202,19 +208,62 @@ namespace CestaFeira.Web.Controllers
             pedidoViewModel.UsuarioId = Guid.Parse(usuarioId);
             pedidoViewModel.Data = DateTime.Now;
             var result = await _carrinhoService.CadastrarCarrinho(pedidoViewModel);
+
             if (result)
             {
-                TempData["Sucesso"] = "Pedido cadastrado com sucesso!";
-                return RedirectToAction("Produtos", "Produto");
+                try
+                {
+                    // 1. **Recuperar o e-mail do Produtor:**
+                    // Você precisa de uma forma de obter o e-mail. Vamos assumir que o PedidoModel tem um campo ProdutorId
+                    // e você tem um serviço para buscar os detalhes dele.
+                    // Se o pedido tiver vários produtos de diferentes produtores, você precisará iterar e enviar um para cada.
+
+                    // Exemplo: buscando o e-mail de um produtor específico (você precisa adaptar isso)
+                    var produtor = await _usuario.ConsultarUsuario((Guid)pedidoViewModel.Produtos.First().Id);
+
+                    if (produtor != null)
+                    {
+                        string emailProdutor = produtor.Email;
+                        string assunto = $"Novo Pedido Recebido: ";
+                        string corpo = $"Olá {produtor.Nome},<br><br>" +
+                                       $"Você recebeu um novo pedido (**#{pedidoViewModel.UsuarioId}**)!<br>" +
+                                       $"Data: {pedidoViewModel.Data:dd/MM/yyyy HH:mm}<br>" +
+                                       $"Total de Itens: {pedidoViewModel.Produtos.Count()}<br>" +
+                                       "Por favor, acesse o painel para visualizar os detalhes e processar o pedido.<br><br>" +
+                                       "Atenciosamente,<br>Sua Equipe de Vendas.";
+
+                        // 2. **Disparar o e-mail:**
+                        await _emailService.SendEmailAsync(emailProdutor, assunto, corpo);
+                        TempData["Sucesso"] = "Pedido cadastrado com sucesso!";
+                        return RedirectToAction("Produtos", "Produto");
+                    }
+
+
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Não foi salvar o pedido";
+                        return RedirectToAction("Produtos", "Produto");
+                    }
+
+
+
+                }
+                catch
+                {
+                    TempData["Sucesso"] = "Pedido cadastrado com sucesso!";
+                    return RedirectToAction("Produtos", "Produto");
+                }
+
+
+
             }
             else
             {
                 TempData["ErrorMessage"] = "Não foi salvar o pedido";
                 return RedirectToAction("Produtos", "Produto");
             }
-
-            
         }
+
 
         [HttpPost]
         public async Task<IActionResult> GerarPix([FromBody] PixRequest request)
@@ -273,7 +322,7 @@ namespace CestaFeira.Web.Controllers
         {
             var status = "Cancelado";
             // Busca o pedido pelo ID
-            var pedido = await _pedido.AtualizarStatusPedido(pedidoId,status);
+            var pedido = await _pedido.AtualizarStatusPedido(pedidoId, status);
             if (pedido)
             {
                 return RedirectToAction("Pedidos");
@@ -284,7 +333,7 @@ namespace CestaFeira.Web.Controllers
                 return RedirectToAction("Pedidos");
             }
 
-          
+
         }
 
     }

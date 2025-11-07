@@ -2,6 +2,7 @@ using CestaFeira.CrossCutting;
 using CestaFeira.Data;
 using CestaFeira.Domain;
 using CestaFeira.Domain.Dtos.AppSettings;
+using CestaFeira.Web.Services.Email;
 using CestaFeira.Web.Services.Interfaces;
 using CestaFeira.Web.Services.Pedido;
 using CestaFeira.Web.Services.Pix;
@@ -67,6 +68,7 @@ builder.Services.AddScoped<IUsuarioService, UsuarioServices>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
 builder.Services.AddScoped<IPixService, PixService>();
+builder.Services.AddTransient<IEmailService, EmailService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
