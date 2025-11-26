@@ -1,78 +1,138 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\",
+  "WorkspaceRootPath": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\solution.cestafeira\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\solution.cestafeira\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\views\\produto\\produtos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\views\\produto\\produtos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\solution.cestafeira\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\models\\pedido\\pedidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\models\\pedido\\pedidomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\requestbehavior\\requestbehaviorvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\services\\produto\\produtoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\services\\produto\\produtoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\requestbehavior\\requestbehaviorvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\requestbehavior\\requestbehaviorvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\services\\cryptographyservice\\cryptographyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\services\\cryptographyservice\\cryptographyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\queryhandler\\produto\\produtocompletequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\queryhandler\\produto\\produtocompletequeryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\cestafeira.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\cestafeira.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\views\\pedido\\pedidos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\views\\pedido\\pedidos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\solution.cestafeira\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\views\\usuario\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\services\\usuario\\usuarioservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\services\\usuario\\usuarioservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\solution.cestafeira\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\queryhandler\\usuario\\usuarioqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\queryhandler\\usuario\\usuarioqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\solution.cestafeira\\models\\usuario\\usuariologinmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\models\\usuario\\usuariologinmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\services\\pix\\pixservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\services\\pix\\pixservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestaferia.data\\mapping\\vendamap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\mapping\\vendamap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\services\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\services\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\entityes\\vendaentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\entityes\\vendaentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestaferia.data\\mapping\\usuariomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\mapping\\usuariomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\validator\\usuario\\usuarioqueryvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\validator\\usuario\\usuarioqueryvalidation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\command\\base\\basecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\command\\base\\basecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DAA36B4B-E296-4072-A6A3-7EEB72179FB8}|CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.crosscutting\\mappings\\produto\\produtoprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA36B4B-E296-4072-A6A3-7EEB72179FB8}|CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj|solutionrelative:cestafeira.crosscutting\\mappings\\produto\\produtoprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\validator\\usuario\\loginusuariovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DAA36B4B-E296-4072-A6A3-7EEB72179FB8}|CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.crosscutting\\mappings\\usuario\\usuarioprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAA36B4B-E296-4072-A6A3-7EEB72179FB8}|CestaFeira.CrossCutting\\CestaFeira.CrossCutting.csproj|solutionrelative:cestafeira.crosscutting\\mappings\\usuario\\usuarioprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\validator\\usuario\\loginusuariovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\validator\\usuario\\loginusuariovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestaferia.data\\mapping\\produtomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\mapping\\produtomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestaferia.data\\context\\sqlservercontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\context\\sqlservercontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestafeira.domain\\entityes\\produtoentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\entityes\\produtoentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestaferia.data\\datamodule\\datamodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\datamodule\\datamodule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\rafael\\documents\\cestafeiraapp\\rafael\\solution.cestafeira\\cestaferia.data\\context\\apscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestaferia.data\\context\\apscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\context\\apscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestaferia.data\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestaferia.data\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\commandhandler\\pedido\\pedidocreatecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\commandhandler\\pedido\\pedidocreatecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\command\\pedido\\pedidocreatecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\command\\pedido\\pedidocreatecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\views\\produto\\produtosprodutor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\views\\produto\\produtosprodutor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\models\\carrinho\\itemcarrinhomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\models\\carrinho\\itemcarrinhomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestaferia.data\\mapping\\pedidomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09D3B831-4382-4D76-A21F-32195E37FD93}|CestaFeria.Data\\CestaFeira.Data.csproj|solutionrelative:cestaferia.data\\mapping\\pedidomap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\queryhandler\\pedido\\pedidosprodutorqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\queryhandler\\pedido\\pedidosprodutorqueryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\solution.cestafeira\\views\\pedido\\gerenciarpedidos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0D40AA89-2F2A-4873-9C29-98FB2C786945}|Solution.CestaFeira\\CestaFeira.Web.csproj|solutionrelative:solution.cestafeira\\views\\pedido\\gerenciarpedidos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\validator\\pedido\\pedidosprodutorqueryvalidator - c\u00F3pia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\validator\\pedido\\pedidosprodutorqueryvalidator - c\u00F3pia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|c:\\users\\fernanda\\desktop\\rafael\\nova pasta\\cestafeira.domain\\query\\pedido\\pedidosprodutorquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80264C59-6DB2-4208-8F00-3CC0BC5F4C6C}|CestaFeira.Domain\\CestaFeira.Domain.csproj|solutionrelative:cestafeira.domain\\query\\pedido\\pedidosprodutorquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -81,225 +141,441 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedHeight": 13,
-          "SelectedChildIndex": 0,
+          "DockedHeight": 16,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "Solution.CestaFeira\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\appsettings.Development.json",
-              "RelativeToolTip": "Solution.CestaFeira\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-21T20:30:26.082Z",
+              "DocumentIndex": 7,
+              "Title": "Pedidos.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Pedido\\Pedidos.cshtml",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Views\\Pedido\\Pedidos.cshtml",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Pedido\\Pedidos.cshtml",
+              "RelativeToolTip": "Solution.CestaFeira\\Views\\Pedido\\Pedidos.cshtml",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAADEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-26T12:16:15.101Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Email\\EmailService.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Services\\Email\\EmailService.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Email\\EmailService.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Services\\Email\\EmailService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowC0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T20:39:38.015Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Controllers\\ProdutoController.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Controllers\\ProdutoController.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Controllers\\ProdutoController.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Controllers\\ProdutoController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:40:33.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProdutoService.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Produto\\ProdutoService.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Services\\Produto\\ProdutoService.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Produto\\ProdutoService.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Services\\Produto\\ProdutoService.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAD4v48AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T22:32:20.07Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\appsettings.json",
-              "RelativeDocumentMoniker": "Solution.CestaFeira\\appsettings.json",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\appsettings.json",
-              "RelativeToolTip": "Solution.CestaFeira\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-09-21T20:30:26.867Z"
+              "Title": "Produtos.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Produto\\Produtos.cshtml",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Views\\Produto\\Produtos.cshtml",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Produto\\Produtos.cshtml",
+              "RelativeToolTip": "Solution.CestaFeira\\Views\\Produto\\Produtos.cshtml",
+              "ViewState": "AgIAALkBAAAAAAAAAAAYwMEBAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-25T23:50:46.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PedidoController.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Controllers\\PedidoController.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Controllers\\PedidoController.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Controllers\\PedidoController.cs*",
+              "RelativeToolTip": "Solution.CestaFeira\\Controllers\\PedidoController.cs*",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAwDgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T13:21:19.425Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Program.cs",
-              "RelativeDocumentMoniker": "Solution.CestaFeira\\Program.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Program.cs",
-              "RelativeToolTip": "Solution.CestaFeira\\Program.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAEQAAAAAAAAA",
+              "Title": "PedidoModel.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Models\\Pedido\\PedidoModel.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Models\\Pedido\\PedidoModel.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Models\\Pedido\\PedidoModel.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Models\\Pedido\\PedidoModel.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAkAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:26.87Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RequestBehaviorValidation.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAowAMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:26.872Z"
+              "WhenOpened": "2025-11-08T00:17:41.723Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CryptographyService.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Services\\CryptographyService\\CryptographyService.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\Services\\CryptographyService\\CryptographyService.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Services\\CryptographyService\\CryptographyService.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\Services\\CryptographyService\\CryptographyService.cs",
-              "ViewState": "AQIAAAoBAAAAAAAAAAAQwBcAAAAnAAAA",
+              "Title": "RequestBehaviorValidation.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\RequestBehavior\\RequestBehaviorValidation.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwB0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:26.887Z"
+              "WhenOpened": "2025-10-26T15:00:47.777Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "CestaFeira.Domain.csproj",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\CestaFeira.Domain.csproj",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\CestaFeira.Domain.csproj",
-              "RelativeToolTip": "CestaFeira.Domain\\CestaFeira.Domain.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-21T20:30:26.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\DependencyInjection.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\DependencyInjection.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\DependencyInjection.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAnwBYAAAAfAAAA",
+              "Title": "ProdutoCompleteQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\QueryHandler\\Produto\\ProdutoCompleteQueryHandler.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\QueryHandler\\Produto\\ProdutoCompleteQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\QueryHandler\\Produto\\ProdutoCompleteQueryHandler.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\QueryHandler\\Produto\\ProdutoCompleteQueryHandler.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAIwCgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.791Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Views\\Usuario\\Login.cshtml",
-              "RelativeDocumentMoniker": "Solution.CestaFeira\\Views\\Usuario\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Views\\Usuario\\Login.cshtml",
-              "RelativeToolTip": "Solution.CestaFeira\\Views\\Usuario\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-21T20:30:28.82Z"
+              "WhenOpened": "2025-11-08T00:09:39.056Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "UsuarioLoginModel.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Models\\Usuario\\UsuarioLoginModel.cs",
-              "RelativeDocumentMoniker": "Solution.CestaFeira\\Models\\Usuario\\UsuarioLoginModel.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Models\\Usuario\\UsuarioLoginModel.cs",
-              "RelativeToolTip": "Solution.CestaFeira\\Models\\Usuario\\UsuarioLoginModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Title": "UsuarioQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\QueryHandler\\Usuario\\UsuarioQueryHandler.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\QueryHandler\\Usuario\\UsuarioQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\QueryHandler\\Usuario\\UsuarioQueryHandler.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\QueryHandler\\Usuario\\UsuarioQueryHandler.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwCIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.823Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "VendaEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Entityes\\VendaEntity.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\Entityes\\VendaEntity.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Entityes\\VendaEntity.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\Entityes\\VendaEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.825Z"
+              "WhenOpened": "2025-11-03T22:57:46.823Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "Solution.CestaFeira\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\Solution.CestaFeira\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "Solution.CestaFeira\\Controllers\\UsuarioController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAIAzwA8AAAAgAAAA",
+              "Title": "UsuarioServices.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Usuario\\UsuarioServices.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Services\\Usuario\\UsuarioServices.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Usuario\\UsuarioServices.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Services\\Usuario\\UsuarioServices.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAuwFgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "VendaMap.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Mapping\\VendaMap.cs",
-              "RelativeDocumentMoniker": "CestaFeria.Data\\Mapping\\VendaMap.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Mapping\\VendaMap.cs",
-              "RelativeToolTip": "CestaFeria.Data\\Mapping\\VendaMap.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.831Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "BaseCommand.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Command\\Base\\BaseCommand.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\Command\\Base\\BaseCommand.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Command\\Base\\BaseCommand.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\Command\\Base\\BaseCommand.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAswAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.836Z"
+              "WhenOpened": "2025-11-03T22:29:29.835Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "UsuarioMap.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Mapping\\UsuarioMap.cs",
-              "RelativeDocumentMoniker": "CestaFeria.Data\\Mapping\\UsuarioMap.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Mapping\\UsuarioMap.cs",
-              "RelativeToolTip": "CestaFeria.Data\\Mapping\\UsuarioMap.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.839Z"
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\appsettings.json",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\appsettings.json",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\appsettings.json",
+              "RelativeToolTip": "Solution.CestaFeira\\appsettings.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-06T23:50:05.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ApsContext.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Context\\ApsContext.cs",
-              "RelativeDocumentMoniker": "CestaFeria.Data\\Context\\ApsContext.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Context\\ApsContext.cs",
-              "RelativeToolTip": "CestaFeria.Data\\Context\\ApsContext.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAtwC4AAAAiAAAA",
+              "DocumentIndex": 10,
+              "Title": "PixService.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Pix\\PixService.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Services\\Pix\\PixService.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Services\\Pix\\PixService.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Services\\Pix\\PixService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.842Z"
+              "WhenOpened": "2025-11-03T01:50:29.127Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "LoginUsuarioValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "DocumentIndex": 13,
+              "Title": "UsuarioQueryValidation.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Validator\\Usuario\\UsuarioQueryValidation.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\Validator\\Usuario\\UsuarioQueryValidation.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Validator\\Usuario\\UsuarioQueryValidation.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\Validator\\Usuario\\UsuarioQueryValidation.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.845Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ProdutoMap.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Mapping\\ProdutoMap.cs",
-              "RelativeDocumentMoniker": "CestaFeria.Data\\Mapping\\ProdutoMap.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeria.Data\\Mapping\\ProdutoMap.cs",
-              "RelativeToolTip": "CestaFeria.Data\\Mapping\\ProdutoMap.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAxwB4AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.848Z"
+              "WhenOpened": "2025-11-03T22:41:32.626Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "ProdutoEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Entityes\\ProdutoEntity.cs",
-              "RelativeDocumentMoniker": "CestaFeira.Domain\\Entityes\\ProdutoEntity.cs",
-              "ToolTip": "C:\\Users\\Rafael\\Documents\\CestaFeiraApp\\Rafael\\Solution.CestaFeira\\CestaFeira.Domain\\Entityes\\ProdutoEntity.cs",
-              "RelativeToolTip": "CestaFeira.Domain\\Entityes\\ProdutoEntity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAQAAAAeAAAA",
+              "Title": "LoginUsuarioValidator.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\Validator\\Usuario\\LoginUsuarioValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T20:30:28.852Z"
+              "WhenOpened": "2025-11-03T22:43:44.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UsuarioProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\Mappings\\Usuario\\UsuarioProfile.cs",
+              "RelativeDocumentMoniker": "CestaFeira.CrossCutting\\Mappings\\Usuario\\UsuarioProfile.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\Mappings\\Usuario\\UsuarioProfile.cs",
+              "RelativeToolTip": "CestaFeira.CrossCutting\\Mappings\\Usuario\\UsuarioProfile.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA1wBkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T22:43:58.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProdutoProfile.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\Mappings\\Produto\\ProdutoProfile.cs",
+              "RelativeDocumentMoniker": "CestaFeira.CrossCutting\\Mappings\\Produto\\ProdutoProfile.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.CrossCutting\\Mappings\\Produto\\ProdutoProfile.cs",
+              "RelativeToolTip": "CestaFeira.CrossCutting\\Mappings\\Produto\\ProdutoProfile.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T22:52:14.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\appsettings.json",
+              "RelativeDocumentMoniker": "CestaFeria.Data\\appsettings.json",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\appsettings.json",
+              "RelativeToolTip": "CestaFeria.Data\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-03T11:39:02.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SQLServerContextFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\Context\\SQLServerContextFactory.cs",
+              "RelativeDocumentMoniker": "CestaFeria.Data\\Context\\SQLServerContextFactory.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\Context\\SQLServerContextFactory.cs",
+              "RelativeToolTip": "CestaFeria.Data\\Context\\SQLServerContextFactory.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwCsAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T13:55:38.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApsContext.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\Context\\ApsContext.cs",
+              "RelativeDocumentMoniker": "CestaFeria.Data\\Context\\ApsContext.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\Context\\ApsContext.cs",
+              "RelativeToolTip": "CestaFeria.Data\\Context\\ApsContext.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T13:55:27.191Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DataModule.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\DataModule\\DataModule.cs",
+              "RelativeDocumentMoniker": "CestaFeria.Data\\DataModule\\DataModule.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\DataModule\\DataModule.cs",
+              "RelativeToolTip": "CestaFeria.Data\\DataModule\\DataModule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T13:55:49.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "CestaFeria.Data\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\appsettings.Development.json",
+              "RelativeToolTip": "CestaFeria.Data\\appsettings.Development.json",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-03T11:37:53.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PedidoCreateCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CommandHandler\\Pedido\\PedidoCreateCommandHandler.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\CommandHandler\\Pedido\\PedidoCreateCommandHandler.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\CommandHandler\\Pedido\\PedidoCreateCommandHandler.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\CommandHandler\\Pedido\\PedidoCreateCommandHandler.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwCwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T14:40:33.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PedidoCreateCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Command\\Pedido\\PedidoCreateCommand.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\Command\\Pedido\\PedidoCreateCommand.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Command\\Pedido\\PedidoCreateCommand.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\Command\\Pedido\\PedidoCreateCommand.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-02T17:02:31.321Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ProdutosProdutor.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Produto\\ProdutosProdutor.cshtml",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Views\\Produto\\ProdutosProdutor.cshtml",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Produto\\ProdutosProdutor.cshtml",
+              "RelativeToolTip": "Solution.CestaFeira\\Views\\Produto\\ProdutosProdutor.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-26T14:00:08.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ItemCarrinhoModel.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Models\\Carrinho\\ItemCarrinhoModel.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Models\\Carrinho\\ItemCarrinhoModel.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Models\\Carrinho\\ItemCarrinhoModel.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Models\\Carrinho\\ItemCarrinhoModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvwsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T00:15:52.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\DependencyInjection.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\DependencyInjection.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\DependencyInjection.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T14:04:50.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PedidoMap.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\Mapping\\PedidoMap.cs",
+              "RelativeDocumentMoniker": "CestaFeria.Data\\Mapping\\PedidoMap.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeria.Data\\Mapping\\PedidoMap.cs",
+              "RelativeToolTip": "CestaFeria.Data\\Mapping\\PedidoMap.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAYwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:52:57.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Solution.CestaFeira\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-01T15:35:36.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "GerenciarPedidos.cshtml",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Pedido\\GerenciarPedidos.cshtml",
+              "RelativeDocumentMoniker": "Solution.CestaFeira\\Views\\Pedido\\GerenciarPedidos.cshtml",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\Solution.CestaFeira\\Views\\Pedido\\GerenciarPedidos.cshtml",
+              "RelativeToolTip": "Solution.CestaFeira\\Views\\Pedido\\GerenciarPedidos.cshtml",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAswJcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-26T15:05:39.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "PedidosProdutorQueryValidator - C\u00F3pia.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Validator\\Pedido\\PedidosProdutorQueryValidator - C\u00F3pia.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\Validator\\Pedido\\PedidosProdutorQueryValidator - C\u00F3pia.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Validator\\Pedido\\PedidosProdutorQueryValidator - C\u00F3pia.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\Validator\\Pedido\\PedidosProdutorQueryValidator - C\u00F3pia.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T13:59:02.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "PedidosProdutorQuery.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Query\\Pedido\\PedidosProdutorQuery.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\Query\\Pedido\\PedidosProdutorQuery.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\Query\\Pedido\\PedidosProdutorQuery.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\Query\\Pedido\\PedidosProdutorQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T13:25:24.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PedidosProdutorQueryHandler.cs",
+              "DocumentMoniker": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\QueryHandler\\Pedido\\PedidosProdutorQueryHandler.cs",
+              "RelativeDocumentMoniker": "CestaFeira.Domain\\QueryHandler\\Pedido\\PedidosProdutorQueryHandler.cs",
+              "ToolTip": "C:\\Users\\Fernanda\\Desktop\\Rafael\\Nova pasta\\CestaFeira.Domain\\QueryHandler\\Pedido\\PedidosProdutorQueryHandler.cs",
+              "RelativeToolTip": "CestaFeira.Domain\\QueryHandler\\Pedido\\PedidosProdutorQueryHandler.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T13:22:49.126Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 3,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 13,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
             }
           ]
         }
