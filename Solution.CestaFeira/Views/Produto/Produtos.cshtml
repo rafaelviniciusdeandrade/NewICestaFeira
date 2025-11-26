@@ -247,52 +247,53 @@
                 success: function (response) {
                     $('#btnFinalizar').prop('disabled', false);
 
-                    console.log("Resposta do Servidor:", response);
-
                     const isSuccess = response.Success || response.success;
                     const qrCodeData = response.QrCodeBase64 || response.qrCodeBase64;
                     const pixCode = response.PixCode || response.pixCode;
 
                     if (isSuccess && qrCodeData) {
-                        // 1. Exibe QR Code e código Pix
                         $('#qrcodeDisplay').html(
                             '<img src="data:image/png;base64,' + qrCodeData +
                             '" alt="QR Code Pix" style="width: 200px; height: 200px;" />'
                         );
                         $('#pixCodeDisplay').html('**Código Copia e Cola:**<br>' + pixCode);
 
-                        // 2. Salva o pedido
                         finalizarCompra('Pix', pixCode)
+
                             .then(() => {
                                 alert("Pedido salvo com sucesso! Escaneie o QR Code ou use o Código Copia e Cola para pagar.");
 
+                                // 🔒 Travar pagamento na opção PIX
+                                metodoPagamentoSelecionado = 'Pix';
+                                $('#pagamentoEntrega').prop('disabled', true);
+
+                                // 🔁 DEFINIR NOVA AÇÃO DO BOTÃO (SEM GERAR OUTRO PEDIDO)
                                 $('#btnFinalizar').text('Ver Pedido e Sair');
-                                $('#btnFinalizar').off('click').on('click', function () {
+
+                                $('#btnFinalizar').off('click'); // remove handlers jQuery
+                                $('#btnFinalizar')[0].onclick = null; // remove onclick inline
+
+                                $('#btnFinalizar').on('click', function () {
                                     window.location.href = '/Pedido/Pedidos';
                                 });
 
                                 $('#pixArea p.text-muted').remove();
                             })
                             .catch(error => {
-                                console.error("Erro ao salvar pedido após gerar Pix:", error);
-                                alert("Erro CRÍTICO: QR Code gerado, mas falha ao salvar pedido. Erro: " + error.message);
+                                console.error("Erro ao salvar pedido:", error);
+                                alert("Erro ao salvar pedido: " + error.message);
                                 $('#btnFinalizar').text('Erro ao Salvar Pedido');
                             });
 
                     } else {
-                        let errorMessage = "Erro na geração do Pix. Verifique o console.";
-                        const message = response.Message || response.message;
-                        if (message) {
-                            errorMessage = message;
-                        }
-                        alert("Erro ao gerar QR Code Pix: " + errorMessage);
+                        let msg = response.Message || response.message || "Erro desconhecido";
+                        alert("Erro ao gerar Pix: " + msg);
                         $('#btnFinalizar').text('Finalizar Compra');
                     }
                 },
                 error: function (xhr, status, error) {
                     $('#btnFinalizar').prop('disabled', false).text('Finalizar Compra');
-                    console.error("Erro CRÍTICO na requisição AJAX. Status:", status, "Erro:", error, "Resposta:", xhr.responseText);
-                    alert("Erro CRÍTICO na requisição. Consulte a aba Console e Network (F12).");
+                    alert("Erro na requisição ao servidor.");
                 }
             });
         }
@@ -332,20 +333,17 @@
                     .then(response => {
                         if (response.ok) {
                             if (metodoPagamento === 'NaEntrega') {
-                                alert('Compra finalizada com sucesso! Seu pedido será processado.');
+                                alert('Pedido finalizado com sucesso!');
                                 window.location.href = '/Pedido/Pedidos';
                             }
                             resolve();
                         } else {
                             response.json().then(data => {
                                 reject(new Error(data.message || 'Erro desconhecido.'));
-                            }).catch(() => {
-                                reject(new Error('Erro ao finalizar a compra.'));
                             });
                         }
                     })
                     .catch(error => {
-                        console.error('Erro na requisição:', error);
                         reject(new Error('Erro ao finalizar a compra.'));
                     });
             });
@@ -355,11 +353,10 @@
             var $button = $(button);
 
             var produtoId = $button.data('id');
-            var produtorId = $button.data('produtor-id');
             var quantidade = $('#quantidade_' + produtoId).val();
 
-            if (!produtoId || !quantidade || quantidade <= 0 || !produtorId) {
-                alert("Erro: ID do produto, ID do produtor ou quantidade inválidos.");
+            if (!produtoId || !quantidade || quantidade <= 0) {
+                alert("Erro: quantidade inválida.");
                 return;
             }
 
@@ -368,98 +365,71 @@
                 type: 'POST',
                 data: {
                     produtoId: produtoId,
-                    quantidade: quantidade,
-                    produtorId: produtorId
+                    quantidade: quantidade
                 },
                 success: function (response) {
                     if (response.success) {
                         alert(response.message);
                         atualizarCarrinho();
-                    } else if (response.requiresConfirmation) {
+                    }
+                    else if (response.requiresConfirmation) {
                         dadosParaConfirmacao = {
                             produtoId: response.novoProdutoId || produtoId,
-                            quantidade: response.novaQuantidade || quantidade,
-                            produtorId: produtorId
+                            quantidade: response.novaQuantidade || quantidade
                         };
 
                         if (confirm(response.message)) {
                             esvaziarECadicionar(
                                 dadosParaConfirmacao.produtoId,
-                                dadosParaConfirmacao.quantidade,
-                                dadosParaConfirmacao.produtorId
+                                dadosParaConfirmacao.quantidade
                             );
                         }
-
-                    } else {
+                    }
+                    else {
                         alert(response.message);
                     }
                 },
-                error: function (xhr, status, error) {
-                    try {
-                        var response = JSON.parse(xhr.responseText);
-                        if (response && response.message) {
-                            alert(response.message);
-                        } else {
-                            alert("Erro desconhecido ao adicionar o produto ao carrinho.");
-                        }
-                    } catch (e) {
-                        alert("Erro na requisição ao servidor.");
-                    }
+                error: function () {
+                    alert("Erro ao adicionar ao carrinho.");
                 }
             });
         }
 
-        function esvaziarECadicionar(produtoId, quantidade, produtorId) {
+        function esvaziarECadicionar(produtoId, quantidade) {
             $.ajax({
                 url: '/Pedido/EsvaziarECadicionar',
                 type: 'POST',
                 data: {
                     produtoId: produtoId,
-                    quantidade: quantidade,
-                    produtorId: produtorId
+                    quantidade: quantidade
                 },
                 success: function (response) {
                     if (response.success) {
                         alert(response.message);
                         $('#quantidadeCarrinho').text(response.quantidadeItens);
                     } else {
-                        alert("Erro ao esvaziar o carrinho e adicionar o novo produto: " + response.message);
+                        alert("Erro ao trocar produtor no carrinho.");
                     }
-                },
-                error: function () {
-                    alert("Erro na requisição para esvaziar e adicionar.");
                 }
             });
         }
 
-             function atualizarCarrinho() {
+        function atualizarCarrinho() {
             $.ajax({
                 url: '/Pedido/ObterQuantidadeItensCarrinho',
                 type: 'GET',
                 success: function (response) {
-                    console.log("Resposta quantidade carrinho:", response);
-
-                    // Se não vier "success", assumo que deu certo
-                    if (response.success === false) {
-                        console.error(response.message || "Erro ao obter quantidade do carrinho.");
-                        return;
+                    if (response.success !== false) {
+                        var quantidade =
+                            response.quantidadeItens ??
+                            response.quantidade ??
+                            response.totalItens ??
+                            0;
+                        $('#quantidadeCarrinho').text(quantidade);
                     }
-
-                    // Tenta várias propriedades possíveis
-                    var quantidade =
-                        response.quantidadeItens ??
-                        response.quantidade ??
-                        response.totalItens ??
-                        0;
-
-                    $('#quantidadeCarrinho').text(quantidade);
-                },
-                error: function () {
-                    console.log("Erro ao obter a quantidade de itens no carrinho.");
                 }
             });
         }
-
 
         function filtrarPorProdutor() {
             var selecionado = document.getElementById("produtorFilter").value.trim().toLowerCase();
@@ -468,11 +438,10 @@
             produtos.forEach(function (produto) {
                 var nomeProdutor = produto.getAttribute("data-produtor").toLowerCase();
 
-                if (selecionado === "" || nomeProdutor.includes(selecionado)) {
-                    produto.style.display = "block";
-                } else {
-                    produto.style.display = "none";
-                }
+                produto.style.display =
+                    selecionado === "" || nomeProdutor.includes(selecionado)
+                        ? "block"
+                        : "none";
             });
         }
 
@@ -480,6 +449,7 @@
             atualizarCarrinho();
         });
     </script>
+
 
 </body>
 
