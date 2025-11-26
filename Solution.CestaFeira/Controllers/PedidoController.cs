@@ -49,8 +49,12 @@ namespace CestaFeira.Web.Controllers
                 ? new List<ProdutoModel>()
                 : JsonSerializer.Deserialize<List<ProdutoModel>>(carrinhoJson);
 
-            return Json(new { sucesso = true, quantidadeItens = carrinho.Count });
+            // Soma REAL das quantidades
+            int quantidadeTotal = carrinho.Sum(p => p.Quantidade);
+
+            return Json(new { success = true, quantidadeItens = quantidadeTotal });
         }
+
 
         [HttpPost]
         public async Task<IActionResult> AdicionarProdutoAoCarrinho(Guid produtoId, int quantidade)
@@ -117,7 +121,7 @@ namespace CestaFeira.Web.Controllers
                     ProdutoId = produto.Id,
                     Nome = produto.Nome,
                     // Certifique-se de que produto.FornecedorId esteja sendo populado corretamente
-                    IdUsuario = produto.UsuarioId,
+                    IdUsuario = (Guid)produto.UsuarioId,
                     Quantidade = quantidade,
                     ValorUnitario = produto.valorUnitario
                 });
@@ -160,7 +164,7 @@ namespace CestaFeira.Web.Controllers
         {
             ProdutoId = produto.Id,
             Nome = produto.Nome,
-            IdUsuario = produto.UsuarioId,
+            IdUsuario = (Guid)produto.UsuarioId,
             Quantidade = quantidade,
             ValorUnitario = produto.valorUnitario
         }
@@ -204,22 +208,21 @@ namespace CestaFeira.Web.Controllers
             {
                 return BadRequest("Carrinho vazio");
             }
+
             string usuarioId = HttpContext.Session.GetString("UsuarioId");
             pedidoViewModel.UsuarioId = Guid.Parse(usuarioId);
             pedidoViewModel.Data = DateTime.Now;
+
             var result = await _carrinhoService.CadastrarCarrinho(pedidoViewModel);
 
             if (result)
             {
+                // ✅ LIMPA O CARRINHO NA SESSÃO
+                HttpContext.Session.Remove("Carrinho");
+
                 try
                 {
-                    // 1. **Recuperar o e-mail do Produtor:**
-                    // Você precisa de uma forma de obter o e-mail. Vamos assumir que o PedidoModel tem um campo ProdutorId
-                    // e você tem um serviço para buscar os detalhes dele.
-                    // Se o pedido tiver vários produtos de diferentes produtores, você precisará iterar e enviar um para cada.
-
-                    // Exemplo: buscando o e-mail de um produtor específico (você precisa adaptar isso)
-                    var produtor = await _usuario.ConsultarUsuario((Guid)pedidoViewModel.Produtos.First().Id);
+                    var produtor = await _usuario.ConsultarUsuario((Guid)pedidoViewModel.Produtos.First().UsuarioId);
 
                     if (produtor != null)
                     {
@@ -232,30 +235,21 @@ namespace CestaFeira.Web.Controllers
                                        "Por favor, acesse o painel para visualizar os detalhes e processar o pedido.<br><br>" +
                                        "Atenciosamente,<br>Sua Equipe de Vendas.";
 
-                        // 2. **Disparar o e-mail:**
                         await _emailService.SendEmailAsync(emailProdutor, assunto, corpo);
                         TempData["Sucesso"] = "Pedido cadastrado com sucesso!";
                         return RedirectToAction("Produtos", "Produto");
                     }
-
-
                     else
                     {
                         TempData["ErrorMessage"] = "Não foi salvar o pedido";
                         return RedirectToAction("Produtos", "Produto");
                     }
-
-
-
                 }
                 catch
                 {
                     TempData["Sucesso"] = "Pedido cadastrado com sucesso!";
                     return RedirectToAction("Produtos", "Produto");
                 }
-
-
-
             }
             else
             {
@@ -265,6 +259,7 @@ namespace CestaFeira.Web.Controllers
         }
 
 
+
         [HttpPost]
         public async Task<IActionResult> GerarPix([FromBody] PixRequest request)
         {
@@ -272,15 +267,54 @@ namespace CestaFeira.Web.Controllers
 
             try
             {
-                string produtorCpf = "12130804608";
-                if (string.IsNullOrEmpty(produtorCpf))
+
+
+                // 1) Recupera o carrinho da sessão
+                var carrinho = HttpContext.Session
+                    .GetObjectFromJson<List<ItemCarrinhoModel>>("Carrinho")
+                    ?? new List<ItemCarrinhoModel>();
+
+                if (!carrinho.Any())
                 {
-                    // Se cair aqui, a mensagem deve ser clara.
-                    return Json(new PixResponse { Success = false, Message = "Chave Pix do Produtor não configurada ou vazia." });
+                    return Json(new PixResponse
+                    {
+                        Success = false,
+                        Message = "Carrinho vazio. Não é possível gerar Pix."
+                    });
                 }
 
+                // 2) Pega o produtorId (Guid) do primeiro item
+                var produtorId = carrinho.First().IdUsuario;   // GUID
+
+                // 3) Consulta o produtor
+                // Se seu método aceita Guid:
+                var produtor = await _usuario.ConsultarUsuario(produtorId);
+
+                // Se seu método aceita string, use:
+                // var produtor = await _usuario.ConsultarUsuario(produtorId.ToString());
+
+                if (produtor == null)
+                {
+                    return Json(new PixResponse
+                    {
+                        Success = false,
+                        Message = "Produtor não encontrado."
+                    });
+                }
+
+                // 4) Pega o CPF / Chave Pix do produtor
+                string produtorCpf = produtor.cpf; // ajuste para CpfCnpj/ChavePix se for o caso
+
+                if (string.IsNullOrWhiteSpace(produtorCpf))
+                {
+                    return Json(new PixResponse
+                    {
+                        Success = false,
+                        Message = "CPF/Chave Pix do produtor não está configurado."
+                    });
+                }
                 // 2. CHAMADA AO SERVIÇO (Ponto de interrupção aqui)
-                var pixResult = await _pixService.GerarQrCodePix(Convert.ToDecimal(12), produtorCpf);
+                var pixResult = await _pixService.GerarQrCodePix(Convert.ToDecimal(carrinho.First().ValorUnitario), produtorCpf,produtor.Nome);
 
                 // 3. O SERVIÇO RETORNOU SUCESSO? (Ponto de interrupção aqui)
                 if (!pixResult.Success)

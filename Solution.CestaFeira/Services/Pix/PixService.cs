@@ -7,14 +7,12 @@ namespace CestaFeira.Web.Services.Pix
 {
     public class PixService : IPixService
     {
-        private const string ChavePixRecebedor = "07680483620"; // CPF
-        private const string NomeRecebedor = "MARLON";
         private const string CidadeRecebedora = "ALFENAS";
         private const string IdentificadorTransacao = "CestaFeira";
 
-        public async Task<PixResponse> GerarQrCodePix(decimal valor, string cpfOuCnpjProdutor)
+        public async Task<PixResponse> GerarQrCodePix(decimal valor, string cpfOuCnpjProdutor, string NomeRecebedor)
         {
-            string pixPayload = ObterPayloadPix(valor);
+            string pixPayload = ObterPayloadPix(valor,NomeRecebedor, cpfOuCnpjProdutor);
 
             if (string.IsNullOrEmpty(pixPayload))
             {
@@ -55,7 +53,7 @@ namespace CestaFeira.Web.Services.Pix
             }
         }
 
-        private string ObterPayloadPix(decimal valor)
+        private string ObterPayloadPix(decimal valor, string NomeRecebedor,string ChavePixRecebedor)
         {
             string valorFormatado = valor.ToString("0.00", CultureInfo.InvariantCulture);
             string nome = NomeRecebedor.ToUpperInvariant();

@@ -136,6 +136,7 @@ namespace CestaFeira.Web.Services.Produto
                     {
                         Id = produtoDto.Usuario.Id,
                         NomeFantasia = produtoDto.Usuario.NomeFantasia,
+                        cpf=produtoDto.Usuario.cpf
                     }
                 }).ToList();
             }

@@ -4,6 +4,6 @@ namespace CestaFeira.Web.Services.Pix
 {
     public interface IPixService
     {
-        Task<PixResponse> GerarQrCodePix(decimal valor, string cpfOuCnpjProdutor);
+        Task<PixResponse> GerarQrCodePix(decimal valor, string cpfOuCnpjProdutor, string NomeRecebedor);
     }
 }

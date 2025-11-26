@@ -62,7 +62,7 @@
             </div>
         </div>
     </header>
-
+   
     <div class="container my-4">
         <label for="produtorFilter" class="form-label">Filtrar por Produtor:</label>
         <select class="form-select" id="produtorFilter" onchange="filtrarPorProdutor()">
@@ -232,8 +232,7 @@
                 finalizarCompra('NaEntrega', null);
             }
         }
-
-        function gerarPixEFinalizar(valorTotal) {
+                function gerarPixEFinalizar(valorTotal) {
             $('#btnFinalizar').prop('disabled', true).text('Gerando Pix...');
 
             $.ajax({
@@ -259,20 +258,19 @@
                         $('#pixCodeDisplay').html('**Código Copia e Cola:**<br>' + pixCode);
 
                         finalizarCompra('Pix', pixCode)
-
                             .then(() => {
                                 alert("Pedido salvo com sucesso! Escaneie o QR Code ou use o Código Copia e Cola para pagar.");
 
-                                // 🔒 Travar pagamento na opção PIX
+                                $('#listaItensCarrinho').empty().append('<li class="list-group-item">Carrinho vazio.</li>');
+                                $('#totalCarrinho').text('Total: R$ 0,00');
+                                $('#quantidadeCarrinho').text('0');
+
                                 metodoPagamentoSelecionado = 'Pix';
                                 $('#pagamentoEntrega').prop('disabled', true);
 
-                                // 🔁 DEFINIR NOVA AÇÃO DO BOTÃO (SEM GERAR OUTRO PEDIDO)
                                 $('#btnFinalizar').text('Ver Pedido e Sair');
-
-                                $('#btnFinalizar').off('click'); // remove handlers jQuery
-                                $('#btnFinalizar')[0].onclick = null; // remove onclick inline
-
+                                $('#btnFinalizar').off('click');
+                                $('#btnFinalizar')[0].onclick = null;
                                 $('#btnFinalizar').on('click', function () {
                                     window.location.href = '/Pedido/Pedidos';
                                 });
@@ -297,6 +295,7 @@
                 }
             });
         }
+
 
         function finalizarCompra(metodoPagamento, pixCode) {
             return new Promise((resolve, reject) => {
