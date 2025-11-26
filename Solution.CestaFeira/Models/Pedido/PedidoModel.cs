@@ -8,6 +8,7 @@ namespace CestaFeira.Web.Models.Pedido
         public Guid UsuarioId { get; set; }
         public DateTime Data { get; set; }
         public string MetodoPagamento { get; set; }
+        public Guid produtorId { get; set; } // <--- ESSENCIAL!
 
     }
 }
