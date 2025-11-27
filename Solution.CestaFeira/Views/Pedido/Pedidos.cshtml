@@ -33,15 +33,12 @@
 
                             @if (User.IsInRole("ADM") || User.IsInRole("PROD"))
                             {
-                                    <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
-                                    <li><a class="dropdown-item" href="~/Produto/GerenciarProdutos">Gerenciar Produtos</a></li>
-                                    <li><a class="dropdown-item" href="~/Pedido/GerenciarPedidos">Gerenciar Pedidos</a></li>
-
-
+                                <li><a class="dropdown-item" href="~/Produto/CadastrarProdutos">Cadastrar Produtos</a></li>
+                                <li><a class="dropdown-item" href="~/Produto/GerenciarProdutos">Gerenciar Produtos</a></li>
+                                <li><a class="dropdown-item" href="~/Pedido/GerenciarPedidos">Gerenciar Pedidos</a></li>
                             }
                             <li><a class="dropdown-item" href="~/Pedido/Pedidos">Ver Pedidos</a></li>
                             <li><a class="dropdown-item" href="~/Usuario/Sair">Sair</a></li>
-
                         </ul>
                     </li>
                 </ul>
@@ -55,6 +52,7 @@
             </div>
         </div>
     </nav>
+
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
@@ -66,6 +64,7 @@
 
     <div class="container my-5">
         <h1>Pedidos:</h1>
+
         @if (Model != null && Model.Any())
         {
             @foreach (var pedido in Model)
@@ -113,22 +112,32 @@
                             }
                             else if (pedido.Status == "Em andamento")
                             {
-                                <!-- Finalizar pedido -->
+                                <!-- Finalizar pedido (por ex.: produtor concluiu a entrega) -->
                                 <form action="~/Pedido/FinalizarPedido" method="post" style="display:inline-block;">
                                     <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
                                     <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
                                 </form>
                             }
-                            @* Se estiver Cancelado ou Finalizado, não mostra botões *@
+                            @* Cancelado / Entregue / Finalizado: sem ações *@
                         }
                         else
                         {
-                            @* USUÁRIO COMUM: só pode cancelar se estiver Aberto *@
+                            @* USUÁRIO COMUM *@
+
+                            @* Pode cancelar enquanto ainda estiver Aberto *@
                             if (pedido.Status == "Aberto")
                             {
-                                <form action="~/Pedido/CancelarPedido" method="post" style="display: inline;">
+                                <form action="~/Pedido/CancelarPedido" method="post" style="display:inline-block;">
                                     <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
                                     <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
+                                </form>
+                            }
+                            @* Quando estiver Em andamento, o cliente pode marcar como Entregue *@
+                            else if (pedido.Status == "Em andamento")
+                            {
+                                <form action="~/Pedido/ConfirmarEntrega" method="post" style="display:inline-block;">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <button type="submit" class="btn btn-primary">Marcar como Entregue</button>
                                 </form>
                             }
                         }
@@ -136,7 +145,6 @@
 
                 </div>
             }
-
         }
         else
         {
