@@ -89,17 +89,51 @@
                     </div>
 
                     <div class="pedido-footer mt-4">
-                        <p class="text-end fw-bold">Valor Total do Pedido: @string.Format("{0:C}", pedido.PedidoProdutos.Sum(p => p.Quantidade * p.Produto.valorUnitario))</p>
-                        @if (pedido.Status == "Aberto")
-                        {
-                            <!-- Botão de Cancelar Pedido -->
-                            <form action="~/Pedido/CancelarPedido" method="post" style="display: inline;">
-                                <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
-                                <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
-                            </form>
-                        }
+                        <p class="text-end fw-bold">
+                            Valor Total do Pedido:
+                            @string.Format("{0:C}", pedido.PedidoProdutos.Sum(p => p.Quantidade * p.Produto.valorUnitario))
+                        </p>
 
+                        @* PRODUTOR / ADM: Aceitar, Recusar, Finalizar *@
+                        @if (User.IsInRole("PROD") || User.IsInRole("ADM"))
+                        {
+                            if (pedido.Status == "Aberto")
+                            {
+                                <!-- Aceitar pedido (vira Em andamento) -->
+                                <form action="~/Pedido/AceitarPedido" method="post" style="display:inline-block; margin-right:5px;">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <button type="submit" class="btn btn-success">Aceitar Pedido</button>
+                                </form>
+
+                                <!-- Recusar pedido (vira Cancelado) -->
+                                <form action="~/Pedido/RecusarPedido" method="post" style="display:inline-block;">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <button type="submit" class="btn btn-danger">Recusar Pedido</button>
+                                </form>
+                            }
+                            else if (pedido.Status == "Em andamento")
+                            {
+                                <!-- Finalizar pedido -->
+                                <form action="~/Pedido/FinalizarPedido" method="post" style="display:inline-block;">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
+                                </form>
+                            }
+                            @* Se estiver Cancelado ou Finalizado, não mostra botões *@
+                        }
+                        else
+                        {
+                            @* USUÁRIO COMUM: só pode cancelar se estiver Aberto *@
+                            if (pedido.Status == "Aberto")
+                            {
+                                <form action="~/Pedido/CancelarPedido" method="post" style="display: inline;">
+                                    <input type="hidden" name="pedidoId" value="@pedido.IdPedido" />
+                                    <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
+                                </form>
+                            }
+                        }
                     </div>
+
                 </div>
             }
 

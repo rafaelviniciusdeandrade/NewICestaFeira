@@ -369,6 +369,51 @@ namespace CestaFeira.Web.Controllers
 
 
         }
+        [HttpPost]
+        public async Task<IActionResult> AceitarPedido(Guid pedidoId)
+        {
+            var status = "Em andamento";
+            var ok = await _pedido.AtualizarStatusPedido(pedidoId, status);
+
+            if (ok)
+                return RedirectToAction("GerenciarPedidos"); // tela do produtor
+            else
+            {
+                TempData["Erro"] = "Erro ao aceitar o pedido.";
+                return RedirectToAction("GerenciarPedidos");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RecusarPedido(Guid pedidoId)
+        {
+            var status = "Cancelado";
+            var ok = await _pedido.AtualizarStatusPedido(pedidoId, status);
+
+            if (ok)
+                return RedirectToAction("GerenciarPedidos");
+            else
+            {
+                TempData["Erro"] = "Erro ao recusar o pedido.";
+                return RedirectToAction("GerenciarPedidos");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FinalizarPedido(Guid pedidoId)
+        {
+            var status = "Finalizado";
+            var ok = await _pedido.AtualizarStatusPedido(pedidoId, status);
+
+            if (ok)
+                return RedirectToAction("GerenciarPedidos");
+            else
+            {
+                TempData["Erro"] = "Erro ao finalizar o pedido.";
+                return RedirectToAction("GerenciarPedidos");
+            }
+        }
+
 
     }
 }
